@@ -1,0 +1,29 @@
+{
+  "itemId" : "_Nl6G8DIDEe-82ZYHS27FTw",
+  "contextList" : [ {
+    "contextName" : "Default",
+    "repoId" : "_98NCoDIMEe-82ZYHS27FTw",
+    "parameterList" : [ {
+      "id" : "_98YBxzIMEe-82ZYHS27FTw",
+      "name" : "additionalParam"
+    }, {
+      "id" : "_98YBwjIMEe-82ZYHS27FTw",
+      "name" : "database"
+    }, {
+      "id" : "_98YBxjIMEe-82ZYHS27FTw",
+      "name" : "password"
+    }, {
+      "id" : "_98YBwzIMEe-82ZYHS27FTw",
+      "name" : "port"
+    }, {
+      "id" : "_98YBxDIMEe-82ZYHS27FTw",
+      "name" : "schema"
+    }, {
+      "id" : "_98YBwTIMEe-82ZYHS27FTw",
+      "name" : "serverName"
+    }, {
+      "id" : "_98YBxTIMEe-82ZYHS27FTw",
+      "name" : "utilisateur"
+    } ]
+  } ]
+}

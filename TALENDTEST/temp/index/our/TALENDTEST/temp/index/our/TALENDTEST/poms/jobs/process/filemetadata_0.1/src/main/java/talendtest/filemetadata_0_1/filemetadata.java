@@ -108,6 +108,54 @@ public class filemetadata implements TalendJob {
 
 		public void synchronizeContext() {
 
+			if (additionalParam != null) {
+
+				this.setProperty("additionalParam", additionalParam.toString());
+
+			}
+
+			if (database != null) {
+
+				this.setProperty("database", database.toString());
+
+			}
+
+			if (password != null) {
+
+				this.setProperty("password", password.toString());
+
+			}
+
+			if (port != null) {
+
+				this.setProperty("port", port.toString());
+
+			}
+
+			if (schema != null) {
+
+				this.setProperty("schema", schema.toString());
+
+			}
+
+			if (serverName != null) {
+
+				this.setProperty("serverName", serverName.toString());
+
+			}
+
+			if (utilisateur != null) {
+
+				this.setProperty("utilisateur", utilisateur.toString());
+
+			}
+
+			if (folder != null) {
+
+				this.setProperty("folder", folder.toString());
+
+			}
+
 		}
 
 		// if the stored or passed value is "<TALEND_NULL>" string, it mean null
@@ -119,6 +167,53 @@ public class filemetadata implements TalendJob {
 			return origin_value;
 		}
 
+		public String additionalParam;
+
+		public String getAdditionalParam() {
+			return this.additionalParam;
+		}
+
+		public String database;
+
+		public String getDatabase() {
+			return this.database;
+		}
+
+		public java.lang.String password;
+
+		public java.lang.String getPassword() {
+			return this.password;
+		}
+
+		public String port;
+
+		public String getPort() {
+			return this.port;
+		}
+
+		public String schema;
+
+		public String getSchema() {
+			return this.schema;
+		}
+
+		public String serverName;
+
+		public String getServerName() {
+			return this.serverName;
+		}
+
+		public String utilisateur;
+
+		public String getUtilisateur() {
+			return this.utilisateur;
+		}
+
+		public String folder;
+
+		public String getFolder() {
+			return this.folder;
+		}
 	}
 
 	protected ContextProperties context = new ContextProperties(); // will be instanciated by MS.
@@ -305,6 +400,23 @@ public class filemetadata implements TalendJob {
 		}
 	}
 
+	public void Implicit_Context_Database_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		Implicit_Context_Context_error(exception, errorComponent, globalMap);
+
+	}
+
+	public void Implicit_Context_Context_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		Implicit_Context_Database_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tDBInput_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -335,6 +447,14 @@ public class filemetadata implements TalendJob {
 		talendJobLog_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void Implicit_Context_Database_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
 	public void tDBInput_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -349,6 +469,892 @@ public class filemetadata implements TalendJob {
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
 				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
 
+	}
+
+	public static class row_Implicit_Context_DatabaseStruct
+			implements routines.system.IPersistableRow<row_Implicit_Context_DatabaseStruct> {
+		final static byte[] commonByteArrayLock_TALENDTEST_filemetadata = new byte[0];
+		static byte[] commonByteArray_TALENDTEST_filemetadata = new byte[0];
+
+		public String key;
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public Boolean keyIsNullable() {
+			return true;
+		}
+
+		public Boolean keyIsKey() {
+			return false;
+		}
+
+		public Integer keyLength() {
+			return 255;
+		}
+
+		public Integer keyPrecision() {
+			return 0;
+		}
+
+		public String keyDefault() {
+
+			return "";
+
+		}
+
+		public String keyComment() {
+
+			return null;
+
+		}
+
+		public String keyPattern() {
+
+			return null;
+
+		}
+
+		public String keyOriginalDbColumnName() {
+
+			return "key";
+
+		}
+
+		public String value;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public Boolean valueIsNullable() {
+			return true;
+		}
+
+		public Boolean valueIsKey() {
+			return false;
+		}
+
+		public Integer valueLength() {
+			return 255;
+		}
+
+		public Integer valuePrecision() {
+			return 0;
+		}
+
+		public String valueDefault() {
+
+			return "";
+
+		}
+
+		public String valueComment() {
+
+			return null;
+
+		}
+
+		public String valuePattern() {
+
+			return null;
+
+		}
+
+		public String valueOriginalDbColumnName() {
+
+			return "value";
+
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TALENDTEST_filemetadata.length) {
+					if (length < 1024 && commonByteArray_TALENDTEST_filemetadata.length == 0) {
+						commonByteArray_TALENDTEST_filemetadata = new byte[1024];
+					} else {
+						commonByteArray_TALENDTEST_filemetadata = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TALENDTEST_filemetadata, 0, length);
+				strReturn = new String(commonByteArray_TALENDTEST_filemetadata, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TALENDTEST_filemetadata.length) {
+					if (length < 1024 && commonByteArray_TALENDTEST_filemetadata.length == 0) {
+						commonByteArray_TALENDTEST_filemetadata = new byte[1024];
+					} else {
+						commonByteArray_TALENDTEST_filemetadata = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_TALENDTEST_filemetadata, 0, length);
+				strReturn = new String(commonByteArray_TALENDTEST_filemetadata, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TALENDTEST_filemetadata) {
+
+				try {
+
+					int length = 0;
+
+					this.key = readString(dis);
+
+					this.value = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_TALENDTEST_filemetadata) {
+
+				try {
+
+					int length = 0;
+
+					this.key = readString(dis);
+
+					this.value = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.key, dos);
+
+				// String
+
+				writeString(this.value, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// String
+
+				writeString(this.key, dos);
+
+				// String
+
+				writeString(this.value, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("key=" + key);
+			sb.append(",value=" + value);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		public String toLogString() {
+			StringBuilder sb = new StringBuilder();
+
+			if (key == null) {
+				sb.append("<null>");
+			} else {
+				sb.append(key);
+			}
+
+			sb.append("|");
+
+			if (value == null) {
+				sb.append("<null>");
+			} else {
+				sb.append(value);
+			}
+
+			sb.append("|");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row_Implicit_Context_DatabaseStruct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void Implicit_Context_DatabaseProcess(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("Implicit_Context_Database_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		mdcInfo.forEach(org.slf4j.MDC::put);
+		org.slf4j.MDC.put("_subJobName", "Implicit_Context_Database");
+		org.slf4j.MDC.put("_subJobPid", "aUvvFj_" + subJobPidCounter.getAndIncrement());
+
+		String currentVirtualComponent = null;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		String cLabel = null;
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				row_Implicit_Context_DatabaseStruct row_Implicit_Context_Database = new row_Implicit_Context_DatabaseStruct();
+
+				/**
+				 * [Implicit_Context_Context begin ] start
+				 */
+
+				ok_Hash.put("Implicit_Context_Context", false);
+				start_Hash.put("Implicit_Context_Context", System.currentTimeMillis());
+
+				currentVirtualComponent = "Implicit_Context_Context";
+
+				currentComponent = "Implicit_Context_Context";
+
+				runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, 0, 0, "Main");
+
+				int tos_count_Implicit_Context_Context = 0;
+
+				if (log.isDebugEnabled())
+					log.debug("Implicit_Context_Context - " + ("Start to work."));
+				if (log.isDebugEnabled()) {
+					class BytesLimit65535_Implicit_Context_Context {
+						public void limitLog4jByte() throws Exception {
+							StringBuilder log4jParamters_Implicit_Context_Context = new StringBuilder();
+							log4jParamters_Implicit_Context_Context.append("Parameters:");
+							log4jParamters_Implicit_Context_Context.append("LOAD_NEW_VARIABLE" + " = " + "Warning");
+							log4jParamters_Implicit_Context_Context.append(" | ");
+							log4jParamters_Implicit_Context_Context.append("NOT_LOAD_OLD_VARIABLE" + " = " + "Warning");
+							log4jParamters_Implicit_Context_Context.append(" | ");
+							log4jParamters_Implicit_Context_Context.append("PRINT_OPERATIONS" + " = " + "true");
+							log4jParamters_Implicit_Context_Context.append(" | ");
+							log4jParamters_Implicit_Context_Context.append("DISABLE_ERROR" + " = " + "false");
+							log4jParamters_Implicit_Context_Context.append(" | ");
+							log4jParamters_Implicit_Context_Context.append("DISABLE_WARNINGS" + " = " + "false");
+							log4jParamters_Implicit_Context_Context.append(" | ");
+							log4jParamters_Implicit_Context_Context.append("DISABLE_INFO" + " = " + "false");
+							log4jParamters_Implicit_Context_Context.append(" | ");
+							log4jParamters_Implicit_Context_Context.append("DIEONERROR" + " = " + "false");
+							log4jParamters_Implicit_Context_Context.append(" | ");
+							if (log.isDebugEnabled())
+								log.debug("Implicit_Context_Context - " + (log4jParamters_Implicit_Context_Context));
+						}
+					}
+					new BytesLimit65535_Implicit_Context_Context().limitLog4jByte();
+				}
+				if (enableLogStash) {
+					talendJobLog.addCM("Implicit_Context_Context", "null_Context", "tContextLoad");
+					talendJobLogProcess(globalMap);
+				}
+
+				java.util.List<String> assignList_Implicit_Context_Context = new java.util.ArrayList<String>();
+				java.util.List<String> newPropertyList_Implicit_Context_Context = new java.util.ArrayList<String>();
+				java.util.List<String> noAssignList_Implicit_Context_Context = new java.util.ArrayList<String>();
+				int nb_line_Implicit_Context_Context = 0;
+
+				/**
+				 * [Implicit_Context_Context begin ] stop
+				 */
+
+				/**
+				 * [Implicit_Context_Database begin ] start
+				 */
+
+				ok_Hash.put("Implicit_Context_Database", false);
+				start_Hash.put("Implicit_Context_Database", System.currentTimeMillis());
+
+				currentVirtualComponent = "Implicit_Context_Database";
+
+				currentComponent = "Implicit_Context_Database";
+
+				int tos_count_Implicit_Context_Database = 0;
+
+				if (log.isDebugEnabled())
+					log.debug("Implicit_Context_Database - " + ("Start to work."));
+				if (log.isDebugEnabled()) {
+					class BytesLimit65535_Implicit_Context_Database {
+						public void limitLog4jByte() throws Exception {
+							StringBuilder log4jParamters_Implicit_Context_Database = new StringBuilder();
+							log4jParamters_Implicit_Context_Database.append("Parameters:");
+							log4jParamters_Implicit_Context_Database
+									.append("USE_EXISTING_CONNECTION" + " = " + "false");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("DB_VERSION" + " = " + "V9_X");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("HOST" + " = " + "\"localhost\"");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("PORT" + " = " + "\"5433\"");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("DBNAME" + " = " + "\"formation_talend\"");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("SCHEMA_DB" + " = " + "\"CONFIG\"");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("USER" + " = " + "\"postgres\"");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("PASS" + " = " + String.valueOf(
+									"enc:routine.encryption.key.v1:cYGCLLb4IF7ReC6aP8+wOqGtezmvF8hDY1DreVv521I=")
+									.substring(0, 4) + "...");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("QUERYSTORE" + " = " + "\"\"");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("QUERY" + " = "
+									+ "\"SELECT    \\\"CONFIG\\\".\\\"VARIABLES\\\".\\\"key\\\",    \\\"CONFIG\\\".\\\"VARIABLES\\\".\\\"value\\\" FROM \\\"CONFIG\\\".\\\"VARIABLES\\\"\"");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database
+									.append("SPECIFY_DATASOURCE_ALIAS" + " = " + "false");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("PROPERTIES" + " = " + "\"\"");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("USE_CURSOR" + " = " + "false");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("TRIM_ALL_COLUMN" + " = " + "false");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							log4jParamters_Implicit_Context_Database.append("TRIM_COLUMN" + " = " + "[]");
+							log4jParamters_Implicit_Context_Database.append(" | ");
+							if (log.isDebugEnabled())
+								log.debug("Implicit_Context_Database - " + (log4jParamters_Implicit_Context_Database));
+						}
+					}
+					new BytesLimit65535_Implicit_Context_Database().limitLog4jByte();
+				}
+				if (enableLogStash) {
+					talendJobLog.addCM("Implicit_Context_Database", "null_Database", "tPostgresqlInput");
+					talendJobLogProcess(globalMap);
+				}
+
+				int nb_line_Implicit_Context_Database = 0;
+				java.sql.Connection conn_Implicit_Context_Database = null;
+				String driverClass_Implicit_Context_Database = "org.postgresql.Driver";
+				java.lang.Class jdbcclazz_Implicit_Context_Database = java.lang.Class
+						.forName(driverClass_Implicit_Context_Database);
+				String dbUser_Implicit_Context_Database = "postgres";
+
+				final String decryptedPassword_Implicit_Context_Database = routines.system.PasswordEncryptUtil
+						.decryptPassword("enc:routine.encryption.key.v1:K/FPNGogNJaZpi7uAecfcsisshxSV+3FmeEtTGGxDqA=");
+
+				String dbPwd_Implicit_Context_Database = decryptedPassword_Implicit_Context_Database;
+
+				String url_Implicit_Context_Database = "jdbc:postgresql://" + "localhost" + ":" + "5433" + "/"
+						+ "formation_talend";
+
+				log.debug(
+						"Implicit_Context_Database - Driver ClassName: " + driverClass_Implicit_Context_Database + ".");
+
+				log.debug("Implicit_Context_Database - Connection attempt to '" + url_Implicit_Context_Database
+						+ "' with the username '" + dbUser_Implicit_Context_Database + "'.");
+
+				conn_Implicit_Context_Database = java.sql.DriverManager.getConnection(url_Implicit_Context_Database,
+						dbUser_Implicit_Context_Database, dbPwd_Implicit_Context_Database);
+				log.debug("Implicit_Context_Database - Connection to '" + url_Implicit_Context_Database
+						+ "' has succeeded.");
+
+				log.debug("Implicit_Context_Database - Connection is set auto commit to 'false'.");
+
+				conn_Implicit_Context_Database.setAutoCommit(false);
+
+				java.sql.Statement stmt_Implicit_Context_Database = conn_Implicit_Context_Database.createStatement();
+
+				String dbquery_Implicit_Context_Database = "SELECT \n  \"CONFIG\".\"VARIABLES\".\"key\", \n  \"CONFIG\".\"VARIABLES\".\"value\"\nFROM \"CONFIG\".\"VARIABLES\"";
+
+				log.debug("Implicit_Context_Database - Executing the query: '" + dbquery_Implicit_Context_Database
+						+ "'.");
+
+				globalMap.put("Implicit_Context_Database_QUERY", dbquery_Implicit_Context_Database);
+
+				java.sql.ResultSet rs_Implicit_Context_Database = null;
+
+				try {
+					rs_Implicit_Context_Database = stmt_Implicit_Context_Database
+							.executeQuery(dbquery_Implicit_Context_Database);
+					java.sql.ResultSetMetaData rsmd_Implicit_Context_Database = rs_Implicit_Context_Database
+							.getMetaData();
+					int colQtyInRs_Implicit_Context_Database = rsmd_Implicit_Context_Database.getColumnCount();
+
+					String tmpContent_Implicit_Context_Database = null;
+
+					log.debug("Implicit_Context_Database - Retrieving records from the database.");
+
+					while (rs_Implicit_Context_Database.next()) {
+						nb_line_Implicit_Context_Database++;
+
+						if (colQtyInRs_Implicit_Context_Database < 1) {
+							row_Implicit_Context_Database.key = null;
+						} else {
+
+							row_Implicit_Context_Database.key = routines.system.JDBCUtil
+									.getString(rs_Implicit_Context_Database, 1, false);
+						}
+						if (colQtyInRs_Implicit_Context_Database < 2) {
+							row_Implicit_Context_Database.value = null;
+						} else {
+
+							row_Implicit_Context_Database.value = routines.system.JDBCUtil
+									.getString(rs_Implicit_Context_Database, 2, false);
+						}
+
+						log.debug("Implicit_Context_Database - Retrieving the record "
+								+ nb_line_Implicit_Context_Database + ".");
+
+						/**
+						 * [Implicit_Context_Database begin ] stop
+						 */
+
+						/**
+						 * [Implicit_Context_Database main ] start
+						 */
+
+						currentVirtualComponent = "Implicit_Context_Database";
+
+						currentComponent = "Implicit_Context_Database";
+
+						tos_count_Implicit_Context_Database++;
+
+						/**
+						 * [Implicit_Context_Database main ] stop
+						 */
+
+						/**
+						 * [Implicit_Context_Database process_data_begin ] start
+						 */
+
+						currentVirtualComponent = "Implicit_Context_Database";
+
+						currentComponent = "Implicit_Context_Database";
+
+						/**
+						 * [Implicit_Context_Database process_data_begin ] stop
+						 */
+
+						/**
+						 * [Implicit_Context_Context main ] start
+						 */
+
+						currentVirtualComponent = "Implicit_Context_Context";
+
+						currentComponent = "Implicit_Context_Context";
+
+						if (runStat.update(execStat, enableLogStash, iterateId, 1, 1
+
+								, "Main", "Implicit_Context_Database", "null_Database", "tPostgresqlInput",
+								"Implicit_Context_Context", "null_Context", "tContextLoad"
+
+						)) {
+							talendJobLogProcess(globalMap);
+						}
+
+						//////////////////////////
+						String tmp_key_Implicit_Context_Context = null;
+						String key_Implicit_Context_Context = null;
+						if (row_Implicit_Context_Database.key != null) {
+							tmp_key_Implicit_Context_Context = row_Implicit_Context_Database.key.trim();
+							if ((tmp_key_Implicit_Context_Context.startsWith("#")
+									|| tmp_key_Implicit_Context_Context.startsWith("!"))) {
+								tmp_key_Implicit_Context_Context = null;
+							} else {
+								row_Implicit_Context_Database.key = tmp_key_Implicit_Context_Context;
+							}
+						}
+						if (row_Implicit_Context_Database.key != null) {
+							key_Implicit_Context_Context = row_Implicit_Context_Database.key;
+						}
+						String value_Implicit_Context_Context = null;
+						if (row_Implicit_Context_Database.value != null) {
+							value_Implicit_Context_Context = row_Implicit_Context_Database.value;
+						}
+
+						String currentValue_Implicit_Context_Context = value_Implicit_Context_Context;
+
+						if ((key_Implicit_Context_Context != null) && ("password".equals(key_Implicit_Context_Context))
+								&& (currentValue_Implicit_Context_Context != null))
+							currentValue_Implicit_Context_Context = currentValue_Implicit_Context_Context
+									.replaceAll(".", "*");
+
+						System.out.println("Implicit_Context_Context set key \"" + key_Implicit_Context_Context
+								+ "\" with value \"" + currentValue_Implicit_Context_Context + "\"");
+						if (tmp_key_Implicit_Context_Context != null) {
+							try {
+								if (key_Implicit_Context_Context != null
+										&& "additionalParam".equals(key_Implicit_Context_Context)) {
+									context.additionalParam = value_Implicit_Context_Context;
+								}
+
+								if (key_Implicit_Context_Context != null
+										&& "database".equals(key_Implicit_Context_Context)) {
+									context.database = value_Implicit_Context_Context;
+								}
+
+								if (key_Implicit_Context_Context != null
+										&& "password".equals(key_Implicit_Context_Context)) {
+									context.password = value_Implicit_Context_Context;
+								}
+
+								if (key_Implicit_Context_Context != null
+										&& "port".equals(key_Implicit_Context_Context)) {
+									context.port = value_Implicit_Context_Context;
+								}
+
+								if (key_Implicit_Context_Context != null
+										&& "schema".equals(key_Implicit_Context_Context)) {
+									context.schema = value_Implicit_Context_Context;
+								}
+
+								if (key_Implicit_Context_Context != null
+										&& "serverName".equals(key_Implicit_Context_Context)) {
+									context.serverName = value_Implicit_Context_Context;
+								}
+
+								if (key_Implicit_Context_Context != null
+										&& "utilisateur".equals(key_Implicit_Context_Context)) {
+									context.utilisateur = value_Implicit_Context_Context;
+								}
+
+								if (key_Implicit_Context_Context != null
+										&& "folder".equals(key_Implicit_Context_Context)) {
+									context.folder = value_Implicit_Context_Context;
+								}
+
+								if (context.getProperty(key_Implicit_Context_Context) != null) {
+									assignList_Implicit_Context_Context.add(key_Implicit_Context_Context);
+								} else {
+									newPropertyList_Implicit_Context_Context.add(key_Implicit_Context_Context);
+								}
+								if (value_Implicit_Context_Context == null) {
+									context.setProperty(key_Implicit_Context_Context, "");
+								} else {
+									context.setProperty(key_Implicit_Context_Context, value_Implicit_Context_Context);
+								}
+							} catch (java.lang.Exception e) {
+								globalMap.put("Implicit_Context_Context_ERROR_MESSAGE", e.getMessage());
+								log.error("Implicit_Context_Context - Setting a value for the key \""
+										+ key_Implicit_Context_Context + "\" has failed. Error message: "
+										+ e.getMessage());
+								System.err.println("Setting a value for the key \"" + key_Implicit_Context_Context
+										+ "\" has failed. Error message: " + e.getMessage());
+							}
+							nb_line_Implicit_Context_Context++;
+						}
+						//////////////////////////
+
+						tos_count_Implicit_Context_Context++;
+
+						/**
+						 * [Implicit_Context_Context main ] stop
+						 */
+
+						/**
+						 * [Implicit_Context_Context process_data_begin ] start
+						 */
+
+						currentVirtualComponent = "Implicit_Context_Context";
+
+						currentComponent = "Implicit_Context_Context";
+
+						/**
+						 * [Implicit_Context_Context process_data_begin ] stop
+						 */
+
+						/**
+						 * [Implicit_Context_Context process_data_end ] start
+						 */
+
+						currentVirtualComponent = "Implicit_Context_Context";
+
+						currentComponent = "Implicit_Context_Context";
+
+						/**
+						 * [Implicit_Context_Context process_data_end ] stop
+						 */
+
+						/**
+						 * [Implicit_Context_Database process_data_end ] start
+						 */
+
+						currentVirtualComponent = "Implicit_Context_Database";
+
+						currentComponent = "Implicit_Context_Database";
+
+						/**
+						 * [Implicit_Context_Database process_data_end ] stop
+						 */
+
+						/**
+						 * [Implicit_Context_Database end ] start
+						 */
+
+						currentVirtualComponent = "Implicit_Context_Database";
+
+						currentComponent = "Implicit_Context_Database";
+
+					}
+				} finally {
+					if (rs_Implicit_Context_Database != null) {
+						rs_Implicit_Context_Database.close();
+					}
+					if (stmt_Implicit_Context_Database != null) {
+						stmt_Implicit_Context_Database.close();
+					}
+					if (conn_Implicit_Context_Database != null && !conn_Implicit_Context_Database.isClosed()) {
+
+						log.debug("Implicit_Context_Database - Closing the connection to the database.");
+
+						conn_Implicit_Context_Database.close();
+
+						if ("com.mysql.cj.jdbc.Driver".equals((String) globalMap.get("driverClass_"))
+								&& routines.system.BundleUtils.inOSGi()) {
+							Class.forName("com.mysql.cj.jdbc.AbandonedConnectionCleanupThread")
+									.getMethod("checkedShutdown").invoke(null, (Object[]) null);
+						}
+
+						log.debug("Implicit_Context_Database - Connection to the database closed.");
+
+					}
+
+				}
+				globalMap.put("Implicit_Context_Database_NB_LINE", nb_line_Implicit_Context_Database);
+				log.debug("Implicit_Context_Database - Retrieved records count: " + nb_line_Implicit_Context_Database
+						+ " .");
+
+				if (log.isDebugEnabled())
+					log.debug("Implicit_Context_Database - " + ("Done."));
+
+				ok_Hash.put("Implicit_Context_Database", true);
+				end_Hash.put("Implicit_Context_Database", System.currentTimeMillis());
+
+				/**
+				 * [Implicit_Context_Database end ] stop
+				 */
+
+				/**
+				 * [Implicit_Context_Context end ] start
+				 */
+
+				currentVirtualComponent = "Implicit_Context_Context";
+
+				currentComponent = "Implicit_Context_Context";
+
+				java.util.Enumeration<?> enu_Implicit_Context_Context = context.propertyNames();
+				while (enu_Implicit_Context_Context.hasMoreElements()) {
+					String key_Implicit_Context_Context = (String) enu_Implicit_Context_Context.nextElement();
+					if (!assignList_Implicit_Context_Context.contains(key_Implicit_Context_Context)
+							&& !newPropertyList_Implicit_Context_Context.contains(key_Implicit_Context_Context)) {
+						noAssignList_Implicit_Context_Context.add(key_Implicit_Context_Context);
+					}
+				}
+				for (Object obj_Implicit_Context_Context : newPropertyList_Implicit_Context_Context) {
+
+					String newLog_Implicit_Context_Context = "Implicit_Context_Context: Parameter \""
+							+ obj_Implicit_Context_Context + "\" is a new parameter of Implicit_Context_Context";
+
+					log.warn(newLog_Implicit_Context_Context);
+
+					System.out.println("Warning: Parameter \"" + obj_Implicit_Context_Context
+							+ "\" is a new parameter of Implicit_Context_Context");
+				}
+				for (Object obj_Implicit_Context_Context : noAssignList_Implicit_Context_Context) {
+
+					String oldLog_Implicit_Context_Context = "Implicit_Context_Context: Parameter \""
+							+ obj_Implicit_Context_Context + "\" has not been set by Implicit_Context_Context";
+
+					log.warn(oldLog_Implicit_Context_Context);
+
+					System.out.println("Warning: Parameter \"" + obj_Implicit_Context_Context
+							+ "\" has not been set by Implicit_Context_Context");
+
+				}
+
+				String newPropertyStr_Implicit_Context_Context = newPropertyList_Implicit_Context_Context.toString();
+				String newProperty_Implicit_Context_Context = newPropertyStr_Implicit_Context_Context.substring(1,
+						newPropertyStr_Implicit_Context_Context.length() - 1);
+
+				String noAssignStr_Implicit_Context_Context = noAssignList_Implicit_Context_Context.toString();
+				String noAssign_Implicit_Context_Context = noAssignStr_Implicit_Context_Context.substring(1,
+						noAssignStr_Implicit_Context_Context.length() - 1);
+
+				globalMap.put("Implicit_Context_Context_KEY_NOT_INCONTEXT", newProperty_Implicit_Context_Context);
+				globalMap.put("Implicit_Context_Context_KEY_NOT_LOADED", noAssign_Implicit_Context_Context);
+
+				globalMap.put("Implicit_Context_Context_NB_LINE", nb_line_Implicit_Context_Context);
+
+				List<String> parametersToEncrypt_Implicit_Context_Context = new java.util.ArrayList<String>();
+
+				parametersToEncrypt_Implicit_Context_Context.add("password");
+
+				resumeUtil.addLog("NODE", "NODE:Implicit_Context_Context", "", Thread.currentThread().getId() + "", "",
+						"", "", "", resumeUtil.convertToJsonText(context, ContextProperties.class,
+								parametersToEncrypt_Implicit_Context_Context));
+				log.info("Implicit_Context_Context - Loaded contexts count: " + nb_line_Implicit_Context_Context + ".");
+
+				if (runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, "Main", 2, 0,
+						"Implicit_Context_Database", "null_Database", "tPostgresqlInput", "Implicit_Context_Context",
+						"null_Context", "tContextLoad", "output")) {
+					talendJobLogProcess(globalMap);
+				}
+
+				if (log.isDebugEnabled())
+					log.debug("Implicit_Context_Context - " + ("Done."));
+
+				ok_Hash.put("Implicit_Context_Context", true);
+				end_Hash.put("Implicit_Context_Context", System.currentTimeMillis());
+
+				/**
+				 * [Implicit_Context_Context end ] stop
+				 */
+
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			if (!(e instanceof TalendException)) {
+				log.fatal(currentComponent + " " + e.getMessage(), e);
+			}
+
+			TalendException te = new TalendException(e, currentComponent, cLabel, globalMap);
+
+			te.setVirtualComponentName(currentVirtualComponent);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [Implicit_Context_Database finally ] start
+				 */
+
+				currentVirtualComponent = "Implicit_Context_Database";
+
+				currentComponent = "Implicit_Context_Database";
+
+				/**
+				 * [Implicit_Context_Database finally ] stop
+				 */
+
+				/**
+				 * [Implicit_Context_Context finally ] start
+				 */
+
+				currentVirtualComponent = "Implicit_Context_Context";
+
+				currentComponent = "Implicit_Context_Context";
+
+				/**
+				 * [Implicit_Context_Context finally ] stop
+				 */
+
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("Implicit_Context_Database_SUBPROCESS_STATE", 1);
 	}
 
 	public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
@@ -716,7 +1722,7 @@ public class filemetadata implements TalendJob {
 
 		mdcInfo.forEach(org.slf4j.MDC::put);
 		org.slf4j.MDC.put("_subJobName", "tDBInput_1");
-		org.slf4j.MDC.put("_subJobPid", "b47xXi_" + subJobPidCounter.getAndIncrement());
+		org.slf4j.MDC.put("_subJobPid", "90d4JE_" + subJobPidCounter.getAndIncrement());
 
 		String iterateId = "";
 
@@ -822,19 +1828,21 @@ public class filemetadata implements TalendJob {
 							log4jParamters_tDBInput_1.append(" | ");
 							log4jParamters_tDBInput_1.append("DB_VERSION" + " = " + "V9_X");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("HOST" + " = " + "\"localhost\"");
+							log4jParamters_tDBInput_1.append("HOST" + " = " + "context.serverName");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("PORT" + " = " + "\"5432\"");
+							log4jParamters_tDBInput_1.append("PORT" + " = " + "context.port");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("DBNAME" + " = " + "\"formation_talend\"");
+							log4jParamters_tDBInput_1.append("DBNAME" + " = " + "context.database");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("SCHEMA_DB" + " = " + "\"I_OPE\"");
+							log4jParamters_tDBInput_1.append("SCHEMA_DB" + " = " + "context.schema");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("USER" + " = " + "\"postgres\"");
+							log4jParamters_tDBInput_1.append("USER" + " = " + "context.utilisateur");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("PASS" + " = " + String.valueOf(
-									"enc:routine.encryption.key.v1:/dLPAtlSnw9aS5rmxoWB8rut2COYSSMOYjcsMZY3hhw=")
-									.substring(0, 4) + "...");
+							log4jParamters_tDBInput_1.append("PASS" + " = "
+									+ String.valueOf(
+											routines.system.PasswordEncryptUtil.encryptPassword(context.password))
+											.substring(0, 4)
+									+ "...");
 							log4jParamters_tDBInput_1.append(" | ");
 							log4jParamters_tDBInput_1.append("QUERYSTORE" + " = " + "\"\"");
 							log4jParamters_tDBInput_1.append(" | ");
@@ -843,7 +1851,7 @@ public class filemetadata implements TalendJob {
 							log4jParamters_tDBInput_1.append(" | ");
 							log4jParamters_tDBInput_1.append("SPECIFY_DATASOURCE_ALIAS" + " = " + "false");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("PROPERTIES" + " = " + "\"\"");
+							log4jParamters_tDBInput_1.append("PROPERTIES" + " = " + "context.additionalParam");
 							log4jParamters_tDBInput_1.append(" | ");
 							log4jParamters_tDBInput_1.append("USE_CURSOR" + " = " + "false");
 							log4jParamters_tDBInput_1.append(" | ");
@@ -870,14 +1878,14 @@ public class filemetadata implements TalendJob {
 				java.sql.Connection conn_tDBInput_1 = null;
 				String driverClass_tDBInput_1 = "org.postgresql.Driver";
 				java.lang.Class jdbcclazz_tDBInput_1 = java.lang.Class.forName(driverClass_tDBInput_1);
-				String dbUser_tDBInput_1 = "postgres";
+				String dbUser_tDBInput_1 = context.utilisateur;
 
-				final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:3vdT3bvqL4LBa37zlXV2/WQeGoMSNZINTqWI3A4ot8c=");
+				final String decryptedPassword_tDBInput_1 = context.password;
 
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 
-				String url_tDBInput_1 = "jdbc:postgresql://" + "localhost" + ":" + "5432" + "/" + "formation_talend";
+				String url_tDBInput_1 = "jdbc:postgresql://" + context.serverName + ":" + context.port + "/"
+						+ context.database + "?" + context.additionalParam;
 
 				log.debug("tDBInput_1 - Driver ClassName: " + driverClass_tDBInput_1 + ".");
 
@@ -1540,7 +2548,7 @@ public class filemetadata implements TalendJob {
 		org.slf4j.MDC.put("_startTimestamp", java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
 				.format(java.time.format.DateTimeFormatter.ISO_INSTANT));
 		org.slf4j.MDC.put("_jobRepositoryId", "_Nl6G8DIDEe-82ZYHS27FTw");
-		org.slf4j.MDC.put("_compiledAtTimestamp", "2024-06-24T09:19:15.066912900Z");
+		org.slf4j.MDC.put("_compiledAtTimestamp", "2024-06-24T10:29:35.314732200Z");
 
 		java.lang.management.RuntimeMXBean mx = java.lang.management.ManagementFactory.getRuntimeMXBean();
 		String[] mxNameTable = mx.getName().split("@"); //$NON-NLS-1$
@@ -1680,6 +2688,69 @@ public class filemetadata implements TalendJob {
 			}
 			class ContextProcessing {
 				private void processContext_0() {
+					context.setContextType("additionalParam", "id_String");
+					if (context.getStringValue("additionalParam") == null) {
+						context.additionalParam = null;
+					} else {
+						context.additionalParam = (String) context.getProperty("additionalParam");
+					}
+					context.setContextType("database", "id_String");
+					if (context.getStringValue("database") == null) {
+						context.database = null;
+					} else {
+						context.database = (String) context.getProperty("database");
+					}
+					context.setContextType("password", "id_Password");
+					if (context.getStringValue("password") == null) {
+						context.password = null;
+					} else {
+						String pwd_password_value = context.getProperty("password");
+						context.password = null;
+						if (pwd_password_value != null) {
+							if (context_param.containsKey("password")) {// no need to decrypt if it come from program
+																		// argument or parent job runtime
+								context.password = pwd_password_value;
+							} else if (!pwd_password_value.isEmpty()) {
+								try {
+									context.password = routines.system.PasswordEncryptUtil
+											.decryptPassword(pwd_password_value);
+									context.put("password", context.password);
+								} catch (java.lang.RuntimeException e) {
+									// do nothing
+								}
+							}
+						}
+					}
+					context.setContextType("port", "id_String");
+					if (context.getStringValue("port") == null) {
+						context.port = null;
+					} else {
+						context.port = (String) context.getProperty("port");
+					}
+					context.setContextType("schema", "id_String");
+					if (context.getStringValue("schema") == null) {
+						context.schema = null;
+					} else {
+						context.schema = (String) context.getProperty("schema");
+					}
+					context.setContextType("serverName", "id_String");
+					if (context.getStringValue("serverName") == null) {
+						context.serverName = null;
+					} else {
+						context.serverName = (String) context.getProperty("serverName");
+					}
+					context.setContextType("utilisateur", "id_String");
+					if (context.getStringValue("utilisateur") == null) {
+						context.utilisateur = null;
+					} else {
+						context.utilisateur = (String) context.getProperty("utilisateur");
+					}
+					context.setContextType("folder", "id_String");
+					if (context.getStringValue("folder") == null) {
+						context.folder = null;
+					} else {
+						context.folder = (String) context.getProperty("folder");
+					}
 				}
 
 				public void processAllContext() {
@@ -1695,6 +2766,30 @@ public class filemetadata implements TalendJob {
 
 		// get context value from parent directly
 		if (parentContextMap != null && !parentContextMap.isEmpty()) {
+			if (parentContextMap.containsKey("additionalParam")) {
+				context.additionalParam = (String) parentContextMap.get("additionalParam");
+			}
+			if (parentContextMap.containsKey("database")) {
+				context.database = (String) parentContextMap.get("database");
+			}
+			if (parentContextMap.containsKey("password")) {
+				context.password = (java.lang.String) parentContextMap.get("password");
+			}
+			if (parentContextMap.containsKey("port")) {
+				context.port = (String) parentContextMap.get("port");
+			}
+			if (parentContextMap.containsKey("schema")) {
+				context.schema = (String) parentContextMap.get("schema");
+			}
+			if (parentContextMap.containsKey("serverName")) {
+				context.serverName = (String) parentContextMap.get("serverName");
+			}
+			if (parentContextMap.containsKey("utilisateur")) {
+				context.utilisateur = (String) parentContextMap.get("utilisateur");
+			}
+			if (parentContextMap.containsKey("folder")) {
+				context.folder = (String) parentContextMap.get("folder");
+			}
 		}
 
 		// Resume: init the resumeUtil
@@ -1703,6 +2798,7 @@ public class filemetadata implements TalendJob {
 		resumeUtil.initCommonInfo(pid, rootPid, fatherPid, projectName, jobName, contextStr, jobVersion);
 
 		List<String> parametersToEncrypt = new java.util.ArrayList<String>();
+		parametersToEncrypt.add("password");
 		// Resume: jobStart
 		resumeUtil.addLog("JOB_STARTED", "JOB:" + jobName, parent_part_launcher, Thread.currentThread().getId() + "",
 				"", "", "", "", resumeUtil.convertToJsonText(context, ContextProperties.class, parametersToEncrypt));
@@ -1730,6 +2826,19 @@ public class filemetadata implements TalendJob {
 		long end = 0;
 
 		startTime = System.currentTimeMillis();
+
+		try {
+			errorCode = null;
+			Implicit_Context_DatabaseProcess(globalMap);
+			if (!"failure".equals(status)) {
+				status = "end";
+			}
+		} catch (TalendException e_Implicit_Context_Database) {
+			globalMap.put("Implicit_Context_Database_SUBPROCESS_STATE", -1);
+
+			e_Implicit_Context_Database.printStackTrace();
+
+		}
 
 		this.globalResumeTicket = true;// to run tPreJob
 
@@ -1948,6 +3057,6 @@ public class filemetadata implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 67799 characters generated by Talend Cloud Data Management Platform on the 24
- * juin 2024 à 10:19:15 AM CET
+ * 107558 characters generated by Talend Cloud Data Management Platform on the
+ * 24 juin 2024 à 11:29:35 AM CET
  ************************************************************************************************/

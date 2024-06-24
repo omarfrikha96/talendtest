@@ -19,7 +19,7 @@
     <talend.job.folder></talend.job.folder>
     <talend.job.context>Default</talend.job.context>
     <talend.job.path>talendtest</talend.job.path>
-    <talend.job.git.commit.id>7eec98f8d2d95f51bd6d6e13510ed0cd41e8800a</talend.job.git.commit.id>
+    <talend.job.git.commit.id>bb9fbcefb15fd11315850fa001dd39d46123ad47</talend.job.git.commit.id>
     <project.distribution-management.repository.id>${project.distributionManagement.repository.id}</project.distribution-management.repository.id>
     <talend.job.stat>true</talend.job.stat>
     <talend.job.git.author>fna00266@doolk.com</talend.job.git.author>
@@ -41,7 +41,7 @@
     <talend.product.version>8.0.1.20240604_0759-patch</talend.product.version>
     <talend.project.name>TALENDTEST</talend.project.name>
     <current.test.resources.dir>${basedir}/src/test/resources</current.test.resources.dir>
-    <talend.job.git.commit.date>1719218422000</talend.job.git.commit.date>
+    <talend.job.git.commit.date>1719221101000</talend.job.git.commit.date>
     <project.distribution-management.repository.url>${project.distributionManagement.repository.url}</project.distribution-management.repository.url>
     <current.bundle.resources.dir>${basedir}/src/main/bundle-resources</current.bundle.resources.dir>
     <talend.job.name>filemetadata</talend.job.name>

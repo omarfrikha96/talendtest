@@ -34,7 +34,7 @@ import java.util.Comparator;
  * Job: filemetadata Purpose: affichage des donners<br>
  * Description: <br>
  * 
- * @author Frikha, Omar
+ * @author
  * @version 8.0.1.20240604_0759-patch
  * @status
  */
@@ -305,44 +305,24 @@ public class filemetadata implements TalendJob {
 		}
 	}
 
-	public void tFileInputDelimited_1_error(Exception exception, String errorComponent,
+	public void tDBInput_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
 
 		status = "failure";
 
-		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+		tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tLogRow_1_error(Exception exception, String errorComponent,
+	public void tLogRow_3_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
 
 		status = "failure";
 
-		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tFileInputExcel_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputExcel_1_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tLogRow_2_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputExcel_1_onSubJobError(exception, errorComponent, globalMap);
+		tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void talendJobLog_error(Exception exception, String errorComponent,
@@ -355,15 +335,7 @@ public class filemetadata implements TalendJob {
 		talendJobLog_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileInputDelimited_1_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public void tFileInputExcel_1_onSubJobError(Exception exception, String errorComponent,
+	public void tDBInput_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
@@ -379,331 +351,15 @@ public class filemetadata implements TalendJob {
 
 	}
 
-	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+	public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
 		final static byte[] commonByteArrayLock_TALENDTEST_filemetadata = new byte[0];
 		static byte[] commonByteArray_TALENDTEST_filemetadata = new byte[0];
-
-		public String ID_CLIENT;
-
-		public String getID_CLIENT() {
-			return this.ID_CLIENT;
-		}
-
-		public Boolean ID_CLIENTIsNullable() {
-			return true;
-		}
-
-		public Boolean ID_CLIENTIsKey() {
-			return false;
-		}
-
-		public Integer ID_CLIENTLength() {
-			return 12;
-		}
-
-		public Integer ID_CLIENTPrecision() {
-			return 0;
-		}
-
-		public String ID_CLIENTDefault() {
-
-			return null;
-
-		}
-
-		public String ID_CLIENTComment() {
-
-			return "";
-
-		}
-
-		public String ID_CLIENTPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String ID_CLIENTOriginalDbColumnName() {
-
-			return "ID_CLIENT";
-
-		}
-
-		public String NOM_CLIENT;
-
-		public String getNOM_CLIENT() {
-			return this.NOM_CLIENT;
-		}
-
-		public Boolean NOM_CLIENTIsNullable() {
-			return true;
-		}
-
-		public Boolean NOM_CLIENTIsKey() {
-			return false;
-		}
-
-		public Integer NOM_CLIENTLength() {
-			return 9;
-		}
-
-		public Integer NOM_CLIENTPrecision() {
-			return 0;
-		}
-
-		public String NOM_CLIENTDefault() {
-
-			return null;
-
-		}
-
-		public String NOM_CLIENTComment() {
-
-			return "";
-
-		}
-
-		public String NOM_CLIENTPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String NOM_CLIENTOriginalDbColumnName() {
-
-			return "NOM_CLIENT";
-
-		}
-
-		public String PREN_CLIENT;
-
-		public String getPREN_CLIENT() {
-			return this.PREN_CLIENT;
-		}
-
-		public Boolean PREN_CLIENTIsNullable() {
-			return true;
-		}
-
-		public Boolean PREN_CLIENTIsKey() {
-			return false;
-		}
-
-		public Integer PREN_CLIENTLength() {
-			return 10;
-		}
-
-		public Integer PREN_CLIENTPrecision() {
-			return 0;
-		}
-
-		public String PREN_CLIENTDefault() {
-
-			return null;
-
-		}
-
-		public String PREN_CLIENTComment() {
-
-			return "";
-
-		}
-
-		public String PREN_CLIENTPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String PREN_CLIENTOriginalDbColumnName() {
-
-			return "PREN_CLIENT";
-
-		}
-
-		public String CD_POSTAL_CLIENT;
-
-		public String getCD_POSTAL_CLIENT() {
-			return this.CD_POSTAL_CLIENT;
-		}
-
-		public Boolean CD_POSTAL_CLIENTIsNullable() {
-			return true;
-		}
-
-		public Boolean CD_POSTAL_CLIENTIsKey() {
-			return false;
-		}
-
-		public Integer CD_POSTAL_CLIENTLength() {
-			return 5;
-		}
-
-		public Integer CD_POSTAL_CLIENTPrecision() {
-			return 0;
-		}
-
-		public String CD_POSTAL_CLIENTDefault() {
-
-			return null;
-
-		}
-
-		public String CD_POSTAL_CLIENTComment() {
-
-			return "";
-
-		}
-
-		public String CD_POSTAL_CLIENTPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String CD_POSTAL_CLIENTOriginalDbColumnName() {
-
-			return "CD_POSTAL_CLIENT";
-
-		}
-
-		public String VILLE_CLIENT;
-
-		public String getVILLE_CLIENT() {
-			return this.VILLE_CLIENT;
-		}
-
-		public Boolean VILLE_CLIENTIsNullable() {
-			return true;
-		}
-
-		public Boolean VILLE_CLIENTIsKey() {
-			return false;
-		}
-
-		public Integer VILLE_CLIENTLength() {
-			return 16;
-		}
-
-		public Integer VILLE_CLIENTPrecision() {
-			return 0;
-		}
-
-		public String VILLE_CLIENTDefault() {
-
-			return null;
-
-		}
-
-		public String VILLE_CLIENTComment() {
-
-			return "";
-
-		}
-
-		public String VILLE_CLIENTPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String VILLE_CLIENTOriginalDbColumnName() {
-
-			return "VILLE_CLIENT";
-
-		}
-
-		public String PAYS_CLIENT;
-
-		public String getPAYS_CLIENT() {
-			return this.PAYS_CLIENT;
-		}
-
-		public Boolean PAYS_CLIENTIsNullable() {
-			return true;
-		}
-
-		public Boolean PAYS_CLIENTIsKey() {
-			return false;
-		}
-
-		public Integer PAYS_CLIENTLength() {
-			return 36;
-		}
-
-		public Integer PAYS_CLIENTPrecision() {
-			return 0;
-		}
-
-		public String PAYS_CLIENTDefault() {
-
-			return null;
-
-		}
-
-		public String PAYS_CLIENTComment() {
-
-			return "";
-
-		}
-
-		public String PAYS_CLIENTPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String PAYS_CLIENTOriginalDbColumnName() {
-
-			return "PAYS_CLIENT";
-
-		}
-
-		public String REGION_CLIENT;
-
-		public String getREGION_CLIENT() {
-			return this.REGION_CLIENT;
-		}
-
-		public Boolean REGION_CLIENTIsNullable() {
-			return true;
-		}
-
-		public Boolean REGION_CLIENTIsKey() {
-			return false;
-		}
-
-		public Integer REGION_CLIENTLength() {
-			return 22;
-		}
-
-		public Integer REGION_CLIENTPrecision() {
-			return 0;
-		}
-
-		public String REGION_CLIENTDefault() {
-
-			return null;
-
-		}
-
-		public String REGION_CLIENTComment() {
-
-			return "";
-
-		}
-
-		public String REGION_CLIENTPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String REGION_CLIENTOriginalDbColumnName() {
-
-			return "REGION_CLIENT";
-
-		}
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
 
 		public String CD_TYPE_CLIENT;
 
@@ -712,15 +368,15 @@ public class filemetadata implements TalendJob {
 		}
 
 		public Boolean CD_TYPE_CLIENTIsNullable() {
-			return true;
-		}
-
-		public Boolean CD_TYPE_CLIENTIsKey() {
 			return false;
 		}
 
+		public Boolean CD_TYPE_CLIENTIsKey() {
+			return true;
+		}
+
 		public Integer CD_TYPE_CLIENTLength() {
-			return 4;
+			return 50;
 		}
 
 		public Integer CD_TYPE_CLIENTPrecision() {
@@ -741,7 +397,7 @@ public class filemetadata implements TalendJob {
 
 		public String CD_TYPE_CLIENTPattern() {
 
-			return "dd-MM-yyyy";
+			return "";
 
 		}
 
@@ -751,6 +407,100 @@ public class filemetadata implements TalendJob {
 
 		}
 
+		public String LB_TYPE_CLIENT;
+
+		public String getLB_TYPE_CLIENT() {
+			return this.LB_TYPE_CLIENT;
+		}
+
+		public Boolean LB_TYPE_CLIENTIsNullable() {
+			return false;
+		}
+
+		public Boolean LB_TYPE_CLIENTIsKey() {
+			return false;
+		}
+
+		public Integer LB_TYPE_CLIENTLength() {
+			return 100;
+		}
+
+		public Integer LB_TYPE_CLIENTPrecision() {
+			return 0;
+		}
+
+		public String LB_TYPE_CLIENTDefault() {
+
+			return null;
+
+		}
+
+		public String LB_TYPE_CLIENTComment() {
+
+			return "";
+
+		}
+
+		public String LB_TYPE_CLIENTPattern() {
+
+			return "";
+
+		}
+
+		public String LB_TYPE_CLIENTOriginalDbColumnName() {
+
+			return "LB_TYPE_CLIENT";
+
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + ((this.CD_TYPE_CLIENT == null) ? 0 : this.CD_TYPE_CLIENT.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final row3Struct other = (row3Struct) obj;
+
+			if (this.CD_TYPE_CLIENT == null) {
+				if (other.CD_TYPE_CLIENT != null)
+					return false;
+
+			} else if (!this.CD_TYPE_CLIENT.equals(other.CD_TYPE_CLIENT))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(row3Struct other) {
+
+			other.CD_TYPE_CLIENT = this.CD_TYPE_CLIENT;
+			other.LB_TYPE_CLIENT = this.LB_TYPE_CLIENT;
+
+		}
+
+		public void copyKeysDataTo(row3Struct other) {
+
+			other.CD_TYPE_CLIENT = this.CD_TYPE_CLIENT;
+
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -819,21 +569,9 @@ public class filemetadata implements TalendJob {
 
 					int length = 0;
 
-					this.ID_CLIENT = readString(dis);
-
-					this.NOM_CLIENT = readString(dis);
-
-					this.PREN_CLIENT = readString(dis);
-
-					this.CD_POSTAL_CLIENT = readString(dis);
-
-					this.VILLE_CLIENT = readString(dis);
-
-					this.PAYS_CLIENT = readString(dis);
-
-					this.REGION_CLIENT = readString(dis);
-
 					this.CD_TYPE_CLIENT = readString(dis);
+
+					this.LB_TYPE_CLIENT = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -852,21 +590,9 @@ public class filemetadata implements TalendJob {
 
 					int length = 0;
 
-					this.ID_CLIENT = readString(dis);
-
-					this.NOM_CLIENT = readString(dis);
-
-					this.PREN_CLIENT = readString(dis);
-
-					this.CD_POSTAL_CLIENT = readString(dis);
-
-					this.VILLE_CLIENT = readString(dis);
-
-					this.PAYS_CLIENT = readString(dis);
-
-					this.REGION_CLIENT = readString(dis);
-
 					this.CD_TYPE_CLIENT = readString(dis);
+
+					this.LB_TYPE_CLIENT = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -882,35 +608,11 @@ public class filemetadata implements TalendJob {
 
 				// String
 
-				writeString(this.ID_CLIENT, dos);
-
-				// String
-
-				writeString(this.NOM_CLIENT, dos);
-
-				// String
-
-				writeString(this.PREN_CLIENT, dos);
-
-				// String
-
-				writeString(this.CD_POSTAL_CLIENT, dos);
-
-				// String
-
-				writeString(this.VILLE_CLIENT, dos);
-
-				// String
-
-				writeString(this.PAYS_CLIENT, dos);
-
-				// String
-
-				writeString(this.REGION_CLIENT, dos);
-
-				// String
-
 				writeString(this.CD_TYPE_CLIENT, dos);
+
+				// String
+
+				writeString(this.LB_TYPE_CLIENT, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -923,35 +625,11 @@ public class filemetadata implements TalendJob {
 
 				// String
 
-				writeString(this.ID_CLIENT, dos);
-
-				// String
-
-				writeString(this.NOM_CLIENT, dos);
-
-				// String
-
-				writeString(this.PREN_CLIENT, dos);
-
-				// String
-
-				writeString(this.CD_POSTAL_CLIENT, dos);
-
-				// String
-
-				writeString(this.VILLE_CLIENT, dos);
-
-				// String
-
-				writeString(this.PAYS_CLIENT, dos);
-
-				// String
-
-				writeString(this.REGION_CLIENT, dos);
-
-				// String
-
 				writeString(this.CD_TYPE_CLIENT, dos);
+
+				// String
+
+				writeString(this.LB_TYPE_CLIENT, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -964,14 +642,8 @@ public class filemetadata implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("ID_CLIENT=" + ID_CLIENT);
-			sb.append(",NOM_CLIENT=" + NOM_CLIENT);
-			sb.append(",PREN_CLIENT=" + PREN_CLIENT);
-			sb.append(",CD_POSTAL_CLIENT=" + CD_POSTAL_CLIENT);
-			sb.append(",VILLE_CLIENT=" + VILLE_CLIENT);
-			sb.append(",PAYS_CLIENT=" + PAYS_CLIENT);
-			sb.append(",REGION_CLIENT=" + REGION_CLIENT);
-			sb.append(",CD_TYPE_CLIENT=" + CD_TYPE_CLIENT);
+			sb.append("CD_TYPE_CLIENT=" + CD_TYPE_CLIENT);
+			sb.append(",LB_TYPE_CLIENT=" + LB_TYPE_CLIENT);
 			sb.append("]");
 
 			return sb.toString();
@@ -979,62 +651,6 @@ public class filemetadata implements TalendJob {
 
 		public String toLogString() {
 			StringBuilder sb = new StringBuilder();
-
-			if (ID_CLIENT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(ID_CLIENT);
-			}
-
-			sb.append("|");
-
-			if (NOM_CLIENT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(NOM_CLIENT);
-			}
-
-			sb.append("|");
-
-			if (PREN_CLIENT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(PREN_CLIENT);
-			}
-
-			sb.append("|");
-
-			if (CD_POSTAL_CLIENT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(CD_POSTAL_CLIENT);
-			}
-
-			sb.append("|");
-
-			if (VILLE_CLIENT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(VILLE_CLIENT);
-			}
-
-			sb.append("|");
-
-			if (PAYS_CLIENT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(PAYS_CLIENT);
-			}
-
-			sb.append("|");
-
-			if (REGION_CLIENT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(REGION_CLIENT);
-			}
-
-			sb.append("|");
 
 			if (CD_TYPE_CLIENT == null) {
 				sb.append("<null>");
@@ -1044,15 +660,28 @@ public class filemetadata implements TalendJob {
 
 			sb.append("|");
 
+			if (LB_TYPE_CLIENT == null) {
+				sb.append("<null>");
+			} else {
+				sb.append(LB_TYPE_CLIENT);
+			}
+
+			sb.append("|");
+
 			return sb.toString();
 		}
 
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(row1Struct other) {
+		public int compareTo(row3Struct other) {
 
 			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.CD_TYPE_CLIENT, other.CD_TYPE_CLIENT);
+			if (returnValue != 0) {
+				return returnValue;
+			}
 
 			return returnValue;
 		}
@@ -1080,14 +709,14 @@ public class filemetadata implements TalendJob {
 
 	}
 
-	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
+	public void tDBInput_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tDBInput_1_SUBPROCESS_STATE", 0);
 
 		final boolean execStat = this.execStat;
 
 		mdcInfo.forEach(org.slf4j.MDC::put);
-		org.slf4j.MDC.put("_subJobName", "tFileInputDelimited_1");
-		org.slf4j.MDC.put("_subJobPid", "vkHLEt_" + subJobPidCounter.getAndIncrement());
+		org.slf4j.MDC.put("_subJobName", "tDBInput_1");
+		org.slf4j.MDC.put("_subJobPid", "b47xXi_" + subJobPidCounter.getAndIncrement());
 
 		String iterateId = "";
 
@@ -1105,1762 +734,399 @@ public class filemetadata implements TalendJob {
 			if (resumeIt || globalResumeTicket) { // start the resume
 				globalResumeTicket = true;
 
-				row1Struct row1 = new row1Struct();
+				row3Struct row3 = new row3Struct();
 
 				/**
-				 * [tLogRow_1 begin ] start
+				 * [tLogRow_3 begin ] start
 				 */
 
-				ok_Hash.put("tLogRow_1", false);
-				start_Hash.put("tLogRow_1", System.currentTimeMillis());
+				ok_Hash.put("tLogRow_3", false);
+				start_Hash.put("tLogRow_3", System.currentTimeMillis());
 
-				currentComponent = "tLogRow_1";
+				currentComponent = "tLogRow_3";
 
-				runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, 0, 0, "row1");
+				runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, 0, 0, "row3");
 
-				int tos_count_tLogRow_1 = 0;
+				int tos_count_tLogRow_3 = 0;
 
 				if (log.isDebugEnabled())
-					log.debug("tLogRow_1 - " + ("Start to work."));
+					log.debug("tLogRow_3 - " + ("Start to work."));
 				if (log.isDebugEnabled()) {
-					class BytesLimit65535_tLogRow_1 {
+					class BytesLimit65535_tLogRow_3 {
 						public void limitLog4jByte() throws Exception {
-							StringBuilder log4jParamters_tLogRow_1 = new StringBuilder();
-							log4jParamters_tLogRow_1.append("Parameters:");
-							log4jParamters_tLogRow_1.append("BASIC_MODE" + " = " + "true");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("TABLE_PRINT" + " = " + "false");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("VERTICAL" + " = " + "false");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("FIELDSEPARATOR" + " = " + "\"|\"");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("PRINT_HEADER" + " = " + "false");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("PRINT_UNIQUE_NAME" + " = " + "false");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("PRINT_COLNAMES" + " = " + "false");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("USE_FIXED_LENGTH" + " = " + "false");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("PRINT_CONTENT_WITH_LOG4J" + " = " + "true");
-							log4jParamters_tLogRow_1.append(" | ");
+							StringBuilder log4jParamters_tLogRow_3 = new StringBuilder();
+							log4jParamters_tLogRow_3.append("Parameters:");
+							log4jParamters_tLogRow_3.append("BASIC_MODE" + " = " + "true");
+							log4jParamters_tLogRow_3.append(" | ");
+							log4jParamters_tLogRow_3.append("TABLE_PRINT" + " = " + "false");
+							log4jParamters_tLogRow_3.append(" | ");
+							log4jParamters_tLogRow_3.append("VERTICAL" + " = " + "false");
+							log4jParamters_tLogRow_3.append(" | ");
+							log4jParamters_tLogRow_3.append("FIELDSEPARATOR" + " = " + "\"|\"");
+							log4jParamters_tLogRow_3.append(" | ");
+							log4jParamters_tLogRow_3.append("PRINT_HEADER" + " = " + "false");
+							log4jParamters_tLogRow_3.append(" | ");
+							log4jParamters_tLogRow_3.append("PRINT_UNIQUE_NAME" + " = " + "false");
+							log4jParamters_tLogRow_3.append(" | ");
+							log4jParamters_tLogRow_3.append("PRINT_COLNAMES" + " = " + "false");
+							log4jParamters_tLogRow_3.append(" | ");
+							log4jParamters_tLogRow_3.append("USE_FIXED_LENGTH" + " = " + "false");
+							log4jParamters_tLogRow_3.append(" | ");
+							log4jParamters_tLogRow_3.append("PRINT_CONTENT_WITH_LOG4J" + " = " + "true");
+							log4jParamters_tLogRow_3.append(" | ");
 							if (log.isDebugEnabled())
-								log.debug("tLogRow_1 - " + (log4jParamters_tLogRow_1));
+								log.debug("tLogRow_3 - " + (log4jParamters_tLogRow_3));
 						}
 					}
-					new BytesLimit65535_tLogRow_1().limitLog4jByte();
+					new BytesLimit65535_tLogRow_3().limitLog4jByte();
 				}
 				if (enableLogStash) {
-					talendJobLog.addCM("tLogRow_1", "tLogRow_1", "tLogRow");
+					talendJobLog.addCM("tLogRow_3", "tLogRow_3", "tLogRow");
 					talendJobLogProcess(globalMap);
 				}
 
 				///////////////////////
 
-				final String OUTPUT_FIELD_SEPARATOR_tLogRow_1 = "|";
-				java.io.PrintStream consoleOut_tLogRow_1 = null;
+				final String OUTPUT_FIELD_SEPARATOR_tLogRow_3 = "|";
+				java.io.PrintStream consoleOut_tLogRow_3 = null;
 
-				StringBuilder strBuffer_tLogRow_1 = null;
-				int nb_line_tLogRow_1 = 0;
+				StringBuilder strBuffer_tLogRow_3 = null;
+				int nb_line_tLogRow_3 = 0;
 ///////////////////////    			
 
 				/**
-				 * [tLogRow_1 begin ] stop
+				 * [tLogRow_3 begin ] stop
 				 */
 
 				/**
-				 * [tFileInputDelimited_1 begin ] start
+				 * [tDBInput_1 begin ] start
 				 */
 
-				ok_Hash.put("tFileInputDelimited_1", false);
-				start_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
+				ok_Hash.put("tDBInput_1", false);
+				start_Hash.put("tDBInput_1", System.currentTimeMillis());
 
-				currentComponent = "tFileInputDelimited_1";
+				currentComponent = "tDBInput_1";
 
-				cLabel = "clients";
+				cLabel = "\"TB_TYPE_CLIENT\"";
 
-				int tos_count_tFileInputDelimited_1 = 0;
+				int tos_count_tDBInput_1 = 0;
 
 				if (log.isDebugEnabled())
-					log.debug("tFileInputDelimited_1 - " + ("Start to work."));
+					log.debug("tDBInput_1 - " + ("Start to work."));
 				if (log.isDebugEnabled()) {
-					class BytesLimit65535_tFileInputDelimited_1 {
+					class BytesLimit65535_tDBInput_1 {
 						public void limitLog4jByte() throws Exception {
-							StringBuilder log4jParamters_tFileInputDelimited_1 = new StringBuilder();
-							log4jParamters_tFileInputDelimited_1.append("Parameters:");
-							log4jParamters_tFileInputDelimited_1.append("USE_EXISTING_DYNAMIC" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1
-									.append("FILENAME" + " = " + "\"C:/Users/omar-/Downloads/Clients.csv\"");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("CSV_OPTION" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("ROWSEPARATOR" + " = " + "\"\\n\"");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("FIELDSEPARATOR" + " = " + "\"|\"");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("HEADER" + " = " + "1");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("FOOTER" + " = " + "0");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("LIMIT" + " = " + "");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("REMOVE_EMPTY_ROW" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("UNCOMPRESS" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("DIE_ON_ERROR" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("ADVANCED_SEPARATOR" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("RANDOM" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("TRIMALL" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("TRIMSELECT" + " = " + "[{TRIM=" + ("false")
-									+ ", SCHEMA_COLUMN=" + ("ID_CLIENT") + "}, {TRIM=" + ("false") + ", SCHEMA_COLUMN="
-									+ ("NOM_CLIENT") + "}, {TRIM=" + ("false") + ", SCHEMA_COLUMN=" + ("PREN_CLIENT")
-									+ "}, {TRIM=" + ("false") + ", SCHEMA_COLUMN=" + ("CD_POSTAL_CLIENT") + "}, {TRIM="
-									+ ("false") + ", SCHEMA_COLUMN=" + ("VILLE_CLIENT") + "}, {TRIM=" + ("false")
-									+ ", SCHEMA_COLUMN=" + ("PAYS_CLIENT") + "}, {TRIM=" + ("false")
-									+ ", SCHEMA_COLUMN=" + ("REGION_CLIENT") + "}, {TRIM=" + ("false")
-									+ ", SCHEMA_COLUMN=" + ("CD_TYPE_CLIENT") + "}]");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("CHECK_FIELDS_NUM" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("CHECK_DATE" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("ENCODING" + " = " + "\"UTF-8\"");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("SPLITRECORD" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("ENABLE_DECODE" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("USE_HEADER_AS_IS" + " = " + "false");
-							log4jParamters_tFileInputDelimited_1.append(" | ");
+							StringBuilder log4jParamters_tDBInput_1 = new StringBuilder();
+							log4jParamters_tDBInput_1.append("Parameters:");
+							log4jParamters_tDBInput_1.append("USE_EXISTING_CONNECTION" + " = " + "false");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("DB_VERSION" + " = " + "V9_X");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("HOST" + " = " + "\"localhost\"");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("PORT" + " = " + "\"5432\"");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("DBNAME" + " = " + "\"formation_talend\"");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("SCHEMA_DB" + " = " + "\"I_OPE\"");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("USER" + " = " + "\"postgres\"");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("PASS" + " = " + String.valueOf(
+									"enc:routine.encryption.key.v1:/dLPAtlSnw9aS5rmxoWB8rut2COYSSMOYjcsMZY3hhw=")
+									.substring(0, 4) + "...");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("QUERYSTORE" + " = " + "\"\"");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("QUERY" + " = "
+									+ "\"SELECT    \\\"I_OPE\\\".\\\"TB_TYPE_CLIENT\\\".\\\"CD_TYPE_CLIENT\\\",    \\\"I_OPE\\\".\\\"TB_TYPE_CLIENT\\\".\\\"LB_TYPE_CLIENT\\\" FROM \\\"I_OPE\\\".\\\"TB_TYPE_CLIENT\\\"\"");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("SPECIFY_DATASOURCE_ALIAS" + " = " + "false");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("PROPERTIES" + " = " + "\"\"");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("USE_CURSOR" + " = " + "false");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("TRIM_ALL_COLUMN" + " = " + "false");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("TRIM_COLUMN" + " = " + "[{TRIM=" + ("false")
+									+ ", SCHEMA_COLUMN=" + ("CD_TYPE_CLIENT") + "}, {TRIM=" + ("false")
+									+ ", SCHEMA_COLUMN=" + ("LB_TYPE_CLIENT") + "}]");
+							log4jParamters_tDBInput_1.append(" | ");
+							log4jParamters_tDBInput_1.append("UNIFIED_COMPONENTS" + " = " + "tPostgresqlInput");
+							log4jParamters_tDBInput_1.append(" | ");
 							if (log.isDebugEnabled())
-								log.debug("tFileInputDelimited_1 - " + (log4jParamters_tFileInputDelimited_1));
+								log.debug("tDBInput_1 - " + (log4jParamters_tDBInput_1));
 						}
 					}
-					new BytesLimit65535_tFileInputDelimited_1().limitLog4jByte();
+					new BytesLimit65535_tDBInput_1().limitLog4jByte();
 				}
 				if (enableLogStash) {
-					talendJobLog.addCM("tFileInputDelimited_1", "clients", "tFileInputDelimited");
+					talendJobLog.addCM("tDBInput_1", "\"TB_TYPE_CLIENT\"", "tPostgresqlInput");
 					talendJobLogProcess(globalMap);
 				}
 
-				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
+				int nb_line_tDBInput_1 = 0;
+				java.sql.Connection conn_tDBInput_1 = null;
+				String driverClass_tDBInput_1 = "org.postgresql.Driver";
+				java.lang.Class jdbcclazz_tDBInput_1 = java.lang.Class.forName(driverClass_tDBInput_1);
+				String dbUser_tDBInput_1 = "postgres";
 
-				int nb_line_tFileInputDelimited_1 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
-				int limit_tFileInputDelimited_1 = -1;
-				try {
+				final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil
+						.decryptPassword("enc:routine.encryption.key.v1:3vdT3bvqL4LBa37zlXV2/WQeGoMSNZINTqWI3A4ot8c=");
 
-					Object filename_tFileInputDelimited_1 = "C:/Users/omar-/Downloads/Clients.csv";
-					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
+				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 
-						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
-						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
-						}
+				String url_tDBInput_1 = "jdbc:postgresql://" + "localhost" + ":" + "5432" + "/" + "formation_talend";
 
-					}
-					try {
-						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Users/omar-/Downloads/Clients.csv", "UTF-8", "|", "\n", false, 1, 0,
-								limit_tFileInputDelimited_1, -1, false);
-					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
+				log.debug("tDBInput_1 - Driver ClassName: " + driverClass_tDBInput_1 + ".");
 
-						log.error("tFileInputDelimited_1 - " + e.getMessage());
+				log.debug("tDBInput_1 - Connection attempt to '" + url_tDBInput_1 + "' with the username '"
+						+ dbUser_tDBInput_1 + "'.");
 
-						System.err.println(e.getMessage());
+				conn_tDBInput_1 = java.sql.DriverManager.getConnection(url_tDBInput_1, dbUser_tDBInput_1,
+						dbPwd_tDBInput_1);
+				log.debug("tDBInput_1 - Connection to '" + url_tDBInput_1 + "' has succeeded.");
 
-					}
+				log.debug("tDBInput_1 - Connection is set auto commit to 'false'.");
 
-					log.info("tFileInputDelimited_1 - Retrieving records from the datasource.");
+				conn_tDBInput_1.setAutoCommit(false);
 
-					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
-						rowstate_tFileInputDelimited_1.reset();
+				java.sql.Statement stmt_tDBInput_1 = conn_tDBInput_1.createStatement();
 
-						row1 = null;
+				String dbquery_tDBInput_1 = "SELECT \n  \"I_OPE\".\"TB_TYPE_CLIENT\".\"CD_TYPE_CLIENT\", \n  \"I_OPE\".\"TB_TYPE_CLIENT\".\"LB_TYPE_CLIENT\"\nFROM \"I_"
+						+ "OPE\".\"TB_TYPE_CLIENT\"";
 
-						boolean whetherReject_tFileInputDelimited_1 = false;
-						row1 = new row1Struct();
-						try {
+				log.debug("tDBInput_1 - Executing the query: '" + dbquery_tDBInput_1 + "'.");
 
-							int columnIndexWithD_tFileInputDelimited_1 = 0;
+				globalMap.put("tDBInput_1_QUERY", dbquery_tDBInput_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 0;
-
-							row1.ID_CLIENT = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 1;
-
-							row1.NOM_CLIENT = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 2;
-
-							row1.PREN_CLIENT = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 3;
-
-							row1.CD_POSTAL_CLIENT = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 4;
-
-							row1.VILLE_CLIENT = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 5;
-
-							row1.PAYS_CLIENT = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 6;
-
-							row1.REGION_CLIENT = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 7;
-
-							row1.CD_TYPE_CLIENT = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							if (rowstate_tFileInputDelimited_1.getException() != null) {
-								throw rowstate_tFileInputDelimited_1.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_1 = true;
-
-							log.error("tFileInputDelimited_1 - " + e.getMessage());
-
-							System.err.println(e.getMessage());
-							row1 = null;
-
-						}
-
-						log.debug("tFileInputDelimited_1 - Retrieving the record "
-								+ fid_tFileInputDelimited_1.getRowNumber() + ".");
-
-						/**
-						 * [tFileInputDelimited_1 begin ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_1 main ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						cLabel = "clients";
-
-						tos_count_tFileInputDelimited_1++;
-
-						/**
-						 * [tFileInputDelimited_1 main ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_1 process_data_begin ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						cLabel = "clients";
-
-						/**
-						 * [tFileInputDelimited_1 process_data_begin ] stop
-						 */
-// Start of branch "row1"
-						if (row1 != null) {
-
-							/**
-							 * [tLogRow_1 main ] start
-							 */
-
-							currentComponent = "tLogRow_1";
-
-							if (runStat.update(execStat, enableLogStash, iterateId, 1, 1
-
-									, "row1", "tFileInputDelimited_1", "clients", "tFileInputDelimited", "tLogRow_1",
-									"tLogRow_1", "tLogRow"
-
-							)) {
-								talendJobLogProcess(globalMap);
-							}
-
-							if (log.isTraceEnabled()) {
-								log.trace("row1 - " + (row1 == null ? "" : row1.toLogString()));
-							}
-
-///////////////////////		
-
-							strBuffer_tLogRow_1 = new StringBuilder();
-
-							if (row1.ID_CLIENT != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row1.ID_CLIENT));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row1.NOM_CLIENT != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row1.NOM_CLIENT));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row1.PREN_CLIENT != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row1.PREN_CLIENT));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row1.CD_POSTAL_CLIENT != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row1.CD_POSTAL_CLIENT));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row1.VILLE_CLIENT != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row1.VILLE_CLIENT));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row1.PAYS_CLIENT != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row1.PAYS_CLIENT));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row1.REGION_CLIENT != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row1.REGION_CLIENT));
-
-							} //
-
-							strBuffer_tLogRow_1.append("|");
-
-							if (row1.CD_TYPE_CLIENT != null) { //
-
-								strBuffer_tLogRow_1.append(String.valueOf(row1.CD_TYPE_CLIENT));
-
-							} //
-
-							if (globalMap.get("tLogRow_CONSOLE") != null) {
-								consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-							} else {
-								consoleOut_tLogRow_1 = new java.io.PrintStream(
-										new java.io.BufferedOutputStream(System.out));
-								globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
-							}
-							log.info("tLogRow_1 - Content of row " + (nb_line_tLogRow_1 + 1) + ": "
-									+ strBuffer_tLogRow_1.toString());
-							consoleOut_tLogRow_1.println(strBuffer_tLogRow_1.toString());
-							consoleOut_tLogRow_1.flush();
-							nb_line_tLogRow_1++;
-//////
-
-//////                    
-
-///////////////////////    			
-
-							tos_count_tLogRow_1++;
-
-							/**
-							 * [tLogRow_1 main ] stop
-							 */
-
-							/**
-							 * [tLogRow_1 process_data_begin ] start
-							 */
-
-							currentComponent = "tLogRow_1";
-
-							/**
-							 * [tLogRow_1 process_data_begin ] stop
-							 */
-
-							/**
-							 * [tLogRow_1 process_data_end ] start
-							 */
-
-							currentComponent = "tLogRow_1";
-
-							/**
-							 * [tLogRow_1 process_data_end ] stop
-							 */
-
-						} // End of branch "row1"
-
-						/**
-						 * [tFileInputDelimited_1 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						cLabel = "clients";
-
-						/**
-						 * [tFileInputDelimited_1 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_1 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						cLabel = "clients";
-
-					}
-				} finally {
-					if (!((Object) ("C:/Users/omar-/Downloads/Clients.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_1 != null) {
-							fid_tFileInputDelimited_1.close();
-						}
-					}
-					if (fid_tFileInputDelimited_1 != null) {
-						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
-
-						log.info("tFileInputDelimited_1 - Retrieved records count: "
-								+ fid_tFileInputDelimited_1.getRowNumber() + ".");
-
-					}
-				}
-
-				if (log.isDebugEnabled())
-					log.debug("tFileInputDelimited_1 - " + ("Done."));
-
-				ok_Hash.put("tFileInputDelimited_1", true);
-				end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_1 end ] stop
-				 */
-
-				/**
-				 * [tLogRow_1 end ] start
-				 */
-
-				currentComponent = "tLogRow_1";
-
-//////
-//////
-				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
-				if (log.isInfoEnabled())
-					log.info("tLogRow_1 - " + ("Printed row count: ") + (nb_line_tLogRow_1) + ("."));
-
-///////////////////////    			
-
-				if (runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, "row1", 2, 0,
-						"tFileInputDelimited_1", "clients", "tFileInputDelimited", "tLogRow_1", "tLogRow_1", "tLogRow",
-						"output")) {
-					talendJobLogProcess(globalMap);
-				}
-
-				if (log.isDebugEnabled())
-					log.debug("tLogRow_1 - " + ("Done."));
-
-				ok_Hash.put("tLogRow_1", true);
-				end_Hash.put("tLogRow_1", System.currentTimeMillis());
-
-				/**
-				 * [tLogRow_1 end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			if (!(e instanceof TalendException)) {
-				log.fatal(currentComponent + " " + e.getMessage(), e);
-			}
-
-			TalendException te = new TalendException(e, currentComponent, cLabel, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_1 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_1";
-
-				cLabel = "clients";
-
-				/**
-				 * [tFileInputDelimited_1 finally ] stop
-				 */
-
-				/**
-				 * [tLogRow_1 finally ] start
-				 */
-
-				currentComponent = "tLogRow_1";
-
-				/**
-				 * [tLogRow_1 finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
-	}
-
-	public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
-		final static byte[] commonByteArrayLock_TALENDTEST_filemetadata = new byte[0];
-		static byte[] commonByteArray_TALENDTEST_filemetadata = new byte[0];
-
-		public String CD_PRODUIT;
-
-		public String getCD_PRODUIT() {
-			return this.CD_PRODUIT;
-		}
-
-		public Boolean CD_PRODUITIsNullable() {
-			return true;
-		}
-
-		public Boolean CD_PRODUITIsKey() {
-			return false;
-		}
-
-		public Integer CD_PRODUITLength() {
-			return 11;
-		}
-
-		public Integer CD_PRODUITPrecision() {
-			return 0;
-		}
-
-		public String CD_PRODUITDefault() {
-
-			return null;
-
-		}
-
-		public String CD_PRODUITComment() {
-
-			return "";
-
-		}
-
-		public String CD_PRODUITPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String CD_PRODUITOriginalDbColumnName() {
-
-			return "CD_PRODUIT";
-
-		}
-
-		public String NOM_PRODUIT;
-
-		public String getNOM_PRODUIT() {
-			return this.NOM_PRODUIT;
-		}
-
-		public Boolean NOM_PRODUITIsNullable() {
-			return true;
-		}
-
-		public Boolean NOM_PRODUITIsKey() {
-			return false;
-		}
-
-		public Integer NOM_PRODUITLength() {
-			return 63;
-		}
-
-		public Integer NOM_PRODUITPrecision() {
-			return 0;
-		}
-
-		public String NOM_PRODUITDefault() {
-
-			return null;
-
-		}
-
-		public String NOM_PRODUITComment() {
-
-			return "";
-
-		}
-
-		public String NOM_PRODUITPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String NOM_PRODUITOriginalDbColumnName() {
-
-			return "NOM_PRODUIT";
-
-		}
-
-		public Float PRIX_ACHAT_PRODUIT;
-
-		public Float getPRIX_ACHAT_PRODUIT() {
-			return this.PRIX_ACHAT_PRODUIT;
-		}
-
-		public Boolean PRIX_ACHAT_PRODUITIsNullable() {
-			return true;
-		}
-
-		public Boolean PRIX_ACHAT_PRODUITIsKey() {
-			return false;
-		}
-
-		public Integer PRIX_ACHAT_PRODUITLength() {
-			return 10;
-		}
-
-		public Integer PRIX_ACHAT_PRODUITPrecision() {
-			return 9;
-		}
-
-		public String PRIX_ACHAT_PRODUITDefault() {
-
-			return null;
-
-		}
-
-		public String PRIX_ACHAT_PRODUITComment() {
-
-			return "";
-
-		}
-
-		public String PRIX_ACHAT_PRODUITPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String PRIX_ACHAT_PRODUITOriginalDbColumnName() {
-
-			return "PRIX_ACHAT_PRODUIT";
-
-		}
-
-		public Float PRIX_VENTE_PRODUIT;
-
-		public Float getPRIX_VENTE_PRODUIT() {
-			return this.PRIX_VENTE_PRODUIT;
-		}
-
-		public Boolean PRIX_VENTE_PRODUITIsNullable() {
-			return true;
-		}
-
-		public Boolean PRIX_VENTE_PRODUITIsKey() {
-			return false;
-		}
-
-		public Integer PRIX_VENTE_PRODUITLength() {
-			return 9;
-		}
-
-		public Integer PRIX_VENTE_PRODUITPrecision() {
-			return 8;
-		}
-
-		public String PRIX_VENTE_PRODUITDefault() {
-
-			return null;
-
-		}
-
-		public String PRIX_VENTE_PRODUITComment() {
-
-			return "";
-
-		}
-
-		public String PRIX_VENTE_PRODUITPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String PRIX_VENTE_PRODUITOriginalDbColumnName() {
-
-			return "PRIX_VENTE_PRODUIT";
-
-		}
-
-		public String CD_SOUS_CATEGORIE;
-
-		public String getCD_SOUS_CATEGORIE() {
-			return this.CD_SOUS_CATEGORIE;
-		}
-
-		public Boolean CD_SOUS_CATEGORIEIsNullable() {
-			return true;
-		}
-
-		public Boolean CD_SOUS_CATEGORIEIsKey() {
-			return false;
-		}
-
-		public Integer CD_SOUS_CATEGORIELength() {
-			return 5;
-		}
-
-		public Integer CD_SOUS_CATEGORIEPrecision() {
-			return 0;
-		}
-
-		public String CD_SOUS_CATEGORIEDefault() {
-
-			return null;
-
-		}
-
-		public String CD_SOUS_CATEGORIEComment() {
-
-			return "";
-
-		}
-
-		public String CD_SOUS_CATEGORIEPattern() {
-
-			return "dd-MM-yyyy";
-
-		}
-
-		public String CD_SOUS_CATEGORIEOriginalDbColumnName() {
-
-			return "CD_SOUS_CATEGORIE";
-
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TALENDTEST_filemetadata.length) {
-					if (length < 1024 && commonByteArray_TALENDTEST_filemetadata.length == 0) {
-						commonByteArray_TALENDTEST_filemetadata = new byte[1024];
-					} else {
-						commonByteArray_TALENDTEST_filemetadata = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TALENDTEST_filemetadata, 0, length);
-				strReturn = new String(commonByteArray_TALENDTEST_filemetadata, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TALENDTEST_filemetadata.length) {
-					if (length < 1024 && commonByteArray_TALENDTEST_filemetadata.length == 0) {
-						commonByteArray_TALENDTEST_filemetadata = new byte[1024];
-					} else {
-						commonByteArray_TALENDTEST_filemetadata = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_TALENDTEST_filemetadata, 0, length);
-				strReturn = new String(commonByteArray_TALENDTEST_filemetadata, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_TALENDTEST_filemetadata) {
+				java.sql.ResultSet rs_tDBInput_1 = null;
 
 				try {
+					rs_tDBInput_1 = stmt_tDBInput_1.executeQuery(dbquery_tDBInput_1);
+					java.sql.ResultSetMetaData rsmd_tDBInput_1 = rs_tDBInput_1.getMetaData();
+					int colQtyInRs_tDBInput_1 = rsmd_tDBInput_1.getColumnCount();
 
-					int length = 0;
+					String tmpContent_tDBInput_1 = null;
 
-					this.CD_PRODUIT = readString(dis);
+					log.debug("tDBInput_1 - Retrieving records from the database.");
 
-					this.NOM_PRODUIT = readString(dis);
+					while (rs_tDBInput_1.next()) {
+						nb_line_tDBInput_1++;
 
-					length = dis.readByte();
-					if (length == -1) {
-						this.PRIX_ACHAT_PRODUIT = null;
-					} else {
-						this.PRIX_ACHAT_PRODUIT = dis.readFloat();
-					}
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.PRIX_VENTE_PRODUIT = null;
-					} else {
-						this.PRIX_VENTE_PRODUIT = dis.readFloat();
-					}
-
-					this.CD_SOUS_CATEGORIE = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_TALENDTEST_filemetadata) {
-
-				try {
-
-					int length = 0;
-
-					this.CD_PRODUIT = readString(dis);
-
-					this.NOM_PRODUIT = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.PRIX_ACHAT_PRODUIT = null;
-					} else {
-						this.PRIX_ACHAT_PRODUIT = dis.readFloat();
-					}
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.PRIX_VENTE_PRODUIT = null;
-					} else {
-						this.PRIX_VENTE_PRODUIT = dis.readFloat();
-					}
-
-					this.CD_SOUS_CATEGORIE = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.CD_PRODUIT, dos);
-
-				// String
-
-				writeString(this.NOM_PRODUIT, dos);
-
-				// Float
-
-				if (this.PRIX_ACHAT_PRODUIT == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeFloat(this.PRIX_ACHAT_PRODUIT);
-				}
-
-				// Float
-
-				if (this.PRIX_VENTE_PRODUIT == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeFloat(this.PRIX_VENTE_PRODUIT);
-				}
-
-				// String
-
-				writeString(this.CD_SOUS_CATEGORIE, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// String
-
-				writeString(this.CD_PRODUIT, dos);
-
-				// String
-
-				writeString(this.NOM_PRODUIT, dos);
-
-				// Float
-
-				if (this.PRIX_ACHAT_PRODUIT == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeFloat(this.PRIX_ACHAT_PRODUIT);
-				}
-
-				// Float
-
-				if (this.PRIX_VENTE_PRODUIT == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeFloat(this.PRIX_VENTE_PRODUIT);
-				}
-
-				// String
-
-				writeString(this.CD_SOUS_CATEGORIE, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("CD_PRODUIT=" + CD_PRODUIT);
-			sb.append(",NOM_PRODUIT=" + NOM_PRODUIT);
-			sb.append(",PRIX_ACHAT_PRODUIT=" + String.valueOf(PRIX_ACHAT_PRODUIT));
-			sb.append(",PRIX_VENTE_PRODUIT=" + String.valueOf(PRIX_VENTE_PRODUIT));
-			sb.append(",CD_SOUS_CATEGORIE=" + CD_SOUS_CATEGORIE);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		public String toLogString() {
-			StringBuilder sb = new StringBuilder();
-
-			if (CD_PRODUIT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(CD_PRODUIT);
-			}
-
-			sb.append("|");
-
-			if (NOM_PRODUIT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(NOM_PRODUIT);
-			}
-
-			sb.append("|");
-
-			if (PRIX_ACHAT_PRODUIT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(PRIX_ACHAT_PRODUIT);
-			}
-
-			sb.append("|");
-
-			if (PRIX_VENTE_PRODUIT == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(PRIX_VENTE_PRODUIT);
-			}
-
-			sb.append("|");
-
-			if (CD_SOUS_CATEGORIE == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(CD_SOUS_CATEGORIE);
-			}
-
-			sb.append("|");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row2Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputExcel_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputExcel_1_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		mdcInfo.forEach(org.slf4j.MDC::put);
-		org.slf4j.MDC.put("_subJobName", "tFileInputExcel_1");
-		org.slf4j.MDC.put("_subJobPid", "foWkIB_" + subJobPidCounter.getAndIncrement());
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		String cLabel = null;
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				row2Struct row2 = new row2Struct();
-
-				/**
-				 * [tLogRow_2 begin ] start
-				 */
-
-				ok_Hash.put("tLogRow_2", false);
-				start_Hash.put("tLogRow_2", System.currentTimeMillis());
-
-				currentComponent = "tLogRow_2";
-
-				runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, 0, 0, "row2");
-
-				int tos_count_tLogRow_2 = 0;
-
-				if (log.isDebugEnabled())
-					log.debug("tLogRow_2 - " + ("Start to work."));
-				if (log.isDebugEnabled()) {
-					class BytesLimit65535_tLogRow_2 {
-						public void limitLog4jByte() throws Exception {
-							StringBuilder log4jParamters_tLogRow_2 = new StringBuilder();
-							log4jParamters_tLogRow_2.append("Parameters:");
-							log4jParamters_tLogRow_2.append("BASIC_MODE" + " = " + "true");
-							log4jParamters_tLogRow_2.append(" | ");
-							log4jParamters_tLogRow_2.append("TABLE_PRINT" + " = " + "false");
-							log4jParamters_tLogRow_2.append(" | ");
-							log4jParamters_tLogRow_2.append("VERTICAL" + " = " + "false");
-							log4jParamters_tLogRow_2.append(" | ");
-							log4jParamters_tLogRow_2.append("FIELDSEPARATOR" + " = " + "\"|\"");
-							log4jParamters_tLogRow_2.append(" | ");
-							log4jParamters_tLogRow_2.append("PRINT_HEADER" + " = " + "false");
-							log4jParamters_tLogRow_2.append(" | ");
-							log4jParamters_tLogRow_2.append("PRINT_UNIQUE_NAME" + " = " + "false");
-							log4jParamters_tLogRow_2.append(" | ");
-							log4jParamters_tLogRow_2.append("PRINT_COLNAMES" + " = " + "false");
-							log4jParamters_tLogRow_2.append(" | ");
-							log4jParamters_tLogRow_2.append("USE_FIXED_LENGTH" + " = " + "false");
-							log4jParamters_tLogRow_2.append(" | ");
-							log4jParamters_tLogRow_2.append("PRINT_CONTENT_WITH_LOG4J" + " = " + "true");
-							log4jParamters_tLogRow_2.append(" | ");
-							if (log.isDebugEnabled())
-								log.debug("tLogRow_2 - " + (log4jParamters_tLogRow_2));
-						}
-					}
-					new BytesLimit65535_tLogRow_2().limitLog4jByte();
-				}
-				if (enableLogStash) {
-					talendJobLog.addCM("tLogRow_2", "tLogRow_2", "tLogRow");
-					talendJobLogProcess(globalMap);
-				}
-
-				///////////////////////
-
-				final String OUTPUT_FIELD_SEPARATOR_tLogRow_2 = "|";
-				java.io.PrintStream consoleOut_tLogRow_2 = null;
-
-				StringBuilder strBuffer_tLogRow_2 = null;
-				int nb_line_tLogRow_2 = 0;
-///////////////////////    			
-
-				/**
-				 * [tLogRow_2 begin ] stop
-				 */
-
-				/**
-				 * [tFileInputExcel_1 begin ] start
-				 */
-
-				ok_Hash.put("tFileInputExcel_1", false);
-				start_Hash.put("tFileInputExcel_1", System.currentTimeMillis());
-
-				currentComponent = "tFileInputExcel_1";
-
-				cLabel = "produits";
-
-				int tos_count_tFileInputExcel_1 = 0;
-
-				if (log.isDebugEnabled())
-					log.debug("tFileInputExcel_1 - " + ("Start to work."));
-				if (log.isDebugEnabled()) {
-					class BytesLimit65535_tFileInputExcel_1 {
-						public void limitLog4jByte() throws Exception {
-							StringBuilder log4jParamters_tFileInputExcel_1 = new StringBuilder();
-							log4jParamters_tFileInputExcel_1.append("Parameters:");
-							log4jParamters_tFileInputExcel_1.append("VERSION_2007" + " = " + "true");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1
-									.append("FILENAME" + " = " + "\"C:/Users/omar-/Downloads/Produits.xlsx\"");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("PASSWORD" + " = "
-									+ String.valueOf(
-											"enc:routine.encryption.key.v1:45mfOu95EcPIg5L7zJ9jnsrfnJ0Aw9j3S3UXCw==")
-											.substring(0, 4)
-									+ "...");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("ALL_SHEETS" + " = " + "false");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("SHEETLIST" + " = " + "[{USE_REGEX=" + ("")
-									+ ", SHEETNAME=" + ("\"Produit\"") + "}]");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("HEADER" + " = " + "1");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("FOOTER" + " = " + "0");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("LIMIT" + " = " + "");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("AFFECT_EACH_SHEET" + " = " + "false");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("FIRST_COLUMN" + " = " + "1");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("LAST_COLUMN" + " = " + "");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("DIE_ON_ERROR" + " = " + "false");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("ADVANCED_SEPARATOR" + " = " + "false");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("TRIMALL" + " = " + "false");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("TRIMSELECT" + " = " + "[{TRIM=" + ("false")
-									+ ", SCHEMA_COLUMN=" + ("CD_PRODUIT") + "}, {TRIM=" + ("false") + ", SCHEMA_COLUMN="
-									+ ("NOM_PRODUIT") + "}, {TRIM=" + ("false") + ", SCHEMA_COLUMN="
-									+ ("PRIX_ACHAT_PRODUIT") + "}, {TRIM=" + ("false") + ", SCHEMA_COLUMN="
-									+ ("PRIX_VENTE_PRODUIT") + "}, {TRIM=" + ("false") + ", SCHEMA_COLUMN="
-									+ ("CD_SOUS_CATEGORIE") + "}]");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("CONVERTDATETOSTRING" + " = " + "false");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("ENCODING" + " = " + "\"UTF-8\"");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("STOPREAD_ON_EMPTYROW" + " = " + "false");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("GENERATION_MODE" + " = " + "USER_MODE");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							log4jParamters_tFileInputExcel_1.append("CONFIGURE_INFLATION_RATIO" + " = " + "false");
-							log4jParamters_tFileInputExcel_1.append(" | ");
-							if (log.isDebugEnabled())
-								log.debug("tFileInputExcel_1 - " + (log4jParamters_tFileInputExcel_1));
-						}
-					}
-					new BytesLimit65535_tFileInputExcel_1().limitLog4jByte();
-				}
-				if (enableLogStash) {
-					talendJobLog.addCM("tFileInputExcel_1", "produits", "tFileInputExcel");
-					talendJobLogProcess(globalMap);
-				}
-
-				final String decryptedPassword_tFileInputExcel_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:CSKvImIxAIXnoQqBmqNTjpKcmUDboaVQ+Z+OMQ==");
-				String password_tFileInputExcel_1 = decryptedPassword_tFileInputExcel_1;
-				if (password_tFileInputExcel_1.isEmpty()) {
-					password_tFileInputExcel_1 = null;
-				}
-				class RegexUtil_tFileInputExcel_1 {
-
-					public java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> getSheets(
-							org.apache.poi.xssf.usermodel.XSSFWorkbook workbook, String oneSheetName,
-							boolean useRegex) {
-
-						java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> list = new java.util.ArrayList<org.apache.poi.xssf.usermodel.XSSFSheet>();
-
-						if (useRegex) {// this part process the regex issue
-
-							java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(oneSheetName);
-							for (org.apache.poi.ss.usermodel.Sheet sheet : workbook) {
-								String sheetName = sheet.getSheetName();
-								java.util.regex.Matcher matcher = pattern.matcher(sheetName);
-								if (matcher.matches()) {
-									if (sheet != null) {
-										list.add((org.apache.poi.xssf.usermodel.XSSFSheet) sheet);
-									}
-								}
-							}
-
+						if (colQtyInRs_tDBInput_1 < 1) {
+							row3.CD_TYPE_CLIENT = null;
 						} else {
-							org.apache.poi.xssf.usermodel.XSSFSheet sheet = (org.apache.poi.xssf.usermodel.XSSFSheet) workbook
-									.getSheet(oneSheetName);
-							if (sheet != null) {
-								list.add(sheet);
-							}
 
+							row3.CD_TYPE_CLIENT = routines.system.JDBCUtil.getString(rs_tDBInput_1, 1, false);
+						}
+						if (colQtyInRs_tDBInput_1 < 2) {
+							row3.LB_TYPE_CLIENT = null;
+						} else {
+
+							row3.LB_TYPE_CLIENT = routines.system.JDBCUtil.getString(rs_tDBInput_1, 2, false);
 						}
 
-						return list;
-					}
+						log.debug("tDBInput_1 - Retrieving the record " + nb_line_tDBInput_1 + ".");
 
-					public java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> getSheets(
-							org.apache.poi.xssf.usermodel.XSSFWorkbook workbook, int index, boolean useRegex) {
-						java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> list = new java.util.ArrayList<org.apache.poi.xssf.usermodel.XSSFSheet>();
-						org.apache.poi.xssf.usermodel.XSSFSheet sheet = (org.apache.poi.xssf.usermodel.XSSFSheet) workbook
-								.getSheetAt(index);
-						if (sheet != null) {
-							list.add(sheet);
+						/**
+						 * [tDBInput_1 begin ] stop
+						 */
+
+						/**
+						 * [tDBInput_1 main ] start
+						 */
+
+						currentComponent = "tDBInput_1";
+
+						cLabel = "\"TB_TYPE_CLIENT\"";
+
+						tos_count_tDBInput_1++;
+
+						/**
+						 * [tDBInput_1 main ] stop
+						 */
+
+						/**
+						 * [tDBInput_1 process_data_begin ] start
+						 */
+
+						currentComponent = "tDBInput_1";
+
+						cLabel = "\"TB_TYPE_CLIENT\"";
+
+						/**
+						 * [tDBInput_1 process_data_begin ] stop
+						 */
+
+						/**
+						 * [tLogRow_3 main ] start
+						 */
+
+						currentComponent = "tLogRow_3";
+
+						if (runStat.update(execStat, enableLogStash, iterateId, 1, 1
+
+								, "row3", "tDBInput_1", "\"TB_TYPE_CLIENT\"", "tPostgresqlInput", "tLogRow_3",
+								"tLogRow_3", "tLogRow"
+
+						)) {
+							talendJobLogProcess(globalMap);
 						}
-						return list;
-					}
 
-				}
-				RegexUtil_tFileInputExcel_1 regexUtil_tFileInputExcel_1 = new RegexUtil_tFileInputExcel_1();
-
-				Object source_tFileInputExcel_1 = "C:/Users/omar-/Downloads/Produits.xlsx";
-				org.apache.poi.xssf.usermodel.XSSFWorkbook workbook_tFileInputExcel_1 = null;
-
-				if (source_tFileInputExcel_1 instanceof String) {
-					workbook_tFileInputExcel_1 = (org.apache.poi.xssf.usermodel.XSSFWorkbook) org.apache.poi.ss.usermodel.WorkbookFactory
-							.create(new java.io.File((String) source_tFileInputExcel_1), password_tFileInputExcel_1,
-									true);
-				} else if (source_tFileInputExcel_1 instanceof java.io.InputStream) {
-					workbook_tFileInputExcel_1 = (org.apache.poi.xssf.usermodel.XSSFWorkbook) org.apache.poi.ss.usermodel.WorkbookFactory
-							.create((java.io.InputStream) source_tFileInputExcel_1, password_tFileInputExcel_1);
-				} else {
-					workbook_tFileInputExcel_1 = null;
-					throw new java.lang.Exception("The data source should be specified as Inputstream or File Path!");
-				}
-				try {
-
-					java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> sheetList_tFileInputExcel_1 = new java.util.ArrayList<org.apache.poi.xssf.usermodel.XSSFSheet>();
-					sheetList_tFileInputExcel_1.addAll(
-							regexUtil_tFileInputExcel_1.getSheets(workbook_tFileInputExcel_1, "Produit", false));
-					if (sheetList_tFileInputExcel_1.size() <= 0) {
-						throw new RuntimeException("Special sheets not exist!");
-					}
-
-					java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> sheetList_FilterNull_tFileInputExcel_1 = new java.util.ArrayList<org.apache.poi.xssf.usermodel.XSSFSheet>();
-					for (org.apache.poi.xssf.usermodel.XSSFSheet sheet_FilterNull_tFileInputExcel_1 : sheetList_tFileInputExcel_1) {
-						if (sheet_FilterNull_tFileInputExcel_1 != null
-								&& sheetList_FilterNull_tFileInputExcel_1.iterator() != null
-								&& sheet_FilterNull_tFileInputExcel_1.iterator().hasNext()) {
-							sheetList_FilterNull_tFileInputExcel_1.add(sheet_FilterNull_tFileInputExcel_1);
+						if (log.isTraceEnabled()) {
+							log.trace("row3 - " + (row3 == null ? "" : row3.toLogString()));
 						}
-					}
-					sheetList_tFileInputExcel_1 = sheetList_FilterNull_tFileInputExcel_1;
-					int nb_line_tFileInputExcel_1 = 0;
-					if (sheetList_tFileInputExcel_1.size() > 0) {
-
-						int begin_line_tFileInputExcel_1 = 1;
-
-						int footer_input_tFileInputExcel_1 = 0;
-
-						int end_line_tFileInputExcel_1 = 0;
-						for (org.apache.poi.xssf.usermodel.XSSFSheet sheet_tFileInputExcel_1 : sheetList_tFileInputExcel_1) {
-							end_line_tFileInputExcel_1 += (sheet_tFileInputExcel_1.getLastRowNum() + 1);
-						}
-						end_line_tFileInputExcel_1 -= footer_input_tFileInputExcel_1;
-						int limit_tFileInputExcel_1 = -1;
-						int start_column_tFileInputExcel_1 = 1 - 1;
-						int end_column_tFileInputExcel_1 = -1;
-
-						org.apache.poi.xssf.usermodel.XSSFRow row_tFileInputExcel_1 = null;
-						org.apache.poi.xssf.usermodel.XSSFSheet sheet_tFileInputExcel_1 = sheetList_tFileInputExcel_1
-								.get(0);
-						int rowCount_tFileInputExcel_1 = 0;
-						int sheetIndex_tFileInputExcel_1 = 0;
-						int currentRows_tFileInputExcel_1 = (sheetList_tFileInputExcel_1.get(0).getLastRowNum() + 1);
-
-						// for the number format
-						java.text.DecimalFormat df_tFileInputExcel_1 = new java.text.DecimalFormat(
-								"#.####################################");
-						char decimalChar_tFileInputExcel_1 = df_tFileInputExcel_1.getDecimalFormatSymbols()
-								.getDecimalSeparator();
-						log.debug("tFileInputExcel_1 - Retrieving records from the datasource.");
-
-						for (int i_tFileInputExcel_1 = begin_line_tFileInputExcel_1; i_tFileInputExcel_1 < end_line_tFileInputExcel_1; i_tFileInputExcel_1++) {
-
-							int emptyColumnCount_tFileInputExcel_1 = 0;
-
-							if (limit_tFileInputExcel_1 != -1 && nb_line_tFileInputExcel_1 >= limit_tFileInputExcel_1) {
-								break;
-							}
-
-							while (i_tFileInputExcel_1 >= rowCount_tFileInputExcel_1 + currentRows_tFileInputExcel_1) {
-								rowCount_tFileInputExcel_1 += currentRows_tFileInputExcel_1;
-								sheet_tFileInputExcel_1 = sheetList_tFileInputExcel_1
-										.get(++sheetIndex_tFileInputExcel_1);
-								currentRows_tFileInputExcel_1 = (sheet_tFileInputExcel_1.getLastRowNum() + 1);
-							}
-							globalMap.put("tFileInputExcel_1_CURRENT_SHEET", sheet_tFileInputExcel_1.getSheetName());
-							if (rowCount_tFileInputExcel_1 <= i_tFileInputExcel_1) {
-								row_tFileInputExcel_1 = sheet_tFileInputExcel_1
-										.getRow(i_tFileInputExcel_1 - rowCount_tFileInputExcel_1);
-							}
-							row2 = null;
-							int tempRowLength_tFileInputExcel_1 = 5;
-
-							int columnIndex_tFileInputExcel_1 = 0;
-
-							String[] temp_row_tFileInputExcel_1 = new String[tempRowLength_tFileInputExcel_1];
-							int excel_end_column_tFileInputExcel_1;
-							if (row_tFileInputExcel_1 == null) {
-								excel_end_column_tFileInputExcel_1 = 0;
-							} else {
-								excel_end_column_tFileInputExcel_1 = row_tFileInputExcel_1.getLastCellNum();
-							}
-							int actual_end_column_tFileInputExcel_1;
-							if (end_column_tFileInputExcel_1 == -1) {
-								actual_end_column_tFileInputExcel_1 = excel_end_column_tFileInputExcel_1;
-							} else {
-								actual_end_column_tFileInputExcel_1 = end_column_tFileInputExcel_1 > excel_end_column_tFileInputExcel_1
-										? excel_end_column_tFileInputExcel_1
-										: end_column_tFileInputExcel_1;
-							}
-							org.apache.poi.ss.formula.eval.NumberEval ne_tFileInputExcel_1 = null;
-							for (int i = 0; i < tempRowLength_tFileInputExcel_1; i++) {
-								if (i + start_column_tFileInputExcel_1 < actual_end_column_tFileInputExcel_1) {
-									org.apache.poi.ss.usermodel.Cell cell_tFileInputExcel_1 = row_tFileInputExcel_1
-											.getCell(i + start_column_tFileInputExcel_1);
-									if (cell_tFileInputExcel_1 != null) {
-										switch (cell_tFileInputExcel_1.getCellType()) {
-										case STRING:
-											temp_row_tFileInputExcel_1[i] = cell_tFileInputExcel_1
-													.getRichStringCellValue().getString();
-											break;
-										case NUMERIC:
-											if (org.apache.poi.ss.usermodel.DateUtil
-													.isCellDateFormatted(cell_tFileInputExcel_1)) {
-												temp_row_tFileInputExcel_1[i] = cell_tFileInputExcel_1
-														.getDateCellValue().toString();
-											} else {
-												temp_row_tFileInputExcel_1[i] = df_tFileInputExcel_1
-														.format(cell_tFileInputExcel_1.getNumericCellValue());
-											}
-											break;
-										case BOOLEAN:
-											temp_row_tFileInputExcel_1[i] = String
-													.valueOf(cell_tFileInputExcel_1.getBooleanCellValue());
-											break;
-										case FORMULA:
-											switch (cell_tFileInputExcel_1.getCachedFormulaResultType()) {
-											case STRING:
-												temp_row_tFileInputExcel_1[i] = cell_tFileInputExcel_1
-														.getRichStringCellValue().getString();
-												break;
-											case NUMERIC:
-												if (org.apache.poi.ss.usermodel.DateUtil
-														.isCellDateFormatted(cell_tFileInputExcel_1)) {
-													temp_row_tFileInputExcel_1[i] = cell_tFileInputExcel_1
-															.getDateCellValue().toString();
-												} else {
-													ne_tFileInputExcel_1 = new org.apache.poi.ss.formula.eval.NumberEval(
-															cell_tFileInputExcel_1.getNumericCellValue());
-													temp_row_tFileInputExcel_1[i] = ne_tFileInputExcel_1
-															.getStringValue();
-												}
-												break;
-											case BOOLEAN:
-												temp_row_tFileInputExcel_1[i] = String
-														.valueOf(cell_tFileInputExcel_1.getBooleanCellValue());
-												break;
-											default:
-												temp_row_tFileInputExcel_1[i] = "";
-											}
-											break;
-										default:
-											temp_row_tFileInputExcel_1[i] = "";
-										}
-									} else {
-										temp_row_tFileInputExcel_1[i] = "";
-									}
-
-								} else {
-									temp_row_tFileInputExcel_1[i] = "";
-								}
-							}
-							boolean whetherReject_tFileInputExcel_1 = false;
-							row2 = new row2Struct();
-							int curColNum_tFileInputExcel_1 = -1;
-							String curColName_tFileInputExcel_1 = "";
-							try {
-								columnIndex_tFileInputExcel_1 = 0;
-
-								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1].length() > 0) {
-									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
-											+ start_column_tFileInputExcel_1 + 1;
-									curColName_tFileInputExcel_1 = "CD_PRODUIT";
-
-									row2.CD_PRODUIT = temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1];
-								} else {
-									row2.CD_PRODUIT = null;
-									emptyColumnCount_tFileInputExcel_1++;
-								}
-								columnIndex_tFileInputExcel_1 = 1;
-
-								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1].length() > 0) {
-									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
-											+ start_column_tFileInputExcel_1 + 1;
-									curColName_tFileInputExcel_1 = "NOM_PRODUIT";
-
-									row2.NOM_PRODUIT = temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1];
-								} else {
-									row2.NOM_PRODUIT = null;
-									emptyColumnCount_tFileInputExcel_1++;
-								}
-								columnIndex_tFileInputExcel_1 = 2;
-
-								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1].length() > 0) {
-									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
-											+ start_column_tFileInputExcel_1 + 1;
-									curColName_tFileInputExcel_1 = "PRIX_ACHAT_PRODUIT";
-
-									row2.PRIX_ACHAT_PRODUIT = ParserUtils.parseTo_Float(ParserUtils.parseTo_Number(
-											temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1], null,
-											'.' == decimalChar_tFileInputExcel_1 ? null
-													: decimalChar_tFileInputExcel_1));
-								} else {
-									row2.PRIX_ACHAT_PRODUIT = null;
-									emptyColumnCount_tFileInputExcel_1++;
-								}
-								columnIndex_tFileInputExcel_1 = 3;
-
-								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1].length() > 0) {
-									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
-											+ start_column_tFileInputExcel_1 + 1;
-									curColName_tFileInputExcel_1 = "PRIX_VENTE_PRODUIT";
-
-									row2.PRIX_VENTE_PRODUIT = ParserUtils.parseTo_Float(ParserUtils.parseTo_Number(
-											temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1], null,
-											'.' == decimalChar_tFileInputExcel_1 ? null
-													: decimalChar_tFileInputExcel_1));
-								} else {
-									row2.PRIX_VENTE_PRODUIT = null;
-									emptyColumnCount_tFileInputExcel_1++;
-								}
-								columnIndex_tFileInputExcel_1 = 4;
-
-								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1].length() > 0) {
-									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
-											+ start_column_tFileInputExcel_1 + 1;
-									curColName_tFileInputExcel_1 = "CD_SOUS_CATEGORIE";
-
-									row2.CD_SOUS_CATEGORIE = temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1];
-								} else {
-									row2.CD_SOUS_CATEGORIE = null;
-									emptyColumnCount_tFileInputExcel_1++;
-								}
-
-								nb_line_tFileInputExcel_1++;
-
-								log.debug("tFileInputExcel_1 - Retrieving the record " + (nb_line_tFileInputExcel_1)
-										+ ".");
-
-							} catch (java.lang.Exception e) {
-								globalMap.put("tFileInputExcel_1_ERROR_MESSAGE", e.getMessage());
-								whetherReject_tFileInputExcel_1 = true;
-								log.error("tFileInputExcel_1 - " + e.getMessage());
-
-								System.err.println(e.getMessage());
-								row2 = null;
-							}
-
-							/**
-							 * [tFileInputExcel_1 begin ] stop
-							 */
-
-							/**
-							 * [tFileInputExcel_1 main ] start
-							 */
-
-							currentComponent = "tFileInputExcel_1";
-
-							cLabel = "produits";
-
-							tos_count_tFileInputExcel_1++;
-
-							/**
-							 * [tFileInputExcel_1 main ] stop
-							 */
-
-							/**
-							 * [tFileInputExcel_1 process_data_begin ] start
-							 */
-
-							currentComponent = "tFileInputExcel_1";
-
-							cLabel = "produits";
-
-							/**
-							 * [tFileInputExcel_1 process_data_begin ] stop
-							 */
-// Start of branch "row2"
-							if (row2 != null) {
-
-								/**
-								 * [tLogRow_2 main ] start
-								 */
-
-								currentComponent = "tLogRow_2";
-
-								if (runStat.update(execStat, enableLogStash, iterateId, 1, 1
-
-										, "row2", "tFileInputExcel_1", "produits", "tFileInputExcel", "tLogRow_2",
-										"tLogRow_2", "tLogRow"
-
-								)) {
-									talendJobLogProcess(globalMap);
-								}
-
-								if (log.isTraceEnabled()) {
-									log.trace("row2 - " + (row2 == null ? "" : row2.toLogString()));
-								}
 
 ///////////////////////		
 
-								strBuffer_tLogRow_2 = new StringBuilder();
+						strBuffer_tLogRow_3 = new StringBuilder();
 
-								if (row2.CD_PRODUIT != null) { //
+						if (row3.CD_TYPE_CLIENT != null) { //
 
-									strBuffer_tLogRow_2.append(String.valueOf(row2.CD_PRODUIT));
+							strBuffer_tLogRow_3.append(String.valueOf(row3.CD_TYPE_CLIENT));
 
-								} //
+						} //
 
-								strBuffer_tLogRow_2.append("|");
+						strBuffer_tLogRow_3.append("|");
 
-								if (row2.NOM_PRODUIT != null) { //
+						if (row3.LB_TYPE_CLIENT != null) { //
 
-									strBuffer_tLogRow_2.append(String.valueOf(row2.NOM_PRODUIT));
+							strBuffer_tLogRow_3.append(String.valueOf(row3.LB_TYPE_CLIENT));
 
-								} //
+						} //
 
-								strBuffer_tLogRow_2.append("|");
-
-								if (row2.PRIX_ACHAT_PRODUIT != null) { //
-
-									strBuffer_tLogRow_2.append(FormatterUtils.formatUnwithE(row2.PRIX_ACHAT_PRODUIT));
-
-								} //
-
-								strBuffer_tLogRow_2.append("|");
-
-								if (row2.PRIX_VENTE_PRODUIT != null) { //
-
-									strBuffer_tLogRow_2.append(FormatterUtils.formatUnwithE(row2.PRIX_VENTE_PRODUIT));
-
-								} //
-
-								strBuffer_tLogRow_2.append("|");
-
-								if (row2.CD_SOUS_CATEGORIE != null) { //
-
-									strBuffer_tLogRow_2.append(String.valueOf(row2.CD_SOUS_CATEGORIE));
-
-								} //
-
-								if (globalMap.get("tLogRow_CONSOLE") != null) {
-									consoleOut_tLogRow_2 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-								} else {
-									consoleOut_tLogRow_2 = new java.io.PrintStream(
-											new java.io.BufferedOutputStream(System.out));
-									globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_2);
-								}
-								log.info("tLogRow_2 - Content of row " + (nb_line_tLogRow_2 + 1) + ": "
-										+ strBuffer_tLogRow_2.toString());
-								consoleOut_tLogRow_2.println(strBuffer_tLogRow_2.toString());
-								consoleOut_tLogRow_2.flush();
-								nb_line_tLogRow_2++;
+						if (globalMap.get("tLogRow_CONSOLE") != null) {
+							consoleOut_tLogRow_3 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
+						} else {
+							consoleOut_tLogRow_3 = new java.io.PrintStream(
+									new java.io.BufferedOutputStream(System.out));
+							globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_3);
+						}
+						log.info("tLogRow_3 - Content of row " + (nb_line_tLogRow_3 + 1) + ": "
+								+ strBuffer_tLogRow_3.toString());
+						consoleOut_tLogRow_3.println(strBuffer_tLogRow_3.toString());
+						consoleOut_tLogRow_3.flush();
+						nb_line_tLogRow_3++;
 //////
 
 //////                    
 
 ///////////////////////    			
 
-								tos_count_tLogRow_2++;
+						tos_count_tLogRow_3++;
 
-								/**
-								 * [tLogRow_2 main ] stop
-								 */
+						/**
+						 * [tLogRow_3 main ] stop
+						 */
 
-								/**
-								 * [tLogRow_2 process_data_begin ] start
-								 */
+						/**
+						 * [tLogRow_3 process_data_begin ] start
+						 */
 
-								currentComponent = "tLogRow_2";
+						currentComponent = "tLogRow_3";
 
-								/**
-								 * [tLogRow_2 process_data_begin ] stop
-								 */
+						/**
+						 * [tLogRow_3 process_data_begin ] stop
+						 */
 
-								/**
-								 * [tLogRow_2 process_data_end ] start
-								 */
+						/**
+						 * [tLogRow_3 process_data_end ] start
+						 */
 
-								currentComponent = "tLogRow_2";
+						currentComponent = "tLogRow_3";
 
-								/**
-								 * [tLogRow_2 process_data_end ] stop
-								 */
+						/**
+						 * [tLogRow_3 process_data_end ] stop
+						 */
 
-							} // End of branch "row2"
+						/**
+						 * [tDBInput_1 process_data_end ] start
+						 */
 
-							/**
-							 * [tFileInputExcel_1 process_data_end ] start
-							 */
+						currentComponent = "tDBInput_1";
 
-							currentComponent = "tFileInputExcel_1";
+						cLabel = "\"TB_TYPE_CLIENT\"";
 
-							cLabel = "produits";
+						/**
+						 * [tDBInput_1 process_data_end ] stop
+						 */
 
-							/**
-							 * [tFileInputExcel_1 process_data_end ] stop
-							 */
+						/**
+						 * [tDBInput_1 end ] start
+						 */
 
-							/**
-							 * [tFileInputExcel_1 end ] start
-							 */
+						currentComponent = "tDBInput_1";
 
-							currentComponent = "tFileInputExcel_1";
-
-							cLabel = "produits";
-
-						}
-
-						log.debug("tFileInputExcel_1 - Retrieved records count: " + nb_line_tFileInputExcel_1 + " .");
+						cLabel = "\"TB_TYPE_CLIENT\"";
 
 					}
-
-					globalMap.put("tFileInputExcel_1_NB_LINE", nb_line_tFileInputExcel_1);
 				} finally {
+					if (rs_tDBInput_1 != null) {
+						rs_tDBInput_1.close();
+					}
+					if (stmt_tDBInput_1 != null) {
+						stmt_tDBInput_1.close();
+					}
+					if (conn_tDBInput_1 != null && !conn_tDBInput_1.isClosed()) {
 
-					if (!(source_tFileInputExcel_1 instanceof java.io.InputStream)) {
-						workbook_tFileInputExcel_1.getPackage().revert();
+						log.debug("tDBInput_1 - Closing the connection to the database.");
+
+						conn_tDBInput_1.close();
+
+						if ("com.mysql.cj.jdbc.Driver".equals((String) globalMap.get("driverClass_"))
+								&& routines.system.BundleUtils.inOSGi()) {
+							Class.forName("com.mysql.cj.jdbc.AbandonedConnectionCleanupThread")
+									.getMethod("checkedShutdown").invoke(null, (Object[]) null);
+						}
+
+						log.debug("tDBInput_1 - Connection to the database closed.");
+
 					}
 
 				}
+				globalMap.put("tDBInput_1_NB_LINE", nb_line_tDBInput_1);
+				log.debug("tDBInput_1 - Retrieved records count: " + nb_line_tDBInput_1 + " .");
 
 				if (log.isDebugEnabled())
-					log.debug("tFileInputExcel_1 - " + ("Done."));
+					log.debug("tDBInput_1 - " + ("Done."));
 
-				ok_Hash.put("tFileInputExcel_1", true);
-				end_Hash.put("tFileInputExcel_1", System.currentTimeMillis());
+				ok_Hash.put("tDBInput_1", true);
+				end_Hash.put("tDBInput_1", System.currentTimeMillis());
 
 				/**
-				 * [tFileInputExcel_1 end ] stop
+				 * [tDBInput_1 end ] stop
 				 */
 
 				/**
-				 * [tLogRow_2 end ] start
+				 * [tLogRow_3 end ] start
 				 */
 
-				currentComponent = "tLogRow_2";
+				currentComponent = "tLogRow_3";
 
 //////
 //////
-				globalMap.put("tLogRow_2_NB_LINE", nb_line_tLogRow_2);
+				globalMap.put("tLogRow_3_NB_LINE", nb_line_tLogRow_3);
 				if (log.isInfoEnabled())
-					log.info("tLogRow_2 - " + ("Printed row count: ") + (nb_line_tLogRow_2) + ("."));
+					log.info("tLogRow_3 - " + ("Printed row count: ") + (nb_line_tLogRow_3) + ("."));
 
 ///////////////////////    			
 
-				if (runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, "row2", 2, 0,
-						"tFileInputExcel_1", "produits", "tFileInputExcel", "tLogRow_2", "tLogRow_2", "tLogRow",
+				if (runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, "row3", 2, 0,
+						"tDBInput_1", "\"TB_TYPE_CLIENT\"", "tPostgresqlInput", "tLogRow_3", "tLogRow_3", "tLogRow",
 						"output")) {
 					talendJobLogProcess(globalMap);
 				}
 
 				if (log.isDebugEnabled())
-					log.debug("tLogRow_2 - " + ("Done."));
+					log.debug("tLogRow_3 - " + ("Done."));
 
-				ok_Hash.put("tLogRow_2", true);
-				end_Hash.put("tLogRow_2", System.currentTimeMillis());
+				ok_Hash.put("tLogRow_3", true);
+				end_Hash.put("tLogRow_3", System.currentTimeMillis());
 
 				/**
-				 * [tLogRow_2 end ] stop
+				 * [tLogRow_3 end ] stop
 				 */
 
 			} // end the resume
@@ -2884,25 +1150,25 @@ public class filemetadata implements TalendJob {
 			try {
 
 				/**
-				 * [tFileInputExcel_1 finally ] start
+				 * [tDBInput_1 finally ] start
 				 */
 
-				currentComponent = "tFileInputExcel_1";
+				currentComponent = "tDBInput_1";
 
-				cLabel = "produits";
+				cLabel = "\"TB_TYPE_CLIENT\"";
 
 				/**
-				 * [tFileInputExcel_1 finally ] stop
+				 * [tDBInput_1 finally ] stop
 				 */
 
 				/**
-				 * [tLogRow_2 finally ] start
+				 * [tLogRow_3 finally ] start
 				 */
 
-				currentComponent = "tLogRow_2";
+				currentComponent = "tLogRow_3";
 
 				/**
-				 * [tLogRow_2 finally ] stop
+				 * [tLogRow_3 finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -2913,7 +1179,7 @@ public class filemetadata implements TalendJob {
 			resourceMap = null;
 		}
 
-		globalMap.put("tFileInputExcel_1_SUBPROCESS_STATE", 1);
+		globalMap.put("tDBInput_1_SUBPROCESS_STATE", 1);
 	}
 
 	public void talendJobLogProcess(final java.util.Map<String, Object> globalMap) throws TalendException {
@@ -3274,7 +1540,7 @@ public class filemetadata implements TalendJob {
 		org.slf4j.MDC.put("_startTimestamp", java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
 				.format(java.time.format.DateTimeFormatter.ISO_INSTANT));
 		org.slf4j.MDC.put("_jobRepositoryId", "_Nl6G8DIDEe-82ZYHS27FTw");
-		org.slf4j.MDC.put("_compiledAtTimestamp", "2024-06-24T08:28:30.756991400Z");
+		org.slf4j.MDC.put("_compiledAtTimestamp", "2024-06-24T09:19:15.066912900Z");
 
 		java.lang.management.RuntimeMXBean mx = java.lang.management.ManagementFactory.getRuntimeMXBean();
 		String[] mxNameTable = mx.getName().split("@"); //$NON-NLS-1$
@@ -3480,26 +1746,14 @@ public class filemetadata implements TalendJob {
 
 		try {
 			errorCode = null;
-			tFileInputDelimited_1Process(globalMap);
+			tDBInput_1Process(globalMap);
 			if (!"failure".equals(status)) {
 				status = "end";
 			}
-		} catch (TalendException e_tFileInputDelimited_1) {
-			globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", -1);
+		} catch (TalendException e_tDBInput_1) {
+			globalMap.put("tDBInput_1_SUBPROCESS_STATE", -1);
 
-			e_tFileInputDelimited_1.printStackTrace();
-
-		}
-		try {
-			errorCode = null;
-			tFileInputExcel_1Process(globalMap);
-			if (!"failure".equals(status)) {
-				status = "end";
-			}
-		} catch (TalendException e_tFileInputExcel_1) {
-			globalMap.put("tFileInputExcel_1_SUBPROCESS_STATE", -1);
-
-			e_tFileInputExcel_1.printStackTrace();
+			e_tDBInput_1.printStackTrace();
 
 		}
 
@@ -3694,6 +1948,6 @@ public class filemetadata implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 121831 characters generated by Talend Cloud Data Management Platform on the
- * 24 juin 2024 à 9:28:30 AM CET
+ * 67799 characters generated by Talend Cloud Data Management Platform on the 24
+ * juin 2024 à 10:19:15 AM CET
  ************************************************************************************************/
