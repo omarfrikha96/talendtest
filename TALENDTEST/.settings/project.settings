@@ -263,7 +263,7 @@
         "show" : true,
         "field" : "CHECK",
         "name" : "IMPLICIT_TCONTEXTLOAD",
-        "value" : "false",
+        "value" : "true",
         "contextMode" : false
       }, {
         "show" : true,
@@ -281,19 +281,19 @@
         "show" : true,
         "field" : "RADIO",
         "name" : "FROM_DATABASE_FLAG_IMPLICIT_CONTEXT",
-        "value" : "false",
+        "value" : "true",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "FILE",
         "name" : "IMPLICIT_TCONTEXTLOAD_FILE",
-        "value" : "\"\"",
+        "value" : "\"C:/Users/omar-/Downloads/variables.txt\"",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "FIELDSEPARATOR",
-        "value" : "\"\"",
+        "value" : "\"|\"",
         "contextMode" : false
       }, {
         "show" : true,
@@ -317,13 +317,13 @@
         "show" : true,
         "field" : "CLOSED_LIST",
         "name" : "DB_TYPE_IMPLICIT_CONTEXT",
-        "value" : "",
+        "value" : "tPostgresqlInput",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "CLOSED_LIST",
         "name" : "DB_VERSION_IMPLICIT_CONTEXT",
-        "value" : "",
+        "value" : "V9_X",
         "contextMode" : false
       }, {
         "show" : true,
@@ -346,19 +346,19 @@
         "show" : true,
         "field" : "TEXT",
         "name" : "HOST_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "\"localhost\"",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "PORT_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "\"5433\"",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "DBNAME_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "\"formation_talend\"",
         "contextMode" : false
       }, {
         "show" : true,
@@ -376,19 +376,19 @@
         "show" : true,
         "field" : "TEXT",
         "name" : "SCHEMA_DB_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "\"CONFIG\"",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "USER_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "\"postgres\"",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "PASSWORD",
         "name" : "PASS_IMPLICIT_CONTEXT",
-        "value" : "enc:system.encryption.key.v1:axqjEVj8euAzVIZV7sxdIbwfKOae/LrSrUzZ8dBY",
+        "value" : "enc:system.encryption.key.v1:k70LrnnWcXof4O41biCxni2OePoIL6r/szw9zSG+L+l4pw==",
         "contextMode" : false
       }, {
         "show" : true,
@@ -400,7 +400,7 @@
         "show" : true,
         "field" : "DBTABLE",
         "name" : "DBTABLE_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "\"VARIABLES\"",
         "contextMode" : false
       }, {
         "show" : true,
@@ -412,19 +412,19 @@
         "show" : true,
         "field" : "CLOSED_LIST",
         "name" : "LOAD_NEW_VARIABLE",
-        "value" : "",
+        "value" : "Warning",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "CLOSED_LIST",
         "name" : "NOT_LOAD_OLD_VARIABLE",
-        "value" : "",
+        "value" : "Warning",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "CHECK",
         "name" : "PRINT_OPERATIONS",
-        "value" : "false",
+        "value" : "true",
         "contextMode" : false
       }, {
         "show" : true,
