@@ -1,0 +1,35 @@
+# Ignore Java compiled files
+*.class
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+
+# Ignore Talend specific directories and files
+.metadata/
+.settings/
+*.screenshot
+*.properties
+*.bak
+
+# Ignore local environment specific files
+*.swp
+*.backup
+
+# Ignore temporary and output directories
+temp/
+tmp/
+bin/
+target/
+
+# Ignore Talend libraries and routines
+lib/java/*
+lib/routines/*
+lib/userRoutines/*
+.lib/
+
+# Ignore Talend context and metadata temp files
+.context/.temp/
+.metadata/.plugins/
