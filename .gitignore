@@ -26,6 +26,7 @@ TALENDTEST/temp/
 TALENDTEST/temp/unstaging/
 TALENDTEST/temp/unstaging/their/
 TALENDTEST/temp/index/our/
+TALENDTEST/poms/
 
 # Ignore Talend project settings and temporary files
 bin/
