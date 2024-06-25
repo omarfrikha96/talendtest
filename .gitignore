@@ -1,35 +1,41 @@
-# Ignore Java compiled files
-*.class
-
-# Ignore log files
-*.log
-
 # Ignore temporary files
+*.log
 *.tmp
 
-# Ignore Talend specific directories and files
+# Ignore compiled job files
+*.class
+*.jar
+
+# Ignore Talend metadata and settings
 .metadata/
 .settings/
 *.screenshot
-*.properties
-*.bak
 
-# Ignore local environment specific files
+# Ignore local workspace settings
+*.launch
 *.swp
+*.bak
 *.backup
 
-# Ignore temporary and output directories
+# Ignore temporary directories
 temp/
 tmp/
+
+# Ignore specific Talend temporary directories and files
+TALENDTEST/temp/
+TALENDTEST/temp/unstaging/
+TALENDTEST/temp/unstaging/their/
+TALENDTEST/temp/index/our/
+
+# Ignore Talend project settings and temporary files
 bin/
 target/
-
-# Ignore Talend libraries and routines
 lib/java/*
 lib/routines/*
 lib/userRoutines/*
 .lib/
-
-# Ignore Talend context and metadata temp files
 .context/.temp/
 .metadata/.plugins/
+
+# Ignore all .properties files in specific directories
+TALENDTEST/process/*.properties
