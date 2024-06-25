@@ -108,6 +108,54 @@ public class filemetadata implements TalendJob {
 
 		public void synchronizeContext() {
 
+			if (additionalParam != null) {
+
+				this.setProperty("additionalParam", additionalParam.toString());
+
+			}
+
+			if (database != null) {
+
+				this.setProperty("database", database.toString());
+
+			}
+
+			if (password != null) {
+
+				this.setProperty("password", password.toString());
+
+			}
+
+			if (port != null) {
+
+				this.setProperty("port", port.toString());
+
+			}
+
+			if (schema != null) {
+
+				this.setProperty("schema", schema.toString());
+
+			}
+
+			if (serverName != null) {
+
+				this.setProperty("serverName", serverName.toString());
+
+			}
+
+			if (utilisateur != null) {
+
+				this.setProperty("utilisateur", utilisateur.toString());
+
+			}
+
+			if (folder != null) {
+
+				this.setProperty("folder", folder.toString());
+
+			}
+
 		}
 
 		// if the stored or passed value is "<TALEND_NULL>" string, it mean null
@@ -119,6 +167,53 @@ public class filemetadata implements TalendJob {
 			return origin_value;
 		}
 
+		public String additionalParam;
+
+		public String getAdditionalParam() {
+			return this.additionalParam;
+		}
+
+		public String database;
+
+		public String getDatabase() {
+			return this.database;
+		}
+
+		public java.lang.String password;
+
+		public java.lang.String getPassword() {
+			return this.password;
+		}
+
+		public String port;
+
+		public String getPort() {
+			return this.port;
+		}
+
+		public String schema;
+
+		public String getSchema() {
+			return this.schema;
+		}
+
+		public String serverName;
+
+		public String getServerName() {
+			return this.serverName;
+		}
+
+		public String utilisateur;
+
+		public String getUtilisateur() {
+			return this.utilisateur;
+		}
+
+		public String folder;
+
+		public String getFolder() {
+			return this.folder;
+		}
 	}
 
 	protected ContextProperties context = new ContextProperties(); // will be instanciated by MS.
@@ -716,7 +811,7 @@ public class filemetadata implements TalendJob {
 
 		mdcInfo.forEach(org.slf4j.MDC::put);
 		org.slf4j.MDC.put("_subJobName", "tDBInput_1");
-		org.slf4j.MDC.put("_subJobPid", "b47xXi_" + subJobPidCounter.getAndIncrement());
+		org.slf4j.MDC.put("_subJobPid", "Dy7B6r_" + subJobPidCounter.getAndIncrement());
 
 		String iterateId = "";
 
@@ -822,19 +917,21 @@ public class filemetadata implements TalendJob {
 							log4jParamters_tDBInput_1.append(" | ");
 							log4jParamters_tDBInput_1.append("DB_VERSION" + " = " + "V9_X");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("HOST" + " = " + "\"localhost\"");
+							log4jParamters_tDBInput_1.append("HOST" + " = " + "context.serverName");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("PORT" + " = " + "\"5432\"");
+							log4jParamters_tDBInput_1.append("PORT" + " = " + "context.port");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("DBNAME" + " = " + "\"formation_talend\"");
+							log4jParamters_tDBInput_1.append("DBNAME" + " = " + "context.database");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("SCHEMA_DB" + " = " + "\"I_OPE\"");
+							log4jParamters_tDBInput_1.append("SCHEMA_DB" + " = " + "context.schema");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("USER" + " = " + "\"postgres\"");
+							log4jParamters_tDBInput_1.append("USER" + " = " + "context.utilisateur");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("PASS" + " = " + String.valueOf(
-									"enc:routine.encryption.key.v1:/dLPAtlSnw9aS5rmxoWB8rut2COYSSMOYjcsMZY3hhw=")
-									.substring(0, 4) + "...");
+							log4jParamters_tDBInput_1.append("PASS" + " = "
+									+ String.valueOf(
+											routines.system.PasswordEncryptUtil.encryptPassword(context.password))
+											.substring(0, 4)
+									+ "...");
 							log4jParamters_tDBInput_1.append(" | ");
 							log4jParamters_tDBInput_1.append("QUERYSTORE" + " = " + "\"\"");
 							log4jParamters_tDBInput_1.append(" | ");
@@ -843,7 +940,7 @@ public class filemetadata implements TalendJob {
 							log4jParamters_tDBInput_1.append(" | ");
 							log4jParamters_tDBInput_1.append("SPECIFY_DATASOURCE_ALIAS" + " = " + "false");
 							log4jParamters_tDBInput_1.append(" | ");
-							log4jParamters_tDBInput_1.append("PROPERTIES" + " = " + "\"\"");
+							log4jParamters_tDBInput_1.append("PROPERTIES" + " = " + "context.additionalParam");
 							log4jParamters_tDBInput_1.append(" | ");
 							log4jParamters_tDBInput_1.append("USE_CURSOR" + " = " + "false");
 							log4jParamters_tDBInput_1.append(" | ");
@@ -870,14 +967,14 @@ public class filemetadata implements TalendJob {
 				java.sql.Connection conn_tDBInput_1 = null;
 				String driverClass_tDBInput_1 = "org.postgresql.Driver";
 				java.lang.Class jdbcclazz_tDBInput_1 = java.lang.Class.forName(driverClass_tDBInput_1);
-				String dbUser_tDBInput_1 = "postgres";
+				String dbUser_tDBInput_1 = context.utilisateur;
 
-				final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("enc:routine.encryption.key.v1:3vdT3bvqL4LBa37zlXV2/WQeGoMSNZINTqWI3A4ot8c=");
+				final String decryptedPassword_tDBInput_1 = context.password;
 
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 
-				String url_tDBInput_1 = "jdbc:postgresql://" + "localhost" + ":" + "5432" + "/" + "formation_talend";
+				String url_tDBInput_1 = "jdbc:postgresql://" + context.serverName + ":" + context.port + "/"
+						+ context.database + "?" + context.additionalParam;
 
 				log.debug("tDBInput_1 - Driver ClassName: " + driverClass_tDBInput_1 + ".");
 
@@ -1540,7 +1637,7 @@ public class filemetadata implements TalendJob {
 		org.slf4j.MDC.put("_startTimestamp", java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
 				.format(java.time.format.DateTimeFormatter.ISO_INSTANT));
 		org.slf4j.MDC.put("_jobRepositoryId", "_Nl6G8DIDEe-82ZYHS27FTw");
-		org.slf4j.MDC.put("_compiledAtTimestamp", "2024-06-24T09:19:15.066912900Z");
+		org.slf4j.MDC.put("_compiledAtTimestamp", "2024-06-24T10:08:33.696333800Z");
 
 		java.lang.management.RuntimeMXBean mx = java.lang.management.ManagementFactory.getRuntimeMXBean();
 		String[] mxNameTable = mx.getName().split("@"); //$NON-NLS-1$
@@ -1680,6 +1777,69 @@ public class filemetadata implements TalendJob {
 			}
 			class ContextProcessing {
 				private void processContext_0() {
+					context.setContextType("additionalParam", "id_String");
+					if (context.getStringValue("additionalParam") == null) {
+						context.additionalParam = null;
+					} else {
+						context.additionalParam = (String) context.getProperty("additionalParam");
+					}
+					context.setContextType("database", "id_String");
+					if (context.getStringValue("database") == null) {
+						context.database = null;
+					} else {
+						context.database = (String) context.getProperty("database");
+					}
+					context.setContextType("password", "id_Password");
+					if (context.getStringValue("password") == null) {
+						context.password = null;
+					} else {
+						String pwd_password_value = context.getProperty("password");
+						context.password = null;
+						if (pwd_password_value != null) {
+							if (context_param.containsKey("password")) {// no need to decrypt if it come from program
+																		// argument or parent job runtime
+								context.password = pwd_password_value;
+							} else if (!pwd_password_value.isEmpty()) {
+								try {
+									context.password = routines.system.PasswordEncryptUtil
+											.decryptPassword(pwd_password_value);
+									context.put("password", context.password);
+								} catch (java.lang.RuntimeException e) {
+									// do nothing
+								}
+							}
+						}
+					}
+					context.setContextType("port", "id_String");
+					if (context.getStringValue("port") == null) {
+						context.port = null;
+					} else {
+						context.port = (String) context.getProperty("port");
+					}
+					context.setContextType("schema", "id_String");
+					if (context.getStringValue("schema") == null) {
+						context.schema = null;
+					} else {
+						context.schema = (String) context.getProperty("schema");
+					}
+					context.setContextType("serverName", "id_String");
+					if (context.getStringValue("serverName") == null) {
+						context.serverName = null;
+					} else {
+						context.serverName = (String) context.getProperty("serverName");
+					}
+					context.setContextType("utilisateur", "id_String");
+					if (context.getStringValue("utilisateur") == null) {
+						context.utilisateur = null;
+					} else {
+						context.utilisateur = (String) context.getProperty("utilisateur");
+					}
+					context.setContextType("folder", "id_String");
+					if (context.getStringValue("folder") == null) {
+						context.folder = null;
+					} else {
+						context.folder = (String) context.getProperty("folder");
+					}
 				}
 
 				public void processAllContext() {
@@ -1695,6 +1855,30 @@ public class filemetadata implements TalendJob {
 
 		// get context value from parent directly
 		if (parentContextMap != null && !parentContextMap.isEmpty()) {
+			if (parentContextMap.containsKey("additionalParam")) {
+				context.additionalParam = (String) parentContextMap.get("additionalParam");
+			}
+			if (parentContextMap.containsKey("database")) {
+				context.database = (String) parentContextMap.get("database");
+			}
+			if (parentContextMap.containsKey("password")) {
+				context.password = (java.lang.String) parentContextMap.get("password");
+			}
+			if (parentContextMap.containsKey("port")) {
+				context.port = (String) parentContextMap.get("port");
+			}
+			if (parentContextMap.containsKey("schema")) {
+				context.schema = (String) parentContextMap.get("schema");
+			}
+			if (parentContextMap.containsKey("serverName")) {
+				context.serverName = (String) parentContextMap.get("serverName");
+			}
+			if (parentContextMap.containsKey("utilisateur")) {
+				context.utilisateur = (String) parentContextMap.get("utilisateur");
+			}
+			if (parentContextMap.containsKey("folder")) {
+				context.folder = (String) parentContextMap.get("folder");
+			}
 		}
 
 		// Resume: init the resumeUtil
@@ -1703,6 +1887,7 @@ public class filemetadata implements TalendJob {
 		resumeUtil.initCommonInfo(pid, rootPid, fatherPid, projectName, jobName, contextStr, jobVersion);
 
 		List<String> parametersToEncrypt = new java.util.ArrayList<String>();
+		parametersToEncrypt.add("password");
 		// Resume: jobStart
 		resumeUtil.addLog("JOB_STARTED", "JOB:" + jobName, parent_part_launcher, Thread.currentThread().getId() + "",
 				"", "", "", "", resumeUtil.convertToJsonText(context, ContextProperties.class, parametersToEncrypt));
@@ -1948,6 +2133,6 @@ public class filemetadata implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 67799 characters generated by Talend Cloud Data Management Platform on the 24
- * juin 2024 à 10:19:15 AM CET
+ * 74253 characters generated by Talend Cloud Data Management Platform on the 24
+ * juin 2024 à 11:08:33 AM CET
  ************************************************************************************************/
