@@ -436,13 +436,13 @@
         "show" : true,
         "field" : "CHECK",
         "name" : "DISABLE_WARNINGS",
-        "value" : "false",
+        "value" : "true",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "CHECK",
         "name" : "DISABLE_INFO",
-        "value" : "false",
+        "value" : "true",
         "contextMode" : false
       }, {
         "show" : true,
