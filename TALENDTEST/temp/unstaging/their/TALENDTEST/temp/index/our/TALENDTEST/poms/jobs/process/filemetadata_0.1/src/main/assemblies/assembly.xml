@@ -284,27 +284,14 @@
         <dependencySet>
             <outputDirectory>lib</outputDirectory>
             <includes>
-                <include>org.apache.logging.log4j:log4j-1.2-api:jar:2.17.1</include>
-                <include>org.apache.poi:poi-scratchpad:jar:5.2.2</include>
-                <include>com.zaxxer:SparseBitSet:jar:1.2</include>
+                <include>org.postgresql:postgresql:jar:42.6.1</include>
                 <include>org.apache.commons:commons-lang3:jar:3.10</include>
-                <include>org.talend.components.lib:job-audit:jar:1.5</include>
-                <include>org.apache.commons:commons-collections4:jar:4.4</include>
-                <include>org.apache.poi:poi:jar:4.1.2-20200903124306_modified_talend</include>
-                <include>net.minidev:accessors-smart:jar:2.4.11</include>
-                <include>commons-codec:commons-codec:jar:1.14</include>
-                <include>org.apache.commons:commons-math3:jar:3.6.1</include>
-                <include>org.talend.daikon:logging-event-layout:jar:1.16.1</include>
-                <include>org.ow2.asm:asm:jar:9.5</include>
-                <include>com.github.virtuald:curvesapi:jar:1.06</include>
-                <include>org.apache.xmlbeans:xmlbeans:jar:3.1.0</include>
-                <include>org.apache.commons:commons-compress:jar:1.26.0</include>
                 <include>org.talend.daikon:audit-log4j2:jar:1.16.1</include>
                 <include>net.minidev:json-smart:jar:2.4.11</include>
-                <include>commons-io:commons-io:jar:2.15.1</include>
-                <include>org.apache.poi:poi-ooxml:jar:4.1.2-20200903124306_modified_talend</include>
-                <include>org.talend.components:talendcsv:jar:1.1.0</include>
-                <include>org.apache.poi:poi-ooxml-schemas:jar:4.1.2-20200903124306_modified_talend</include>
+                <include>org.talend.components.lib:job-audit:jar:1.5</include>
+                <include>net.minidev:accessors-smart:jar:2.4.11</include>
+                <include>org.talend.daikon:logging-event-layout:jar:1.16.1</include>
+                <include>org.ow2.asm:asm:jar:9.5</include>
                 <include>org.talend.daikon:audit-common:jar:1.16.1</include>
             </includes>
             <useProjectArtifact>false</useProjectArtifact>
