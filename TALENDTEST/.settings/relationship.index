@@ -185,6 +185,17 @@
   } ]
 }, {
   "baseItem" : {
+    "id" : "__0S3oDO3Ee-BmNYjRaHPFA",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "myFunction",
+    "version" : "Latest",
+    "type" : "routine"
+  } ]
+}, {
+  "baseItem" : {
     "id" : "_fIYSwDMBEe-qn9F8COUanA",
     "version" : "0.1",
     "type" : "job"
