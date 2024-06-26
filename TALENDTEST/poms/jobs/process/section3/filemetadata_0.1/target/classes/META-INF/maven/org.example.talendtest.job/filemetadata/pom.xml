@@ -6,7 +6,7 @@
     <groupId>org.example.talendtest</groupId>
     <artifactId>code.Master</artifactId>
     <version>8.0.1</version>
-    <relativePath>../../../</relativePath>
+    <relativePath>../../../../</relativePath>
   </parent>
   <groupId>org.example.talendtest.job</groupId>
   <artifactId>filemetadata</artifactId>
@@ -16,14 +16,14 @@
     <talend.job.type>Standard</talend.job.type>
     <talend.job.date>${maven.build.timestamp}</talend.job.date>
     <talend.pigudf.groupid>org.example.talendtest.pigudf</talend.pigudf.groupid>
-    <talend.job.folder></talend.job.folder>
+    <talend.job.folder>section3/</talend.job.folder>
     <talend.job.context>Default</talend.job.context>
     <talend.job.path>talendtest</talend.job.path>
-    <talend.job.git.commit.id>bb9fbcefb15fd11315850fa001dd39d46123ad47</talend.job.git.commit.id>
+    <talend.job.git.commit.id>0d6eed39b1a8482e572891459b25826c0f9f73d5</talend.job.git.commit.id>
     <project.distribution-management.repository.id>${project.distributionManagement.repository.id}</project.distribution-management.repository.id>
     <talend.job.stat>true</talend.job.stat>
     <talend.job.git.author>fna00266@doolk.com</talend.job.git.author>
-    <talend.job.jvmargs>-Xms256M -Xmx1024M -Dfile.encoding=UTF-8 </talend.job.jvmargs>
+    <talend.job.jvmargs>-Xms256M -Xmx1024M </talend.job.jvmargs>
     <talend.job.id>_Nl6G8DIDEe-82ZYHS27FTw</talend.job.id>
     <talend.job.version>0.1</talend.job.version>
     <talend.job.framework></talend.job.framework>
@@ -41,7 +41,7 @@
     <talend.product.version>8.0.1.20240604_0759-patch</talend.product.version>
     <talend.project.name>TALENDTEST</talend.project.name>
     <current.test.resources.dir>${basedir}/src/test/resources</current.test.resources.dir>
-    <talend.job.git.commit.date>1719221101000</talend.job.git.commit.date>
+    <talend.job.git.commit.date>1719308788000</talend.job.git.commit.date>
     <project.distribution-management.repository.url>${project.distributionManagement.repository.url}</project.distribution-management.repository.url>
     <current.bundle.resources.dir>${basedir}/src/main/bundle-resources</current.bundle.resources.dir>
     <talend.job.name>filemetadata</talend.job.name>
@@ -421,6 +421,9 @@
     </profile>
     <profile>
       <id>include-running-log4j</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
       <properties>
         <log4j.running.dir>${current.resources.dir}/</log4j.running.dir>
       </properties>
