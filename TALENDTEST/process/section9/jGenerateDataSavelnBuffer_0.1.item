@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><talendfile:ProcessType xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmlns:xmi="http://www.omg.org/XMI" defaultContext="Default" jobType="Standard" xmi:version="2.0">
-  <context confirmationNeeded="false" hide="false" name="Default"/>
+  <context confirmationNeeded="false" hide="false" name="Default">
+    <contextParameter comment="" internalId="_hVtCYDUkEe-HJ4XCX7lQRw" name="nbRowGenerate" prompt="nbRowGenerate?" promptNeeded="true" repositoryContextId="built-in" type="id_Integer" value="1"/>
+  </context>
   <parameters>
     <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" show="false" value="Info"/>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" show="false" value="0"/>
@@ -100,10 +102,10 @@
   </parameters>
   <node componentName="tRowGenerator" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="360" posY="200">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRowGenerator_1"/>
-    <elementParameter field="TEXT" name="NB_ROWS" show="false" value="21000000"/>
+    <elementParameter field="TEXT" name="NB_ROWS" show="false" value="context.nbRowGenerate"/>
     <elementParameter field="TABLE" name="VALUES" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="id"/>
-      <elementValue elementRef="ARRAY" value="Numeric.sequence(&quot;s1&quot; ,1 ,1 )"/>
+      <elementValue elementRef="ARRAY" value="Numeric.sequence(&quot;s1&quot;,1,1)"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="nom"/>
       <elementValue elementRef="ARRAY" value="TalendDataGenerator.getLastName()"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="prenom"/>
@@ -113,7 +115,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tRowGenerator_1">
       <column comment="" defaultValue="" key="false" length="-1" name="id" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true">
-        <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;sequence&quot;,&quot;PARAMETERS&quot;:[{&quot;PARAMETER_NAME&quot;:&quot;sequence identifier&quot;,&quot;PARAMETER_VALUE&quot;:&quot;\&quot;s1\&quot; &quot;},{&quot;PARAMETER_NAME&quot;:&quot;start value&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1 &quot;},{&quot;PARAMETER_NAME&quot;:&quot;step&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1 &quot;}],&quot;PARAMETER_CLASS_NAME&quot;:&quot;Numeric&quot;}"/>
+        <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;sequence&quot;,&quot;PARAMETERS&quot;:[{&quot;PARAMETER_NAME&quot;:&quot;sequence identifier&quot;,&quot;PARAMETER_VALUE&quot;:&quot;\&quot;s1\&quot;&quot;},{&quot;PARAMETER_NAME&quot;:&quot;start value&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1&quot;},{&quot;PARAMETER_NAME&quot;:&quot;step&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1&quot;}],&quot;PARAMETER_CLASS_NAME&quot;:&quot;Numeric&quot;}"/>
       </column>
       <column comment="" defaultValue="" key="false" length="-1" name="nom" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true">
         <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;getLastName&quot;,&quot;PARAMETERS&quot;:[],&quot;PARAMETER_CLASS_NAME&quot;:&quot;TalendDataGenerator&quot;}"/>
@@ -123,27 +125,13 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tSortRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="680" posY="200">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_1"/>
-    <elementParameter field="TABLE" name="CRITERIA">
-      <elementValue elementRef="COLNAME" value="id"/>
-      <elementValue elementRef="SORT" value="num"/>
-      <elementValue elementRef="ORDER" value="asc"/>
-      <elementValue elementRef="COLNAME" value="nom"/>
-      <elementValue elementRef="SORT" value="alpha"/>
-      <elementValue elementRef="ORDER" value="asc"/>
-      <elementValue elementRef="COLNAME" value="prenom"/>
-      <elementValue elementRef="SORT" value="alpha"/>
-      <elementValue elementRef="ORDER" value="asc"/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="EXTERNAL" value="false"/>
-    <elementParameter field="DIRECTORY" name="TEMPFILE" show="false" value="&quot;C:/Users/omar-/Desktop/Talend-Studio-20240527_1700-V8.0.1/workspace/temp&quot;"/>
-    <elementParameter field="CHECK" name="CREATEDIR" show="false" value="true"/>
-    <elementParameter field="TEXT" name="EXTERNAL_SORT_BUFFERSIZE" show="false" value="1000000"/>
+  <node componentName="tBufferOutput" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="680" posY="200">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tBufferOutput_1"/>
+    <elementParameter field="CHECK" name="USE_BASE64" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tSortRow_1">
+    <metadata connector="FLOW" name="tBufferOutput_1">
       <column comment="" defaultValue="" key="false" length="-1" name="id" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true">
-        <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;sequence&quot;,&quot;PARAMETERS&quot;:[{&quot;PARAMETER_NAME&quot;:&quot;sequence identifier&quot;,&quot;PARAMETER_VALUE&quot;:&quot;\&quot;s1\&quot; &quot;},{&quot;PARAMETER_NAME&quot;:&quot;start value&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1 &quot;},{&quot;PARAMETER_NAME&quot;:&quot;step&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1 &quot;}],&quot;PARAMETER_CLASS_NAME&quot;:&quot;Numeric&quot;}"/>
+        <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;sequence&quot;,&quot;PARAMETERS&quot;:[{&quot;PARAMETER_NAME&quot;:&quot;sequence identifier&quot;,&quot;PARAMETER_VALUE&quot;:&quot;\&quot;s1\&quot;&quot;},{&quot;PARAMETER_NAME&quot;:&quot;start value&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1&quot;},{&quot;PARAMETER_NAME&quot;:&quot;step&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1&quot;}],&quot;PARAMETER_CLASS_NAME&quot;:&quot;Numeric&quot;}"/>
       </column>
       <column comment="" defaultValue="" key="false" length="-1" name="nom" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true">
         <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;getLastName&quot;,&quot;PARAMETERS&quot;:[],&quot;PARAMETER_CLASS_NAME&quot;:&quot;TalendDataGenerator&quot;}"/>
@@ -153,64 +141,22 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="920" posY="200">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
-    <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
-    <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
-    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
-    <elementParameter field="RADIO" name="PRINT_UNIQUE" show="false" value="true"/>
-    <elementParameter field="RADIO" name="PRINT_LABEL" show="false" value="false"/>
-    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" show="false" value="false"/>
-    <elementParameter field="TEXT" name="FIELDSEPARATOR" show="false" value="&quot;|&quot;"/>
-    <elementParameter field="CHECK" name="PRINT_HEADER" show="false" value="false"/>
-    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" show="false" value="false"/>
-    <elementParameter field="CHECK" name="PRINT_COLNAMES" show="false" value="false"/>
-    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" show="false" value="false"/>
-    <elementParameter field="TABLE" name="LENGTHS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="id"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="nom"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="prenom"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
-    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tLogRow_1">
-      <column comment="" defaultValue="" key="false" length="-1" name="id" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true">
-        <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;sequence&quot;,&quot;PARAMETERS&quot;:[{&quot;PARAMETER_NAME&quot;:&quot;sequence identifier&quot;,&quot;PARAMETER_VALUE&quot;:&quot;\&quot;s1\&quot; &quot;},{&quot;PARAMETER_NAME&quot;:&quot;start value&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1 &quot;},{&quot;PARAMETER_NAME&quot;:&quot;step&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1 &quot;}],&quot;PARAMETER_CLASS_NAME&quot;:&quot;Numeric&quot;}"/>
-      </column>
-      <column comment="" defaultValue="" key="false" length="-1" name="nom" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true">
-        <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;getLastName&quot;,&quot;PARAMETERS&quot;:[],&quot;PARAMETER_CLASS_NAME&quot;:&quot;TalendDataGenerator&quot;}"/>
-      </column>
-      <column comment="" defaultValue="" key="false" length="-1" name="prenom" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true">
-        <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;getFirstName&quot;,&quot;PARAMETERS&quot;:[],&quot;PARAMETER_CLASS_NAME&quot;:&quot;TalendDataGenerator&quot;}"/>
-      </column>
-    </metadata>
-  </node>
-  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tRowGenerator_1" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_1" target="tSortRow_1">
+  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tRowGenerator_1" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_1" target="tBufferOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
   </connection>
-  <connection connectorName="FLOW" label="row2" lineStyle="0" metaname="tSortRow_1" offsetLabelX="0" offsetLabelY="0" source="tSortRow_1" target="tLogRow_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row2"/>
-  </connection>
   <subjob>
-    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRowGenerator_1"/>
-    <elementParameter field="TEXT" name="SUBJOB_TITLE" value="Parametres avencés et changé xmx pour augmenté la memoire"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="0;0;0"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="0;0;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_7edfa159-043a-43d8-87c6-d1c9586edd09"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>O161ie+qXLqlBxrEw0lkwiy9+cBx5GMDKhNkmv0mkVP+b8V/tCA6/NxVUB49vsC5V4dc5v3HUAPW&#13;
-igltJxpKTQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_125ebb77-0688-4cc5-875c-79adfb7b8fd0"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>oTt58bCuuW2slmlLcUOg9Z4J1O2aCcbIdmAwo9Sn/m9EU9hkKDHuUsF8v11btyGhML/9+2WGSrr5&#13;
-4HRRQAIhJA==</DigestValue></Reference></SignedInfo><SignatureValue>h6Q2Yq5CjglCH/3Z7f+E0TdaFVnNPTwM5e6hdiJRh2yodsU+kz8HpOA8fQIyzsQgA6BCrNtULKiy&#13;
-b6psWtHPYmr/EDa2n0QCgO/Py0yiYKF0lvH+aSkEyZOyb42ITGEcLG2pChaLgLyDT4Euak/f37A/&#13;
-4zcnLCqneoiHN9veJZO617T0QgXH6IskI6P/A5COpV1DPXmVncZavUCXnd9e8GVLwsYG49e56YZh&#13;
-5wIqe2E+uh+xqsJ/Dv/5qnSmNCSHkKGaYZgC7Tygxz9SFlqg5ekj2IK1pYMV6f3XPyJnP3Xz3/1M&#13;
-2nZwB3nCLerd3+OgljTRO40v5/P//SV5DmRqoA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_33b99085-afb2-457b-828a-daa2214eb50c"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>bsIMcvmtqnurYnERHYiUiZA5axQeEuhKG1K56gB+33ihMDPuE9FCo90C0r54nPWTnishEWF/rhBQ&#13;
+pUKZVB0L6g==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9dc81d49-e5a8-4f31-adee-9835dd3d7b21"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>NSRcaNeZZAwW1/wHuxW51A4n6ZjSP4rThD/q01P+LgTU700lxlcT63OlH8QAlDNEWj5Wng4B/nWf&#13;
+ChSOhAGIlA==</DigestValue></Reference></SignedInfo><SignatureValue>mF5lLm2lmq9u96B2N0HuYfLnv1We/wghFRXHBaKF24BVBhDHfWW+lOC3Rbyo4KrWzkrVWbyb5KMi&#13;
+3c44DaJePVDzEx+eEdkCAiMphgUefkEVyyLpsD4P7ZqQl0Vh9daXvMYf4s4WolxB838PVAGaMUNo&#13;
+6D2BOXEXoOh3GJ/ZvxWkWRjZLBkpH5JCGq528PtyycW7UWRzv6JhFfWB/CqeLqcNq+vHyznHMYmK&#13;
+wGtsWfsULoSu/v7m/Pp1d+55dIZZFZOegjXu57zOmBUjsCq5XIafW0S5Jjulyzk3ARE7QPKUv23T&#13;
+b3d/y6e6JV2+4aVyJHjXSAad9H+znvt6DhTnqw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
 DAYDVQQIEwVQYXJpczEOMAwGA1UEBxMFUGFyaXMxFDASBgNVBAoTC1RhbGVuZCBJbmMuMQwwCgYD&#13;
 VQQLDANSJkQxFjAUBgNVBAMMDVRhbGVuZCBSJkQgQ0ExIjAgBgkqhkiG9w0BCQEWE3NlY3VyaXR5&#13;
 QHRhbGVuZC5jb20wHhcNMTkwNjAzMDgxODIwWhcNMjkwNjAzMDAwMDAwWjB7MSgwJgYDVQQDEx9U&#13;
@@ -232,4 +178,4 @@ hakvpzhOyLo91h8YAQrEZJdNuKA8IYmBrFZQZDCz0uywKSyFfzPyJhvxylCLG/iDPPfE0VWcrMJ/&#13
 WQJly/2XPg/NBCTF3pSKS0kCiA7PeaI3cWkMYYA3PMwYDvzqs1opBRglG7ikj0bQxSm3lcjMuuvW&#13;
 gBRksFKjP3K/nztsjSoYITOM9jR29ReIL3v0E8RbAFwA2RGq6Dxd0ixfbucMesy5Gnr8tfYy6rW+&#13;
 qSQqd3ah4+PSzBNVwIB4ytpdrG3SlhCI2i2Th8ek8Sjsaquh9qPAerWNd2+84HWOOGj1Xe1qc6vg&#13;
-qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_125ebb77-0688-4cc5-875c-79adfb7b8fd0" Target="#_7edfa159-043a-43d8-87c6-d1c9586edd09"><Timestamp>2024-06-28 07:49:09</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9dc81d49-e5a8-4f31-adee-9835dd3d7b21" Target="#_33b99085-afb2-457b-828a-daa2214eb50c"><Timestamp>2024-06-28 08:00:44</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
