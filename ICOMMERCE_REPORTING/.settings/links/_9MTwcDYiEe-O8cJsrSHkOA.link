@@ -1,0 +1,49 @@
+{
+  "itemId" : "_9MTwcDYiEe-O8cJsrSHkOA",
+  "contextList" : [ {
+    "contextName" : "Default",
+    "repoId" : "_FMpB8DVQEe-1spii3oxomw",
+    "parameterList" : [ {
+      "id" : "_FM6uxzVQEe-1spii3oxomw",
+      "name" : "additionalParam"
+    }, {
+      "id" : "_FM6uxDVQEe-1spii3oxomw",
+      "name" : "schema_ods"
+    } ]
+  }, {
+    "contextName" : "Default",
+    "repoId" : "_LK4iADVQEe-1spii3oxomw",
+    "parameterList" : [ {
+      "id" : "_FM6uwzVQEe-1spii3oxomw",
+      "name" : "database"
+    }, {
+      "id" : "_FM6uxjVQEe-1spii3oxomw",
+      "name" : "password"
+    }, {
+      "id" : "_FM6uwjVQEe-1spii3oxomw",
+      "name" : "port"
+    }, {
+      "id" : "_FM6uxDVQEe-1spii3oxomw",
+      "name" : "schema_params"
+    }, {
+      "id" : "_FM6uwTVQEe-1spii3oxomw",
+      "name" : "serverName"
+    }, {
+      "id" : "_FM6uxTVQEe-1spii3oxomw",
+      "name" : "utilisateur"
+    } ]
+  }, {
+    "contextName" : "Default",
+    "repoId" : "_1s0BcDVQEe-1spii3oxomw",
+    "parameterList" : [ {
+      "id" : "_1tCq8zVQEe-1spii3oxomw",
+      "name" : "encodage"
+    }, {
+      "id" : "_1tCq8jVQEe-1spii3oxomw",
+      "name" : "fileSeparator"
+    }, {
+      "id" : "_1tCq8TVQEe-1spii3oxomw",
+      "name" : "projectFolder"
+    } ]
+  } ]
+}
