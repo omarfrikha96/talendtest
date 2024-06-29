@@ -263,7 +263,7 @@
         "show" : true,
         "field" : "CHECK",
         "name" : "IMPLICIT_TCONTEXTLOAD",
-        "value" : "false",
+        "value" : "true",
         "contextMode" : false
       }, {
         "show" : true,
@@ -281,7 +281,7 @@
         "show" : true,
         "field" : "RADIO",
         "name" : "FROM_DATABASE_FLAG_IMPLICIT_CONTEXT",
-        "value" : "false",
+        "value" : "true",
         "contextMode" : false
       }, {
         "show" : true,
@@ -317,19 +317,19 @@
         "show" : true,
         "field" : "CLOSED_LIST",
         "name" : "DB_TYPE_IMPLICIT_CONTEXT",
-        "value" : "",
+        "value" : "tPostgresqlInput",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "CLOSED_LIST",
         "name" : "DB_VERSION_IMPLICIT_CONTEXT",
-        "value" : "",
+        "value" : "V9_X",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "URL_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "\"jdbc:postgresql://:5432/?\"",
         "contextMode" : false
       }, {
         "show" : true,
@@ -340,55 +340,55 @@
         "show" : true,
         "field" : "TEXT",
         "name" : "DRIVER_CLASS_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "\"org.postgresql.Driver\"",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "HOST_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "context.serverName",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "PORT_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "context.port",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "DBNAME_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "context.database",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "context.database",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "PROPERTIES_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "context.additionalParam",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "SCHEMA_DB_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "context.schema_params",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TEXT",
         "name" : "USER_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "context.utilisateur",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "PASSWORD",
         "name" : "PASS_IMPLICIT_CONTEXT",
-        "value" : "enc:system.encryption.key.v1:uDMibgroLDMge7iJo8zTgNzgMMXXBEn5oL+9OwRQ",
+        "value" : "enc:system.encryption.key.v1:gvAbLC5Fodwy0ds14FBz8PuHONu+7UrxEJS+eNwKQLCA9XgDIruQ9V3xy+Y=",
         "contextMode" : false
       }, {
         "show" : true,
@@ -400,7 +400,7 @@
         "show" : true,
         "field" : "DBTABLE",
         "name" : "DBTABLE_IMPLICIT_CONTEXT",
-        "value" : "\"\"",
+        "value" : "\"CONTEXTE\"",
         "contextMode" : false
       }, {
         "show" : true,
@@ -412,13 +412,13 @@
         "show" : true,
         "field" : "CLOSED_LIST",
         "name" : "LOAD_NEW_VARIABLE",
-        "value" : "",
+        "value" : "Info",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "CLOSED_LIST",
         "name" : "NOT_LOAD_OLD_VARIABLE",
-        "value" : "",
+        "value" : "Warning",
         "contextMode" : false
       }, {
         "show" : true,
@@ -442,7 +442,7 @@
         "show" : true,
         "field" : "CHECK",
         "name" : "DISABLE_INFO",
-        "value" : "false",
+        "value" : "true",
         "contextMode" : false
       }, {
         "show" : true,
@@ -454,13 +454,13 @@
         "show" : true,
         "field" : "TECHNICAL",
         "name" : "PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE",
-        "value" : "BUILT_IN",
+        "value" : "REPOSITORY",
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "TECHNICAL",
         "name" : "PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE",
-        "value" : "",
+        "value" : "_Xa6TwDVREe-1spii3oxomw",
         "contextMode" : false
       } ]
     }
