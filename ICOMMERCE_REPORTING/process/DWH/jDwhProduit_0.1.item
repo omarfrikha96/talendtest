@@ -334,7 +334,7 @@
       </column>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables name="Produits" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row1.CD_PRODUIT " name="CD_PRODUIT" type="id_String"/>
@@ -613,7 +613,7 @@
       </column>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables name="insertProduit" rejectInnerJoin="true" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="Produits.CD_PRODUIT " name="CD_PRODUIT" type="id_String"/>
@@ -779,7 +779,7 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="600" posY="280">
+  <node componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="640" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_1"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_y5YhIDa8Ee-bo6Uz3avMeA"/>
@@ -902,8 +902,8 @@
       <column comment="" key="false" length="100" name="LB_CATEGORIE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
-      <column comment="" key="false" length="-1" name="DT_INSERTION" nullable="true" originalLength="-1" pattern="&quot;dd-MM-yyyy HH:mm:ss&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BL_LIGNE_ACTIVE" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="DT_INSERTION" nullable="true" originalLength="-1" pattern="&quot;dd-MM-yyyy HH:mm:ss&quot;" precision="-1" sourceType="TIMESTAMP" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BL_LIGNE_ACTIVE" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="INT4" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="100" name="LB_JOB_NAME" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -933,8 +933,8 @@
       <column comment="" key="false" length="100" name="LB_CATEGORIE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
-      <column comment="" key="false" length="-1" name="DT_INSERTION" nullable="true" originalLength="-1" pattern="&quot;dd-MM-yyyy HH:mm:ss&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BL_LIGNE_ACTIVE" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="DT_INSERTION" nullable="true" originalLength="-1" pattern="&quot;dd-MM-yyyy HH:mm:ss&quot;" precision="-1" sourceType="TIMESTAMP" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BL_LIGNE_ACTIVE" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="INT4" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="100" name="LB_JOB_NAME" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -942,7 +942,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="600" posY="400">
+  <node componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="640" posY="400">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_2"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_y5YhIDa8Ee-bo6Uz3avMeA"/>
@@ -1025,7 +1025,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="600" posY="480">
+  <node componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="640" posY="480">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_3"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_y5YhIDa8Ee-bo6Uz3avMeA"/>
@@ -1312,13 +1312,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="0;0;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_9ac8db59-6875-4f81-9b22-40483a433e45"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>6bcYofz96YEOe3gPl2j1FdyqqxESelbwrbbjigGddWHBjqs8aPCgQ40+Ogo/YN0V096OASXEnDO+&#13;
-1IYwzJK8PQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_fc74a6ef-08a5-4349-afa1-8fc19b428268"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>RDRRk5HcodWGwztXC+Tv3wrbsg2yIulTLeEY3rwRETv9rQB0L7Xz3uK5wRocjptt59i6oRb7pFpc&#13;
-cbf+311w3g==</DigestValue></Reference></SignedInfo><SignatureValue>A+6/tOCg0FGtWrjLwCa3aIBzA8pdNTbdG+XUBsFhwLytvRrVBSJfcv+mDCA1lJr4PHPXGApoK/ZM&#13;
-NUgr1WZfFf3nOizccq0bdEDyG5ZU+7gNgsRpRm68+xM7IiaSzg/+PskvkSl4a6hgVotBkqzYrw0o&#13;
-L+oRNeHBw8OAhvSyJV5eHaosJhJ/aFTRZjOP4+qccHRVcLmY87aMvOPQcaHIUCdc99E8bdgp1Q5E&#13;
-3q1/WBTFcLNtLB444QGlUkHn+Rk3XcxN+/5r0krBrOUZEq8awcONE5Cr5rCrMB9+Tc76UZpA0pgb&#13;
-2IwmWxdQFaOnWA7qroS5wLRKA6jWzESlKe3lsQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_31aeb1a3-43e4-4f2c-b378-28ae7d0e74bd"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>beZu4KzJpUQ/8RwwSJb4jbRCSPCFZcOsW/VauHco8B0gcNUpclyrDu9E1urxE6dr9dQpUoRipPQ+&#13;
+Wwr6Y2jKlw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_de310df7-f639-4bc1-a70c-5c2d79edb6bc"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>vlPwFCAPUUxAeuk3RephQGlyi0hCIjgWvq3ysJQPQeY6Gx+mVpCxXRSjaEoEp9eEWabiODQSOGad&#13;
++LbfHoWB9w==</DigestValue></Reference></SignedInfo><SignatureValue>bxGVI7ASm0s8HL/7o70W61CNuvH5ZsPyyNoBAT/h2ug7mCHEacuZ64/PbeQfxEiK9K5GEWVIQuy8&#13;
+ptfCrabid6D+6x7PnF7kGWw0e/0Cr9YyiU+nrdJ/f4kYHFKm9fcp9jGXbqTkYNQC8M4vS6aqa7Vc&#13;
+gSCnXxPeHK9+5ICHo1X3yYxRz01uYbFoydhALm16PsnWxAUZu9o5X1XZ1V8woyC0LAIVcKcOEqdo&#13;
+q7TJzRmxR+exKSf/BLTgQcbEwO7qsE2En9wAr/T9oRCdK9Al9IVxaSXMtB4x3SU/lVSlPcG21L0G&#13;
+hVPWjDylmhPK+tKDeH1T2Paw+xJYw0aUCUubDw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
 DAYDVQQIEwVQYXJpczEOMAwGA1UEBxMFUGFyaXMxFDASBgNVBAoTC1RhbGVuZCBJbmMuMQwwCgYD&#13;
 VQQLDANSJkQxFjAUBgNVBAMMDVRhbGVuZCBSJkQgQ0ExIjAgBgkqhkiG9w0BCQEWE3NlY3VyaXR5&#13;
 QHRhbGVuZC5jb20wHhcNMTkwNjAzMDgxODIwWhcNMjkwNjAzMDAwMDAwWjB7MSgwJgYDVQQDEx9U&#13;
@@ -1340,4 +1340,4 @@ hakvpzhOyLo91h8YAQrEZJdNuKA8IYmBrFZQZDCz0uywKSyFfzPyJhvxylCLG/iDPPfE0VWcrMJ/&#13
 WQJly/2XPg/NBCTF3pSKS0kCiA7PeaI3cWkMYYA3PMwYDvzqs1opBRglG7ikj0bQxSm3lcjMuuvW&#13;
 gBRksFKjP3K/nztsjSoYITOM9jR29ReIL3v0E8RbAFwA2RGq6Dxd0ixfbucMesy5Gnr8tfYy6rW+&#13;
 qSQqd3ah4+PSzBNVwIB4ytpdrG3SlhCI2i2Th8ek8Sjsaquh9qPAerWNd2+84HWOOGj1Xe1qc6vg&#13;
-qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_fc74a6ef-08a5-4349-afa1-8fc19b428268" Target="#_9ac8db59-6875-4f81-9b22-40483a433e45"><Timestamp>2024-06-30 11:03:50</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_de310df7-f639-4bc1-a70c-5c2d79edb6bc" Target="#_31aeb1a3-43e4-4f2c-b378-28ae7d0e74bd"><Timestamp>2024-06-30 11:07:01</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>

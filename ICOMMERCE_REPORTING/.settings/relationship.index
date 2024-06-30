@@ -329,6 +329,37 @@
   } ]
 }, {
   "baseItem" : {
+    "id" : "_YFJM0JQ0Ee2wjpPjTxRLng",
+    "version" : "0.2",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_LK4iADVQEe-1spii3oxomw",
+    "version" : "Latest",
+    "type" : "context"
+  }, {
+    "id" : "_kIjKEDa8Ee-bo6Uz3avMeA",
+    "version" : "Latest",
+    "type" : "context"
+  }, {
+    "id" : "built-in",
+    "version" : "Latest",
+    "type" : "context"
+  }, {
+    "id" : "_Xa6TwDVREe-1spii3oxomw",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_y5YhIDa8Ee-bo6Uz3avMeA",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "customCode",
+    "version" : "Latest",
+    "type" : "routine"
+  } ]
+}, {
+  "baseItem" : {
     "id" : "_eLhvcDZjEe-FbaJNUwDGJw",
     "version" : "0.1",
     "type" : "job"
@@ -418,6 +449,53 @@
     "type" : "schema"
   }, {
     "id" : "__SN1cDVQEe-1spii3oxomw - ODS_SOUS_CATEGORIE",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
+    "id" : "_wKqEgDbREe-bo6Uz3avMeA",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_FMpB8DVQEe-1spii3oxomw",
+    "version" : "Latest",
+    "type" : "context"
+  }, {
+    "id" : "_LK4iADVQEe-1spii3oxomw",
+    "version" : "Latest",
+    "type" : "context"
+  }, {
+    "id" : "_kIjKEDa8Ee-bo6Uz3avMeA",
+    "version" : "Latest",
+    "type" : "context"
+  }, {
+    "id" : "_Xa6TwDVREe-1spii3oxomw",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "__SN1cDVQEe-1spii3oxomw",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_y5YhIDa8Ee-bo6Uz3avMeA",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "customCode",
+    "version" : "Latest",
+    "type" : "routine"
+  }, {
+    "id" : "_y5YhIDa8Ee-bo6Uz3avMeA - DIM_CALENDRIER",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_y5YhIDa8Ee-bo6Uz3avMeA - DIM_CLIENT",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_y5YhIDa8Ee-bo6Uz3avMeA - DIM_PRODUIT",
     "version" : "Latest",
     "type" : "schema"
   } ]

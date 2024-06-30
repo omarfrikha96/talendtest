@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><talendfile:ProcessType xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmlns:TalendMapper="http://www.talend.org/mapper" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" defaultContext="Default" jobType="Standard" xmi:version="2.0">
+  <context confirmationNeeded="false" hide="false" name="Default">
+    <contextParameter comment="" internalId="_rcz6MJQ2Ee2wjpPjTxRLng" name="dtDebCalendrier" prompt="dtDebCalendrier?" promptNeeded="true" repositoryContextId="built-in" type="id_Date" value="2020-01-01 00:00:00"/>
+    <contextParameter comment="" internalId="_rcz6MZQ2Ee2wjpPjTxRLng" name="dtFinCalendrier" prompt="dtFinCalendrier?" promptNeeded="true" repositoryContextId="built-in" type="id_Date" value="2025-12-31 00:00:00"/>
+    <contextParameter comment="" internalId="_rcz6NZQ2Ee2wjpPjTxRLng" name="nbJoursCalendrier" prompt="nbJoursCalendrier?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="0"/>
+    <contextParameter comment="" internalId="_aKIzoDbREe-bo6Uz3avMeA" name="additionalParam" prompt="additionalParam?" promptNeeded="false" repositoryContextId="_kIjKEDa8Ee-bo6Uz3avMeA" type="id_String" value=""/>
+    <contextParameter comment="" internalId="_aKIzoTbREe-bo6Uz3avMeA" name="database" prompt="database?" promptNeeded="false" repositoryContextId="_kIjKEDa8Ee-bo6Uz3avMeA" type="id_String" value="COM_INGESTION_DB"/>
+    <contextParameter comment="" internalId="_aKIzojbREe-bo6Uz3avMeA" name="password" prompt="password?" promptNeeded="false" repositoryContextId="_kIjKEDa8Ee-bo6Uz3avMeA" type="id_Password" value="enc:system.encryption.key.v1:G7xF5K841Ayss5IAsgny5BGozBoD3SN2hQJ2QwdE6c8="/>
+    <contextParameter comment="" internalId="_aKIzozbREe-bo6Uz3avMeA" name="port" prompt="port?" promptNeeded="false" repositoryContextId="_kIjKEDa8Ee-bo6Uz3avMeA" type="id_String" value="5433"/>
+    <contextParameter comment="" internalId="_aKIzpDbREe-bo6Uz3avMeA" name="schema_dwh" prompt="schema_dwh?" promptNeeded="false" repositoryContextId="_kIjKEDa8Ee-bo6Uz3avMeA" type="id_String" value="VENTE_DWH"/>
+    <contextParameter comment="" internalId="_aKIzpTbREe-bo6Uz3avMeA" name="serverName" prompt="serverName?" promptNeeded="false" repositoryContextId="_kIjKEDa8Ee-bo6Uz3avMeA" type="id_String" value="localhost"/>
+    <contextParameter comment="" internalId="_aKIzpjbREe-bo6Uz3avMeA" name="utilisateur" prompt="utilisateur?" promptNeeded="false" repositoryContextId="_kIjKEDa8Ee-bo6Uz3avMeA" type="id_String" value="postgres"/>
+    <contextParameter comment="" internalId="_aKJasDbREe-bo6Uz3avMeA" name="schema_params" prompt="schema_params?" promptNeeded="false" repositoryContextId="_LK4iADVQEe-1spii3oxomw" type="id_String" value="PARAMS_LOG"/>
+  </context>
+  <parameters>
+    <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" show="false" value="Info"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" show="false" value="0"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" show="false" value="0"/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_VERSION" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_KERBEROS" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_PRINCIPAL" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_USERNAME" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_GROUP" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_USE_KEYTAB" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_KT_PRINCIPAL" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_KEY_TAB" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_OO_KERBEROS" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_END_POINT" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_JOB_TRACKER_ENDPOINT" show="false" value=""/>
+    <elementParameter field="TEXT" name="OOZIE_END_POINT" show="false" value=""/>
+    <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" show="false" value="true"/>
+    <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" show="false" value="true"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="TEXT" name="PARALLELIZE_UNIT_SIZE" value="25000"/>
+    <elementParameter field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="true"/>
+    <elementParameter field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="true"/>
+    <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" show="false" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="OVERRIDE_ENCODING_FLAG" show="false" value="false"/>
+    <elementParameter field="ENCODING_TYPE" name="OVERRIDE_ENCODING_IN_EXTRA" show="false" value="ISO-8859-15"/>
+    <elementParameter field="TECHNICAL" name="OVERRIDE_ENCODING_IN_EXTRA:ENCODING_TYPE" show="false" value="ISO-8859-15"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE" show="false" value="_Xa6TwDVREe-1spii3oxomw"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value="tPostgresqlInput"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="V9_X"/>
+    <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" show="false" value="&quot;jdbc:postgresql://:5432/?&quot;"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" show="false" value="&quot;org.postgresql.Driver&quot;"/>
+    <elementParameter field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="context.serverName"/>
+    <elementParameter field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="context.port"/>
+    <elementParameter field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="context.database"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" show="false" value="context.database"/>
+    <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" show="false" value="context.additionalParam"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="context.schema_params"/>
+    <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="context.utilisateur"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:gvAbLC5Fodwy0ds14FBz8PuHONu+7UrxEJS+eNwKQLCA9XgDIruQ9V3xy+Y="/>
+    <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;CONTEXTE&quot;"/>
+    <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value="Info"/>
+    <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value="Warning"/>
+    <elementParameter field="CHECK" name="PRINT_OPERATIONS" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_ERROR" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="true"/>
+    <elementParameter field="CHECK" name="ON_STATCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_LOGCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" show="false" value="false"/>
+    <elementParameter field="CHECK" name="ON_FILES_FLAG" show="false" value="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" show="false" value="&quot;C:/Users/omar-/Desktop/Talend-Studio-20240527_1700-V8.0.1/workspace/.metadata&quot;"/>
+    <elementParameter field="TEXT" name="FILENAME_STATS" show="false" value="&quot;stats_file.txt&quot;"/>
+    <elementParameter field="TEXT" name="FILENAME_LOGS" show="false" value="&quot;logs_file.txt&quot;"/>
+    <elementParameter field="TEXT" name="FILENAME_METTER" show="false" value="&quot;meter_file.txt&quot;"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="ISO-8859-15"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" show="false" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ON_DATABASE_FLAG" show="false" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE" show="false" value="JDBCOutput"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" show="false" value="ORACLE_12"/>
+    <elementParameter field="TEXT" name="URL" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HOST" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PORT" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DATASOURCE" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PROPERTIES" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="USER" show="false" value="&quot;&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:WK+BfDTGlvB7fIGjEDnNJfyR4NtoXFQ7YsSf7+z0"/>
+    <elementParameter field="FILE" name="DBFILE" show="false" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_STATS" show="false" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_LOGS" show="false" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_METER" show="false" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="CATCH_RUNTIME_ERRORS" show="false" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_USER_ERRORS" show="false" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_USER_WARNING" show="false" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_REALTIME_STATS" show="false" value="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_HEADERID" show="false" value=""/>
+    <elementParameter field="CHECK" name="HEADER_ENABLED" show="false" value="false"/>
+    <elementParameter field="TEXT" name="HEADER_LIBRARY" show="false" value=""/>
+    <elementParameter field="TEXT" name="HEADER_CODE" show="false" value=""/>
+    <elementParameter field="TEXT" name="HEADER_IMPORT" show="false" value=""/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_FOOTERID" show="false" value=""/>
+    <elementParameter field="CHECK" name="FOOTER_ENABLED" show="false" value="false"/>
+    <elementParameter field="TEXT" name="FOOTER_LIBRARY" show="false" value=""/>
+    <elementParameter field="TEXT" name="FOOTER_CODE" show="false" value=""/>
+    <elementParameter field="TEXT" name="FOOTER_IMPORT" show="false" value=""/>
+    <routinesParameter id="_Hq0I4LoGEe2DUpUc1MrTtA" name="customCode"/>
+  </parameters>
+  <node componentName="tPrejob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tPrejob_1"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tRowGenerator" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="288">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRowGenerator_1"/>
+    <elementParameter field="TEXT" name="NB_ROWS" show="false" value="context.nbJoursCalendrier"/>
+    <elementParameter field="TABLE" name="VALUES" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="NUM_LIGNE"/>
+      <elementValue elementRef="ARRAY" value="Numeric.sequence(&quot;s1&quot; ,0 ,1 )"/>
+    </elementParameter>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="TEXT" name="LABEL" value="Numéro de jours&lt;br&gt;__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRowGenerator_1">
+      <column comment="" defaultValue="" key="false" length="-1" name="NUM_LIGNE" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true">
+        <additionalField key="FUNCTION_INFO" value="{&quot;NAME&quot;:&quot;sequence&quot;,&quot;PARAMETERS&quot;:[{&quot;PARAMETER_NAME&quot;:&quot;sequence identifier&quot;,&quot;PARAMETER_VALUE&quot;:&quot;\&quot;s1\&quot; &quot;},{&quot;PARAMETER_NAME&quot;:&quot;start value&quot;,&quot;PARAMETER_VALUE&quot;:&quot;0 &quot;},{&quot;PARAMETER_NAME&quot;:&quot;step&quot;,&quot;PARAMETER_VALUE&quot;:&quot;1 &quot;}],&quot;PARAMETER_CLASS_NAME&quot;:&quot;Numeric&quot;}"/>
+      </column>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="384" posY="288">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_YFJM0JQ0Ee2wjpPjTxRLng-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
+    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="Générer les dates&lt;br&gt;       __UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="detailDate">
+      <column comment="" key="false" length="-1" name="DT_JOUR" nullable="true" originalLength="-1" pattern="&quot;yyyy-MM-dd&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties/>
+      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
+      <outputTables name="detailDate" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="TalendDate.addDate(context.dtDebCalendrier, nombreDeLigne.NUM_LIGNE, &quot;dd&quot;) " name="DT_JOUR" nullable="true" type="id_Date"/>
+      </outputTables>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="nombreDeLigne" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="NUM_LIGNE" nullable="true" type="id_Integer"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="736" posY="288">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_2"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_YFJM0JQ0Ee2wjpPjTxRLng-tMap_2-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
+    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="Générer le calendrier&lt;br&gt;           __UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata comment="" connector="FLOW" label="DIM_CALENDRIER" name="detailCalendrier" type="TABLE">
+      <column comment="" key="true" length="10" name="ID_DIM_CALENDRIER" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="13" name="DT_JOUR" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_ANNEE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_SEMESTRE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_TRIMESTRE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_MOIS" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_JOUR_ANNEE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_JOUR_MOIS" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_JOUR_SEMAINE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_SEMAINE_ANNEE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="LB_MOIS" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="LB_JOUR" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_DERNIER_JOUR_MOIS" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_BISSEXTILE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_WEEK_END" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_JOUR_FERIE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="LB_JOUR_FERIE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+    </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties/>
+      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
+      <outputTables activateCondensedTool="true" name="detailCalendrier" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="Integer.parseInt(TalendDate.formatDate(&quot;yyyyMMdd&quot;, detailDate.DT_JOUR)) " name="ID_DIM_CALENDRIER" type="id_Integer"/>
+        <mapperTableEntries expression="detailDate.DT_JOUR " name="DT_JOUR" type="id_Date"/>
+        <mapperTableEntries expression="TalendDate.getPartOfDate(&quot;YEAR&quot;, detailDate.DT_JOUR) " name="NB_ANNEE" type="id_Integer"/>
+        <mapperTableEntries expression="TalendDate.getPartOfDate(&quot;MONTH&quot;, detailDate.DT_JOUR)&lt;6?1:2 " name="NB_SEMESTRE" type="id_Integer"/>
+        <mapperTableEntries expression="TalendDate.getPartOfDate(&quot;MONTH&quot;, detailDate.DT_JOUR)&lt;3?1:&#13;&#10;TalendDate.getPartOfDate(&quot;MONTH&quot;, detailDate.DT_JOUR)&lt;6?2:&#13;&#10;TalendDate.getPartOfDate(&quot;MONTH&quot;, detailDate.DT_JOUR)&lt;9?3:4 " name="NB_TRIMESTRE" type="id_Integer"/>
+        <mapperTableEntries expression="TalendDate.getPartOfDate(&quot;MONTH&quot;, detailDate.DT_JOUR)+1 " name="NB_MOIS" type="id_Integer"/>
+        <mapperTableEntries expression="TalendDate.getPartOfDate(&quot;DAY_OF_YEAR&quot;, detailDate.DT_JOUR) " name="NB_JOUR_ANNEE" type="id_Integer"/>
+        <mapperTableEntries expression="TalendDate.getPartOfDate(&quot;DAY_OF_MONTH&quot;, detailDate.DT_JOUR) " name="NB_JOUR_MOIS" type="id_Integer"/>
+        <mapperTableEntries expression="TalendDate.getPartOfDate(&quot;DAY_OF_WEEK&quot;, detailDate.DT_JOUR)-1==0?7: TalendDate.getPartOfDate(&quot;DAY_OF_WEEK&quot;, detailDate.DT_JOUR)-1 " name="NB_JOUR_SEMAINE" type="id_Integer"/>
+        <mapperTableEntries expression="TalendDate.getPartOfDate(&quot;WEEK_OF_YEAR&quot;, detailDate.DT_JOUR) " name="NB_SEMAINE_ANNEE" type="id_Integer"/>
+        <mapperTableEntries expression="TalendDate.formatDate(&quot;MMMM&quot;, detailDate.DT_JOUR).substring(0, 1).toUpperCase() + &#13;&#10;&#13;&#10;TalendDate.formatDate(&quot;MMMM&quot;, detailDate.DT_JOUR).substring(1, TalendDate.formatDate(&quot;MMMM&quot;, detailDate.DT_JOUR).length()) " name="LB_MOIS" type="id_String"/>
+        <mapperTableEntries expression="TalendDate.getPartOfDate(&quot;DAY_OF_WEEK&quot;, detailDate.DT_JOUR)==2?&quot;Lundi&quot;:&#13;&#10;TalendDate.getPartOfDate(&quot;DAY_OF_WEEK&quot;, detailDate.DT_JOUR)==3?&quot;Mardi&quot;:&#13;&#10;TalendDate.getPartOfDate(&quot;DAY_OF_WEEK&quot;, detailDate.DT_JOUR)==4?&quot;Mercredi&quot;:&#13;&#10;TalendDate.getPartOfDate(&quot;DAY_OF_WEEK&quot;, detailDate.DT_JOUR)==5?&quot;Jeudi&quot;:&#13;&#10;TalendDate.getPartOfDate(&quot;DAY_OF_WEEK&quot;, detailDate.DT_JOUR)==6?&quot;Vendredi&quot;:&#13;&#10;TalendDate.getPartOfDate(&quot;DAY_OF_WEEK&quot;, detailDate.DT_JOUR)==7?&quot;Samedi&quot;:&quot;Dimanche&quot; " name="LB_JOUR" type="id_String"/>
+        <mapperTableEntries expression="TalendDate.compareDate(TalendDate.getLastDayOfMonth(detailDate.DT_JOUR), detailDate.DT_JOUR,&quot;yyyy-MM-dd&quot;)==0?1:0 " name="BL_DERNIER_JOUR_MOIS" type="id_Integer"/>
+        <mapperTableEntries expression="((double)TalendDate.getPartOfDate(&quot;YEAR&quot;, detailDate.DT_JOUR)/4)==Math.floor(TalendDate.getPartOfDate(&quot;YEAR&quot;, detailDate.DT_JOUR)/4)?1:0 " name="BL_BISSEXTILE" type="id_Integer"/>
+        <mapperTableEntries expression="TalendDate.getPartOfDate(&quot;DAY_OF_WEEK&quot;, detailDate.DT_JOUR)==7&#13;&#10;|| TalendDate.getPartOfDate(&quot;DAY_OF_WEEK&quot;, detailDate.DT_JOUR)==1 ?1:0 " name="BL_WEEK_END" type="id_Integer"/>
+        <mapperTableEntries expression="joursFeries.DT_JOUR==null?0:1 " name="BL_JOUR_FERIE" type="id_Integer"/>
+        <mapperTableEntries expression="joursFeries.DT_JOUR==null?&quot;&quot;:joursFeries.LB_JOUR_FERIE " name="LB_JOUR_FERIE" nullable="true" type="id_String"/>
+      </outputTables>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="detailDate" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="DT_JOUR" nullable="true" type="id_Date"/>
+      </inputTables>
+      <inputTables activateCondensedTool="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="joursFeries" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="detailDate.DT_JOUR " name="DT_JOUR" nullable="true" type="id_Date"/>
+        <mapperTableEntries name="LB_JOUR_FERIE" nullable="true" type="id_String"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1120" posY="288">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_1"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_1"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" show="false" value="V9_X"/>
+    <elementParameter field="TEXT" name="HOST" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PORT" show="false" value="&quot;5432&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="TYPE" show="false" value="PostgreSQL"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="USER" show="false" value="&quot;&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:P+YSZ50hV2gYcFh2CqYKPy1eJKtVFyk7u8nIFoCr"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;DIM_CALENDRIER&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT_OR_UPDATE"/>
+    <elementParameter field="CHECK" name="USE_SPATIAL_OPTIONS" show="false" value="false"/>
+    <elementParameter field="CHECK" name="SPATIAL_INDEX" show="false" value="false"/>
+    <elementParameter field="CHECK" name="GEOMETRY_COLUMNS" show="false" value="false"/>
+    <elementParameter field="LABEL" name="NOTE" show="false" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" show="false" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" show="false" value="postgres_id"/>
+    <elementParameter field="CHECK" name="USE_ALTERNATE_SCHEMA" value="false"/>
+    <elementParameter field="TEXT" name="ALTERNATE_SCHEMA" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PROPERTIES" show="false" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="SAVE_POINT" show="false" value="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="TEXT" name="COMMIT_EVERY" show="false" value="10000"/>
+    <elementParameter field="TABLE" name="ADD_COLS"/>
+    <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
+    <elementParameter field="TABLE" name="FIELD_OPTIONS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="ID_DIM_CALENDRIER"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DT_JOUR"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NB_ANNEE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NB_SEMESTRE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NB_TRIMESTRE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NB_MOIS"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NB_JOUR_ANNEE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NB_JOUR_MOIS"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NB_JOUR_SEMAINE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NB_SEMAINE_ANNEE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LB_MOIS"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LB_JOUR"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BL_DERNIER_JOUR_MOIS"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BL_BISSEXTILE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BL_WEEK_END"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BL_JOUR_FERIE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LB_JOUR_FERIE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="ENABLE_DEBUG_MODE" value="false"/>
+    <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" value="false"/>
+    <elementParameter field="CHECK" name="CONVERT_COLUMN_TABLE_TO_LOWERCASE" value="false"/>
+    <elementParameter field="CHECK" name="USE_BATCH_SIZE" show="false" value="true"/>
+    <elementParameter field="TEXT" name="BATCH_SIZE" show="false" value="10000"/>
+    <elementParameter field="TEXT" name="LABEL" value="__TABLE__&lt;br&gt;&lt;b&gt;     __UNIQUE_NAME__&lt;/b&gt;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tDBOutput_1">
+      <column comment="" key="true" length="10" name="ID_DIM_CALENDRIER" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="13" name="DT_JOUR" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_ANNEE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_SEMESTRE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_TRIMESTRE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_MOIS" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_JOUR_ANNEE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_JOUR_MOIS" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_JOUR_SEMAINE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_SEMAINE_ANNEE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="LB_MOIS" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="LB_JOUR" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_DERNIER_JOUR_MOIS" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_BISSEXTILE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_WEEK_END" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_JOUR_FERIE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="LB_JOUR_FERIE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+    </metadata>
+    <metadata connector="REJECT" name="REJECT">
+      <column comment="" key="true" length="10" name="ID_DIM_CALENDRIER" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="13" name="DT_JOUR" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_ANNEE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_SEMESTRE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_TRIMESTRE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_MOIS" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_JOUR_ANNEE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_JOUR_MOIS" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_JOUR_SEMAINE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="NB_SEMAINE_ANNEE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="LB_MOIS" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="LB_JOUR" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_DERNIER_JOUR_MOIS" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_BISSEXTILE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_WEEK_END" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="BL_JOUR_FERIE" nullable="false" pattern="" precision="0" sourceType="INT4" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="LB_JOUR_FERIE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tFileInputExcel" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="736" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputExcel_1"/>
+    <elementParameter field="CHECK" name="VERSION_2007" value="true"/>
+    <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Users/omar-/Desktop/Talend/TDI_input/Section10/Mini Projet1 Partie2/joursFeries.xlsx&quot;"/>
+    <elementParameter field="PASSWORD" name="PASSWORD" value="enc:system.encryption.key.v1:SWlRdysFwqBqbM023vrslsr6qV5g4oh6aLSOLVlM"/>
+    <elementParameter field="CHECK" name="ALL_SHEETS" value="true"/>
+    <elementParameter field="TABLE" name="SHEETLIST" show="false"/>
+    <elementParameter field="TEXT" name="HEADER" value="1"/>
+    <elementParameter field="TEXT" name="FOOTER" value="0"/>
+    <elementParameter field="TEXT" name="LIMIT" value=""/>
+    <elementParameter field="CHECK" name="AFFECT_EACH_SHEET" value="false"/>
+    <elementParameter field="TEXT" name="FIRST_COLUMN" value="1"/>
+    <elementParameter field="TEXT" name="LAST_COLUMN" value=""/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" show="false" value="&quot;,&quot;"/>
+    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" show="false" value="&quot;.&quot;"/>
+    <elementParameter field="CHECK" name="TRIMALL" value="false"/>
+    <elementParameter field="TABLE" name="TRIMSELECT">
+      <elementValue elementRef="SCHEMA_COLUMN" value="DT_JOUR"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LB_JOUR_FERIE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="CONVERTDATETOSTRING" value="false"/>
+    <elementParameter field="TABLE" name="DATESELECT" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="DT_JOUR"/>
+      <elementValue elementRef="CONVERTDATE" value="false"/>
+      <elementValue elementRef="PATTERN" value="&quot;MM-dd-yyyy&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LB_JOUR_FERIE"/>
+      <elementValue elementRef="CONVERTDATE" value="false"/>
+      <elementValue elementRef="PATTERN" value="&quot;MM-dd-yyyy&quot;"/>
+    </elementParameter>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="READ_REAL_VALUE" show="false" value="false"/>
+    <elementParameter field="CHECK" name="STOPREAD_ON_EMPTYROW" value="false"/>
+    <elementParameter field="CHECK" name="NOVALIDATE_ON_CELL" show="false" value="false"/>
+    <elementParameter field="CHECK" name="SUPPRESS_WARN" show="false" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="GENERATION_MODE" value="USER_MODE"/>
+    <elementParameter field="CHECK" name="INCLUDE_PHONETICRUNS" show="false" value="true"/>
+    <elementParameter field="CHECK" name="CONFIGURE_INFLATION_RATIO" value="false"/>
+    <elementParameter field="TEXT" name="INFLATION_RATIO" show="false" value=""/>
+    <elementParameter field="TEXT" name="LABEL" value="joursFeries.xlsx&lt;br&gt;__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tFileInputExcel_1">
+      <column comment="" key="false" length="-1" name="DT_JOUR" nullable="true" originalLength="-1" pattern="&quot;yyyy-MM-dd&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LB_JOUR_FERIE" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REJECT" name="REJECT">
+      <column comment="" key="false" length="-1" name="DT_JOUR" nullable="true" originalLength="-1" pattern="&quot;yyyy-MM-dd&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LB_JOUR_FERIE" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="704" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tPostjob_1"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tPostgresqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="416" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBConnection_1"/>
+    <elementParameter field="TEXT" name="COMPONENT_NAME" show="false" value="tPostgresqlConnection"/>
+    <elementParameter field="TEXT" name="VERSION" show="false" value="0.102 (ALPHA)"/>
+    <elementParameter field="TEXT" name="FAMILY" show="false" value="Databases/DB Specifics/PostgreSQL|ELT/Connections"/>
+    <elementParameter field="CHECK" name="START" show="false" value="false"/>
+    <elementParameter field="CHECK" name="STARTABLE" show="false" value="true"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" show="false" value="true"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" show="false" value="true"/>
+    <elementParameter field="TEXT" name="HELP" show="false" value="org.talend.help.tPostgresqlConnection"/>
+    <elementParameter field="DIRECTORY" name="IREPORT_PATH" show="false" value=""/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" show="false" value="C:\Users\omar-\Desktop\Talend-Studio-20240527_1700-V8.0.1\configuration\lib\java"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_y5YhIDa8Ee-bo6Uz3avMeA"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="V9_X"/>
+    <elementParameter field="TEXT" name="HOST" value="context.serverName"/>
+    <elementParameter field="TEXT" name="TYPE" show="false" value="POSTGRESQL"/>
+    <elementParameter field="TEXT" name="PORT" value="context.port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.database"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="context.schema_dwh"/>
+    <elementParameter field="TEXT" name="USER" value="context.utilisateur"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:skKmydYZt982OgZVUq1H7qDlp6XLdJPotovw7q35qZGdGsB83/Q4Wibj+hE="/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="USE_SHARED_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="SHARED_CONNECTION_NAME" show="false" value=""/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.additionalParam"/>
+    <elementParameter field="CHECK" name="AUTO_COMMIT" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="   Connexion BDD&lt;br&gt;&lt;b&gt; __UNIQUE_NAME__&lt;/b&gt;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tChronometerStart" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tChronometerStart_1"/>
+    <elementParameter field="TEXT" name="CAPTION" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="LABEL" value="   Début d'exécution&lt;br&gt;&lt;b&gt;__UNIQUE_NAME__&lt;/b&gt;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tChronometerStop" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="864" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tChronometerStop_1"/>
+    <elementParameter field="RADIO" name="SINCE_BEGINNING" value="true"/>
+    <elementParameter field="RADIO" name="SINCE_STARTER" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="STARTER" show="false" value=""/>
+    <elementParameter field="CHECK" name="DISPLAY" value="false"/>
+    <elementParameter field="CHECK" name="DISPLAY_COMPONENT_NAME" show="false" value="true"/>
+    <elementParameter field="TEXT" name="CAPTION" show="false" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="DISPLAY_READABLE_DURATION" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="      Fin d'exécution&lt;br&gt;&lt;b&gt;__UNIQUE_NAME__&lt;/b&gt;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tPostgresqlCommit" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1024" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBCommit_1"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_1"/>
+    <elementParameter field="CHECK" name="CLOSE" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="     Commit&lt;br&gt;&lt;b&gt;__UNIQUE_NAME__&lt;/b&gt;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tDBCommit_1"/>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJava_3"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="context.nbJoursCalendrier = (int)TalendDate.diffDate(context.dtFinCalendrier, context.dtDebCalendrier, &quot;dd&quot;)+1;&#10;System.out.println(&quot;-----------------------------------------------------------------------------&quot;);   &#10;System.out.println(&quot;Début de la génération du calendrier : &quot; + &#10;TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;,new java.util.Date(((Long)globalMap.get(&quot;tChronometerStart_1_STARTTIME&quot;))))&#10;);&#10;System.out.println(&quot;Nombre de jours à générer            : &quot;+ context.nbJoursCalendrier);"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="LABEL" value="Logs Début&lt;br&gt;&lt;b&gt;    __UNIQUE_NAME__&lt;/b&gt;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_3"/>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1152" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJava_1"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="System.out.println(&quot;Fin de la génération du calendrier.  : &quot;+ &#10;TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;,new java.util.Date(((Long)globalMap.get(&quot;tChronometerStop_1_STOPTIME&quot;)))&#10;));&#10;&#10;System.out.println(&quot;Durée totale d'exécution             : &quot;+  &#10;customCode.getFormattedTime(((Long)globalMap.get(&quot;tChronometerStop_1_DURATION&quot;))) + &quot;&quot;);&#10;System.out.println(&quot;-----------------------------------------------------------------------------&quot;);"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="LABEL" value="Logs Fin&lt;br&gt;&lt;b&gt; __UNIQUE_NAME__&lt;/b&gt;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_1"/>
+  </node>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tChronometerStart_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk1"/>
+  </connection>
+  <connection connectorName="FLOW" label="nombreDeLigne" lineStyle="0" metaname="tRowGenerator_1" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_1" target="tMap_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="nombreDeLigne"/>
+  </connection>
+  <connection connectorName="FLOW" label="detailDate" lineStyle="0" metaname="detailDate" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMap_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="detailDate"/>
+  </connection>
+  <connection connectorName="FLOW" label="detailCalendrier" lineStyle="0" metaname="detailCalendrier" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tDBOutput_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="detailCalendrier"/>
+  </connection>
+  <connection connectorName="FLOW" label="joursFeries" lineStyle="8" metaname="tFileInputExcel_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputExcel_1" target="tMap_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="joursFeries"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPostjob_1" offsetLabelX="0" offsetLabelY="0" source="tPostjob_1" target="tChronometerStop_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk2"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tDBConnection_1" offsetLabelX="0" offsetLabelY="0" source="tDBConnection_1" target="tJava_3">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk7"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tChronometerStart_1" offsetLabelX="0" offsetLabelY="0" source="tChronometerStart_1" target="tDBConnection_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnSubjobOk1"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tChronometerStop_1" offsetLabelX="0" offsetLabelY="0" source="tChronometerStop_1" target="tDBCommit_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk6"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tDBCommit_1" offsetLabelX="0" offsetLabelY="0" source="tDBCommit_1" target="tJava_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk8"/>
+  </connection>
+  <subjob>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" show="false" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tPrejob_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="0;0;0"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRowGenerator_1"/>
+    <elementParameter field="TEXT" name="SUBJOB_TITLE" value="Génération du calendrier avec jours fériés et Insertion des données dans la table DIM_CALENDRIER."/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="183;215;238"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" show="false" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tPostjob_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="0;0;0"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBConnection_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="0;0;0"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tChronometerStart_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="0;0;0"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tChronometerStop_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="0;0;0"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBCommit_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="0;0;0"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJava_3"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="0;0;0"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJava_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="0;0;0"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_e87dc967-edd4-4ef0-a833-637bc201a6a2"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>xviF/oLGdG0JXXvcUu6TDuzgV3ajtz0J+m5CRx/srNhWt4DCxGVsGoWFlCW81VP7KYv+3+O/5GU/&#13;
+ykGs/3MtGw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_dcdf3d84-e8f3-4939-a642-a35b66d5a933"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>eTGDc6l2UGbPdVBmFam/CPXvebdMjTydai/CVv0FcSuN4LIbKURDpuINXbIeOFJ/dypojWhQnnqP&#13;
+KX/+2Un1DA==</DigestValue></Reference></SignedInfo><SignatureValue>NvFtfBrURb2+Nyal0w0rft8oyiOkdAQ6+9jZ/XKZg7usVM5eNb7lDvn6WpCKQkvbutp6XqjVMQ0V&#13;
+/EztRDQcQo8hnnYt1CZRc632x6ghkbUcrHyb/7YtC+YLiK8qfhxzPRmtzm8QXk5ikjK2eBOuiCyK&#13;
+L/kO543sp6C83G99q7PNoifvWe2UrzbAld9kmQJC5ccsD8t5qcjNP9cQd1PDm+4G8Zc3Yxb05NEn&#13;
+wOiwsRZ5pVUi8MCOZqD2YuuhwyzpTiUnEwssQ/YyL5k7L//KvIppsEC/R6A5iHwZr5qclYywzYPd&#13;
+gdrjnRFi+Kt6IEp2c4GX820B+7WUJnOf46LoKg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
+DAYDVQQIEwVQYXJpczEOMAwGA1UEBxMFUGFyaXMxFDASBgNVBAoTC1RhbGVuZCBJbmMuMQwwCgYD&#13;
+VQQLDANSJkQxFjAUBgNVBAMMDVRhbGVuZCBSJkQgQ0ExIjAgBgkqhkiG9w0BCQEWE3NlY3VyaXR5&#13;
+QHRhbGVuZC5jb20wHhcNMTkwNjAzMDgxODIwWhcNMjkwNjAzMDAwMDAwWjB7MSgwJgYDVQQDEx9U&#13;
+YWxlbmQgQ29kZSBTaWduaW5nIGNlcnRpZmljYXRlMQwwCgYDVQQLDANSJkQxFDASBgNVBAoTC1Rh&#13;
+bGVuZCBJbmMuMQ4wDAYDVQQHEwVQYXJpczEOMAwGA1UECBMFUGFyaXMxCzAJBgNVBAYTAkZSMIIB&#13;
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp5TMF8BmRt8dY51t9kIDdDkoOKVVytJN2gn2&#13;
+DhMGi8hzpUofNDykJDhe9SPqyJdGZ6o/h7laTA0/CivKyPT1OJQ9E2gMHKs8cTZM/cO2w0Atlqkl&#13;
+alIxepol0DNnUtmECVBqdnVsJesfmdoeptxgJAtxYbquFsTsrATNY2cscXpwmOca/Ewip48WQLFx&#13;
+e5s067jaIsAQGRIqpIup3bOtWBySrtImJ40lQCPeEcl96qzkv3utaVaNc3ukkhYkCDbMbK8NVd1B&#13;
+CVeeIBAe+n/SdpHH20o+6eIiZecsBGDLwlTYrFvuVqAa6xI7y8Vdz6irjPAVBEtG/iOc782aJ/lZ&#13;
+TwIDAQABo3UwczAMBgNVHRMBAf8EAjAAMA4GA1UdDwEB/wQEAwIHgDATBgNVHSUEDDAKBggrBgEF&#13;
+BQcDAzAdBgNVHQ4EFgQUGdfzQEbjQnANq28sfhEMTx+rsOcwHwYDVR0jBBgwFoAU530Lcvy1gZnG&#13;
+gCvZLOyCczK1qPcwDQYJKoZIhvcNAQELBQADggIBAEr22wnaQwZm2dhbUCqD+qZpTq2AF/tzxqAM&#13;
+eL/CiTjPbTblS4SNNwCKvTgMe9ucpUbenXmK7xE+DU9dN4om+t3VHbkOLQVyuLcd2WGsy7ZGwRvA&#13;
+f+TFwLbwjyTukOGm6Sd1qyZgvCPzBsKnft6vscvGy2yEpmFCeHJyBP8pvchg607zguRdNbkGYZXw&#13;
+G6jNipAbTtzdPTFKKr1bEf0sUGqMrlZIMPjflh2Vewu8ImNdX5IZdvBD6DdFVOC5wqV6u+W9ukE/&#13;
+mXZxDBYNl2AF7FTh04ucEVN3mHv7m2L0uFvUlhxchcagJhJsdQG+A0LVCemHbp6CSNQJx02KxqUG&#13;
+hakvpzhOyLo91h8YAQrEZJdNuKA8IYmBrFZQZDCz0uywKSyFfzPyJhvxylCLG/iDPPfE0VWcrMJ/&#13;
+WQJly/2XPg/NBCTF3pSKS0kCiA7PeaI3cWkMYYA3PMwYDvzqs1opBRglG7ikj0bQxSm3lcjMuuvW&#13;
+gBRksFKjP3K/nztsjSoYITOM9jR29ReIL3v0E8RbAFwA2RGq6Dxd0ixfbucMesy5Gnr8tfYy6rW+&#13;
+qSQqd3ah4+PSzBNVwIB4ytpdrG3SlhCI2i2Th8ek8Sjsaquh9qPAerWNd2+84HWOOGj1Xe1qc6vg&#13;
+qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_dcdf3d84-e8f3-4939-a642-a35b66d5a933" Target="#_e87dc967-edd4-4ef0-a833-637bc201a6a2"><Timestamp>2024-06-30 11:10:50</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
