@@ -473,7 +473,7 @@
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata comment="" label="ODS_REJET" name="insertReject" type="TABLE">
+    <metadata comment="" connector="FLOW" label="ODS_REJET" name="insertReject" type="TABLE">
       <column comment="" key="true" length="255" name="LB_CHEMIN_FICHIER" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -500,7 +500,7 @@
       </column>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables activateCondensedTool="true" id="__SN1cDVQEe-1spii3oxomw - ODS_REJET" name="insertReject" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="((String)globalMap.get(&quot;tFileList_1_CURRENT_FILEPATH&quot;))" name="LB_CHEMIN_FICHIER" type="id_String"/>
@@ -678,7 +678,7 @@
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata comment="" label="ODS_REJET" name="insertDuplicate" type="TABLE">
+    <metadata comment="" connector="FLOW" label="ODS_REJET" name="insertDuplicate" type="TABLE">
       <column comment="" key="true" length="255" name="LB_CHEMIN_FICHIER" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -705,7 +705,7 @@
       </column>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables activateCondensedTool="true" id="__SN1cDVQEe-1spii3oxomw - ODS_REJET" name="insertDuplicate" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="((String)globalMap.get(&quot;tFileList_1_CURRENT_FILEPATH&quot;)) " name="LB_CHEMIN_FICHIER" type="id_String"/>
@@ -956,8 +956,8 @@
         <mapperTableEntries name="REGION_CLIENT" nullable="true" type="id_String"/>
         <mapperTableEntries name="CD_TYPE_CLIENT" nullable="true" type="id_String"/>
       </inputTables>
-      <inputTables lookupMode="LOAD_ONCE" matchingMode="ALL_ROWS" name="row7" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="CD_TYPE_CLIENT" type="id_String"/>
+      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row7" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row3.CD_TYPE_CLIENT " name="CD_TYPE_CLIENT" operator="=" type="id_String"/>
         <mapperTableEntries name="LB_TYPE_CLIENT" type="id_String"/>
         <mapperTableEntries name="LB_NOM_FICHIER" type="id_String"/>
         <mapperTableEntries name="DT_INSERTION" type="id_Date"/>
@@ -980,7 +980,7 @@
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata comment="" label="ODS_CLIENT" name="insertTypeClient" type="TABLE">
+    <metadata comment="" connector="FLOW" label="ODS_CLIENT" name="insertTypeClient" type="TABLE">
       <column comment="" key="true" length="50" name="ID_CLIENT" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -1026,7 +1026,7 @@
         <additionalField key="Comment" value=""/>
       </column>
     </metadata>
-    <metadata comment="" label="ODS_CLIENT" name="insertNewValueTypeClient" type="TABLE">
+    <metadata comment="" connector="FLOW" label="ODS_CLIENT" name="insertNewValueTypeClient" type="TABLE">
       <column comment="" key="true" length="50" name="ID_CLIENT" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -1065,7 +1065,7 @@
       </column>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables activateCondensedTool="true" id="__SN1cDVQEe-1spii3oxomw - ODS_CLIENT" name="insertTypeClient" rejectInnerJoin="true" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="sousCategories.ID_CLIENT " name="ID_CLIENT" type="id_String"/>
@@ -1081,11 +1081,11 @@
         <mapperTableEntries expression="1" name="BL_LIGNE_ACTIVE" type="id_Integer"/>
         <mapperTableEntries expression="jobName" name="LB_JOB_NAME" type="id_String"/>
       </outputTables>
-      <outputTables activateCondensedTool="true" activateExpressionFilter="true" expressionFilter="!sousCategories.NOM_CLIENT.equals(row6.NOM_CLIENT) || &#13;&#10;!sousCategories.PREN_CLIENT.equals(row6.PREN_CLIENT)|| &#13;&#10;!sousCategories.CD_POSTAL_CLIENT.equals(row6.CD_POSTAL_CLIENT)|| &#13;&#10;!sousCategories.VILLE_CLIENT.equals(row6.VILLE_CLIENT)|| &#13;&#10;!sousCategories.PAYS_CLIENT.equals(row6.PAYS_CLIENT)|| &#13;&#10;!sousCategories.REGION_CLIENT.equals(row6.REGION_CLIENT)|| &#13;&#10;!sousCategories.CD_TYPE_CLIENT.equals(row6.CD_TYPE_CLIENT)" minimized="true" name="updateBICurrent" sizeState="INTERMEDIATE">
+      <outputTables activateCondensedTool="true" activateExpressionFilter="true" expressionFilter="!sousCategories.NOM_CLIENT.equals(row4.NOM_CLIENT) &#10;|| &#13;&#10;!sousCategories.PREN_CLIENT.equals(row4.PREN_CLIENT)&#10;|| &#13;&#10;!sousCategories.CD_POSTAL_CLIENT.equals(row4.CD_POSTAL_CLIENT)&#10;|| &#13;&#10;!sousCategories.VILLE_CLIENT.equals(row4.VILLE_CLIENT)&#10;|| &#13;&#10;!sousCategories.PAYS_CLIENT.equals(row4.PAYS_CLIENT)&#10;|| &#13;&#10;!sousCategories.REGION_CLIENT.equals(row4.REGION_CLIENT)&#10;|| &#13;&#10;!sousCategories.CD_TYPE_CLIENT.equals(row4.CD_TYPE_CLIENT)" name="updateBICurrent" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="sousCategories.ID_CLIENT " name="ID_CLIENT" type="id_String"/>
         <mapperTableEntries expression="0" name="BL_LIGNE_ACTIVE" type="id_Integer"/>
       </outputTables>
-      <outputTables activateCondensedTool="true" activateExpressionFilter="true" expressionFilter="!sousCategories.NOM_CLIENT.equals(row6.NOM_CLIENT) || &#10;!sousCategories.PREN_CLIENT.equals(row6.PREN_CLIENT)|| &#10;!sousCategories.CD_POSTAL_CLIENT.equals(row6.CD_POSTAL_CLIENT)|| &#10;!sousCategories.VILLE_CLIENT.equals(row6.VILLE_CLIENT)|| &#10;!sousCategories.PAYS_CLIENT.equals(row6.PAYS_CLIENT)|| &#10;!sousCategories.REGION_CLIENT.equals(row6.REGION_CLIENT)|| &#10;!sousCategories.CD_TYPE_CLIENT.equals(row6.CD_TYPE_CLIENT)" id="__SN1cDVQEe-1spii3oxomw - ODS_CLIENT" name="insertNewValueTypeClient" sizeState="INTERMEDIATE">
+      <outputTables activateCondensedTool="true" activateExpressionFilter="true" expressionFilter="!sousCategories.NOM_CLIENT.equals(row4.NOM_CLIENT) &#10;|| &#10;!sousCategories.PREN_CLIENT.equals(row4.PREN_CLIENT)&#10;|| &#10;!sousCategories.CD_POSTAL_CLIENT.equals(row4.CD_POSTAL_CLIENT)&#10;|| &#10;!sousCategories.VILLE_CLIENT.equals(row4.VILLE_CLIENT)&#10;|| &#10;!sousCategories.PAYS_CLIENT.equals(row4.PAYS_CLIENT)&#10;|| &#10;!sousCategories.REGION_CLIENT.equals(row4.REGION_CLIENT)&#10;|| &#10;!sousCategories.CD_TYPE_CLIENT.equals(row4.CD_TYPE_CLIENT)" id="__SN1cDVQEe-1spii3oxomw - ODS_CLIENT" name="insertNewValueTypeClient" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="sousCategories.ID_CLIENT " name="ID_CLIENT" type="id_String"/>
         <mapperTableEntries expression="sousCategories.NOM_CLIENT " name="NOM_CLIENT" type="id_String"/>
         <mapperTableEntries expression="sousCategories.PREN_CLIENT " name="PREN_CLIENT" type="id_String"/>
@@ -1268,16 +1268,6 @@
   </node>
   <node componentName="tPostgresqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="720" posY="200">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_2"/>
-    <elementParameter field="TEXT" name="COMPONENT_NAME" show="false" value="tPostgresqlInput"/>
-    <elementParameter field="TEXT" name="VERSION" show="false" value="0.102 (ALPHA)"/>
-    <elementParameter field="TEXT" name="FAMILY" show="false" value="Databases/DB Specifics/PostgreSQL"/>
-    <elementParameter field="CHECK" name="START" show="false" value="false"/>
-    <elementParameter field="CHECK" name="STARTABLE" show="false" value="true"/>
-    <elementParameter field="CHECK" name="SUBTREE_START" show="false" value="false"/>
-    <elementParameter field="CHECK" name="END_OF_FLOW" show="false" value="false"/>
-    <elementParameter field="TEXT" name="HELP" show="false" value="org.talend.help.tPostgresqlInput"/>
-    <elementParameter field="DIRECTORY" name="IREPORT_PATH" show="false" value=""/>
-    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" show="false" value="C:\Users\omar-\Desktop\Talend-Studio-20240527_1700-V8.0.1\configuration\lib\java"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="__SN1cDVQEe-1spii3oxomw"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1347,16 +1337,6 @@
   </node>
   <node componentName="tPostgresqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="840" posY="200">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_1"/>
-    <elementParameter field="TEXT" name="COMPONENT_NAME" show="false" value="tPostgresqlInput"/>
-    <elementParameter field="TEXT" name="VERSION" show="false" value="0.102 (ALPHA)"/>
-    <elementParameter field="TEXT" name="FAMILY" show="false" value="Databases/DB Specifics/PostgreSQL"/>
-    <elementParameter field="CHECK" name="START" show="false" value="false"/>
-    <elementParameter field="CHECK" name="STARTABLE" show="false" value="true"/>
-    <elementParameter field="CHECK" name="SUBTREE_START" show="false" value="false"/>
-    <elementParameter field="CHECK" name="END_OF_FLOW" show="false" value="false"/>
-    <elementParameter field="TEXT" name="HELP" show="false" value="org.talend.help.tPostgresqlInput"/>
-    <elementParameter field="DIRECTORY" name="IREPORT_PATH" show="false" value=""/>
-    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" show="false" value="C:\Users\omar-\Desktop\Talend-Studio-20240527_1700-V8.0.1\configuration\lib\java"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="__SN1cDVQEe-1spii3oxomw"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1454,15 +1434,6 @@
   </node>
   <node componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1080" posY="240">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_1"/>
-    <elementParameter field="TEXT" name="COMPONENT_NAME" show="false" value="tPostgresqlOutput"/>
-    <elementParameter field="TEXT" name="VERSION" show="false" value="0.102 (ALPHA)"/>
-    <elementParameter field="TEXT" name="FAMILY" show="false" value="Databases/DB Specifics/PostgreSQL"/>
-    <elementParameter field="CHECK" name="STARTABLE" show="false" value="false"/>
-    <elementParameter field="CHECK" name="SUBTREE_START" show="false" value="false"/>
-    <elementParameter field="CHECK" name="END_OF_FLOW" show="false" value="true"/>
-    <elementParameter field="TEXT" name="HELP" show="false" value="org.talend.help.tPostgresqlOutput"/>
-    <elementParameter field="DIRECTORY" name="IREPORT_PATH" show="false" value=""/>
-    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" show="false" value="C:\Users\omar-\Desktop\Talend-Studio-20240527_1700-V8.0.1\configuration\lib\java"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="__SN1cDVQEe-1spii3oxomw"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1647,15 +1618,6 @@
   </node>
   <node componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1080" posY="480">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_3"/>
-    <elementParameter field="TEXT" name="COMPONENT_NAME" show="false" value="tPostgresqlOutput"/>
-    <elementParameter field="TEXT" name="VERSION" show="false" value="0.102 (ALPHA)"/>
-    <elementParameter field="TEXT" name="FAMILY" show="false" value="Databases/DB Specifics/PostgreSQL"/>
-    <elementParameter field="CHECK" name="STARTABLE" show="false" value="false"/>
-    <elementParameter field="CHECK" name="SUBTREE_START" show="false" value="false"/>
-    <elementParameter field="CHECK" name="END_OF_FLOW" show="false" value="true"/>
-    <elementParameter field="TEXT" name="HELP" show="false" value="org.talend.help.tPostgresqlOutput"/>
-    <elementParameter field="DIRECTORY" name="IREPORT_PATH" show="false" value=""/>
-    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" show="false" value="C:\Users\omar-\Desktop\Talend-Studio-20240527_1700-V8.0.1\configuration\lib\java"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="__SN1cDVQEe-1spii3oxomw"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1840,15 +1802,6 @@
   </node>
   <node componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1080" posY="360">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_2"/>
-    <elementParameter field="TEXT" name="COMPONENT_NAME" show="false" value="tPostgresqlOutput"/>
-    <elementParameter field="TEXT" name="VERSION" show="false" value="0.102 (ALPHA)"/>
-    <elementParameter field="TEXT" name="FAMILY" show="false" value="Databases/DB Specifics/PostgreSQL"/>
-    <elementParameter field="CHECK" name="STARTABLE" show="false" value="false"/>
-    <elementParameter field="CHECK" name="SUBTREE_START" show="false" value="false"/>
-    <elementParameter field="CHECK" name="END_OF_FLOW" show="false" value="true"/>
-    <elementParameter field="TEXT" name="HELP" show="false" value="org.talend.help.tPostgresqlOutput"/>
-    <elementParameter field="DIRECTORY" name="IREPORT_PATH" show="false" value=""/>
-    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" show="false" value="C:\Users\omar-\Desktop\Talend-Studio-20240527_1700-V8.0.1\configuration\lib\java"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="__SN1cDVQEe-1spii3oxomw"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
@@ -1863,7 +1816,7 @@
     <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:yiogaXZcneWkpR7ZjSUISfQMnKB0FLqGo/ETwUeUhvMuEDHK8SSB3A1NZh0="/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;ODS_CLIENT&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
-    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
+    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="UPDATE"/>
     <elementParameter field="CHECK" name="USE_SPATIAL_OPTIONS" show="false" value="false"/>
     <elementParameter field="CHECK" name="SPATIAL_INDEX" show="false" value="false"/>
     <elementParameter field="CHECK" name="GEOMETRY_COLUMNS" show="false" value="false"/>
@@ -2211,13 +2164,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="0;0;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_1000086f-85e1-43ca-a965-273a67e85553"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>ATcTDYA1jbktxKLYHZ7yplGNNu+yZbuAyBstqRbDxpQuWCEF/bU6BlS2FzN7bbflsXew5Ea8MueL&#13;
-i4m1exDdRg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_fee80c2c-4da5-40f9-9cab-356a817b29d4"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>ktXrFjDIELPyprD/6A7YJqmukt03qa+a7CD2ODnWE+5l/8k4gykDJ004qkIEL0rLbNG1GW5EXZ8b&#13;
-0626Ov7aYg==</DigestValue></Reference></SignedInfo><SignatureValue>SSdB0qE10pmal75/7/VibxJvTLUt+iGlIN5tDJYhNRPwi5J5PTbcsjnOuVZnhWB5qnbBDeq2Y7pP&#13;
-d6uqEZnlJp4r6/BTqZ9PzkZuhZ3QNJ8S9FCZJX0Hc2GK8zdl/WkQmR5HhfyhFxkk6ru27UeOHB5D&#13;
-gAuQctFPnod8YjOMU0BaHUMt8Fm0+z7kOOghtyhNIV1gx8f805mPZntdQASoJXEkZH8eGTS4IEUR&#13;
-SXaKcy9EM28XZTOYb+amtvdjTt8GDz3Zrj1G16QijkTFJfvwS313pmeWv667Zauoe4LmX7EVPMwY&#13;
-y5CvzbCikcad0Etim/AVE3jScaLAO5wJGbktMQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_4f2fec35-8d97-4054-ac16-d8bc5fe60e3c"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>vrulaWuQMM+YtaqiJerktGkl6BHJh+G9Vo8ufLn0j9ei8s2eiw8ppRxLR3Za2KYJm6k9k2ddqW4I&#13;
+s3MuEzRncg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_42de4fa4-fcd2-4599-9352-05d25e90d95c"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>faVULHWyBfK36dx0Eb/LOkXGMz7BkOI+QeT5IeDM5jusT9fp1OH/LpTJScOWrPZQvygGVwfu99Xm&#13;
+6dEULOf5bA==</DigestValue></Reference></SignedInfo><SignatureValue>A0cvWr4Qup5A8OR2lCCLXJ+2GNzxRZ6wQpmJhAzb6pSnrWeZ73dM9krjBNMlnTUU8N9WTrh8rgGQ&#13;
+pnWBri1Z8zKiUYdU7mvCBuezR6rtNOMPK5m4hYarmZfj0TQ9DRNWXcppFJmAhu7DnB4TDqcNoTnW&#13;
+fVMGgr0+/bIfD0xXVuwlbyY8il8+N13ZHfad9YyvQfifa8zfSAFN6+kyAEVbYLKgGkCCL6NesXXv&#13;
+ycnEFEb5WFoxN/w0g6WPLgGPaxYRBdK9Ew9T8a1/4YPMhH3I87XWx3ZV/vVmLnI9LLW5akLvEvpN&#13;
+G+xx/CBj7Kpj8KYViijQVvBHQ91w+bFpEGhNmw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
 DAYDVQQIEwVQYXJpczEOMAwGA1UEBxMFUGFyaXMxFDASBgNVBAoTC1RhbGVuZCBJbmMuMQwwCgYD&#13;
 VQQLDANSJkQxFjAUBgNVBAMMDVRhbGVuZCBSJkQgQ0ExIjAgBgkqhkiG9w0BCQEWE3NlY3VyaXR5&#13;
 QHRhbGVuZC5jb20wHhcNMTkwNjAzMDgxODIwWhcNMjkwNjAzMDAwMDAwWjB7MSgwJgYDVQQDEx9U&#13;
@@ -2239,4 +2192,4 @@ hakvpzhOyLo91h8YAQrEZJdNuKA8IYmBrFZQZDCz0uywKSyFfzPyJhvxylCLG/iDPPfE0VWcrMJ/&#13
 WQJly/2XPg/NBCTF3pSKS0kCiA7PeaI3cWkMYYA3PMwYDvzqs1opBRglG7ikj0bQxSm3lcjMuuvW&#13;
 gBRksFKjP3K/nztsjSoYITOM9jR29ReIL3v0E8RbAFwA2RGq6Dxd0ixfbucMesy5Gnr8tfYy6rW+&#13;
 qSQqd3ah4+PSzBNVwIB4ytpdrG3SlhCI2i2Th8ek8Sjsaquh9qPAerWNd2+84HWOOGj1Xe1qc6vg&#13;
-qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_fee80c2c-4da5-40f9-9cab-356a817b29d4" Target="#_1000086f-85e1-43ca-a965-273a67e85553"><Timestamp>2024-06-29 22:27:25</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_42de4fa4-fcd2-4599-9352-05d25e90d95c" Target="#_4f2fec35-8d97-4054-ac16-d8bc5fe60e3c"><Timestamp>2024-06-30 10:08:22</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
