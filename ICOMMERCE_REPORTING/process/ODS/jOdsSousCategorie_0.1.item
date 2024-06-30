@@ -13,7 +13,16 @@
     <contextParameter comment="" internalId="_pTsYmjVkEe-1Gur4FQDm5w" name="projectFolder" prompt="projectFolder?" promptNeeded="false" repositoryContextId="_1s0BcDVQEe-1spii3oxomw" type="id_Directory" value="C:/Users/omar-/Desktop/Talend/TDI_output/project1/"/>
   </context>
   <parameters>
+    <elementParameter field="DIRECTORY" name="COMP_DEFAULT_FILE_DIR" show="false" value="C:/Users/omar-/Desktop/Talend-Studio-20240527_1700-V8.0.1/workspace"/>
+    <elementParameter field="CHECK" name="LOG4J_ACTIVATE" show="false" value="true"/>
+    <elementParameter field="CHECK" name="LOG4J2_ACTIVATE" show="false" value="true"/>
+    <elementParameter field="DIRECTORY" name="PRODUCT_ROOT_DIR" show="false" value="C:/Users/omar-/Desktop/Talend-Studio-20240527_1700-V8.0.1"/>
+    <elementParameter field="DIRECTORY" name="DQ_REPORTING_BUNDLE_DIR" show="false" value=""/>
     <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" show="false" value="Info"/>
+    <elementParameter field="TEXT" name="AUTHOR" show="false" value="Frikha, Omar"/>
+    <elementParameter field="TEXT" name="STATUS" show="false" value=""/>
+    <elementParameter field="TEXT" name="NAME" show="false" value="jOdsSousCategorie"/>
+    <elementParameter field="TEXT" name="VERSION" show="false" value="0.1"/>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" show="false" value="0"/>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" show="false" value="160"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" show="false" value=""/>
@@ -31,6 +40,7 @@
     <elementParameter field="TEXT" name="OOZIE_NAME_NODE_END_POINT" show="false" value=""/>
     <elementParameter field="TEXT" name="OOZIE_JOB_TRACKER_ENDPOINT" show="false" value=""/>
     <elementParameter field="TEXT" name="OOZIE_END_POINT" show="false" value=""/>
+    <elementParameter field="TEXT" name="PROJECT_TECHNICAL_NAME" show="false" value="ICOMMERCE_REPORTING"/>
     <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" show="false" value="true"/>
     <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" show="false" value="true"/>
     <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
@@ -81,9 +91,9 @@
     <elementParameter field="CHECK" name="ON_DATABASE_FLAG" show="false" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_TYPE" show="false" value="JDBCOutput"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" show="false" value="ORACLE_12"/>
-    <elementParameter field="TEXT" name="URL" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="URL" show="false" value=""/>
     <elementParameter field="TABLE" name="DRIVER_JAR" show="false"/>
-    <elementParameter field="TEXT" name="DRIVER_CLASS" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" show="false" value=""/>
     <elementParameter field="TEXT" name="HOST" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="PORT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="DATASOURCE" show="false" value="&quot;&quot;"/>
@@ -790,7 +800,7 @@
       <column comment="" key="false" length="0" name="LB_SOUS_CATEGORIE" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="0" name="CD_CATEGORIE" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
-    <metadata comment="" label="ODS_REJET" name="categorieManquant" type="TABLE">
+    <metadata comment="" connector="FLOW" label="ODS_REJET" name="categorieManquant" type="TABLE">
       <column comment="" key="true" length="255" name="LB_CHEMIN_FICHIER" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -817,7 +827,7 @@
       </column>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables name="sousCategories" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row3.NUM_LIGNE " name="NUM_LIGNE" nullable="true" type="id_Integer"/>
@@ -934,7 +944,7 @@
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata comment="" label="ODS_SOUS_CATEGORIE" name="insertTypeClient" type="TABLE">
+    <metadata comment="" connector="FLOW" label="ODS_SOUS_CATEGORIE" name="insertTypeClient" type="TABLE">
       <column comment="" key="true" length="50" name="CD_SOUS_CATEGORIE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -963,7 +973,7 @@
         <additionalField key="Comment" value=""/>
       </column>
     </metadata>
-    <metadata comment="" label="ODS_SOUS_CATEGORIE" name="insertNewValueTypeClient" type="TABLE">
+    <metadata comment="" connector="FLOW" label="ODS_SOUS_CATEGORIE" name="insertNewValueTypeClient" type="TABLE">
       <column comment="" key="true" length="50" name="CD_SOUS_CATEGORIE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -987,7 +997,7 @@
       </column>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables id="__SN1cDVQEe-1spii3oxomw - ODS_SOUS_CATEGORIE" name="insertTypeClient" rejectInnerJoin="true" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="sousCategories.CD_SOUS_CATEGORIE " name="CD_SOUS_CATEGORIE" type="id_String"/>
@@ -1831,13 +1841,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="0;0;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="247;247;247"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_c19211bf-1f08-47ae-beea-d439b46ac037"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Wek2QYJ/4xb37l2OVrUO6Qn6UbysQpUXjbq9AhzpOnvM+SeULpijVKh+q9maYO/DDvYBhgpzR4lW&#13;
-Uzacp4GD6Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_d614ca38-e4e5-4af4-bfa3-a6ddc44c1f6d"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>hibsYM82UbIuO0K6XFUV5itCi26I0T/DwlvyHURgQMtrkoExmtMluKZ3cMiaO6Ld+oGQ+JlqrIzJ&#13;
-7ykuBTMDxA==</DigestValue></Reference></SignedInfo><SignatureValue>dq/jXtDc/ZSOeYd6X8/mTy/iHhqSfnYYK9jQGWDqhoATJIx5/1N6nsxZ4oodkF96vzUEHM7u9Yuz&#13;
-2+xZy9UbO4xZcDlFqJFpTyMjGa2Nh7lH6Jezyrhb7AWGI0rQrHomEsi6ZFAmovq+FHr4+A85bnCS&#13;
-QRFX/4n+CF8gh5o5M44n4FCcryFQXMaTpFOKinNaySflh9dfXZu4WxZ7Rg+m1Iul9FBmi3wu1GQt&#13;
-6Htq5m/+ArSVroOsPmi7rXiK+eAFjyR7KGNo+AtaM0ZTzAPS2fpLYMzJkk397h5q+o7VOdxJXHhj&#13;
-W7Yl+GJTjwxfoojJH8LIMOSKYhn2ei61W6i5uA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_95ca2271-8fb5-41e3-9d2e-9d7e87907dac"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>1vtJN+AF7G9ohKGbBsqDdP+gmlWzNyr5mn9lkGeuyQn36oyPhZHN5OdQhfMmXxHiLRfYDhL3AsVb&#13;
+qgCNSYVZaw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9edc8e15-a38e-4f0b-90e4-0a1388ef17d7"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>bJGYiSqZ3eDJ0vzj9Rrx4CE659Y9WIGvKkKZEvAttxTuSsowy7hAokXhnp4+B1rcNVWJGQX36Y0Y&#13;
+n3gJg11Skw==</DigestValue></Reference></SignedInfo><SignatureValue>jGy/TwOdzP1PfoSOtz4JldcD2D7FcQ0sBADrxq40vNGRKED2DpOT6lcIXfZk49vfPeIH1c+mlHjj&#13;
+Nu091gOOQBR6j65a7rW4qg37ijm7Ke/Uz5pH+7sjkHgTKP3wGy6CLAlzk05huO+rH1CL/uZ7bjlO&#13;
+DgitRGUNa/d9NT9QgHsh9VLZ8L13hJgs4t+JvNdn2haJ9n7b+V0lMIexoqFQWDzIIp161BUgJjGe&#13;
+6dLcSn5/w5eA22Ddv88wGlUd0bcFpCGi3hmaCm3QEdFB3DmzuFJGexPFLOA3KcQQcCYUmoLdRms1&#13;
+8WHezVPfRUVpFfI7r1rT9QYw1RYqSn9YNST04Q==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
 DAYDVQQIEwVQYXJpczEOMAwGA1UEBxMFUGFyaXMxFDASBgNVBAoTC1RhbGVuZCBJbmMuMQwwCgYD&#13;
 VQQLDANSJkQxFjAUBgNVBAMMDVRhbGVuZCBSJkQgQ0ExIjAgBgkqhkiG9w0BCQEWE3NlY3VyaXR5&#13;
 QHRhbGVuZC5jb20wHhcNMTkwNjAzMDgxODIwWhcNMjkwNjAzMDAwMDAwWjB7MSgwJgYDVQQDEx9U&#13;
@@ -1859,4 +1869,4 @@ hakvpzhOyLo91h8YAQrEZJdNuKA8IYmBrFZQZDCz0uywKSyFfzPyJhvxylCLG/iDPPfE0VWcrMJ/&#13
 WQJly/2XPg/NBCTF3pSKS0kCiA7PeaI3cWkMYYA3PMwYDvzqs1opBRglG7ikj0bQxSm3lcjMuuvW&#13;
 gBRksFKjP3K/nztsjSoYITOM9jR29ReIL3v0E8RbAFwA2RGq6Dxd0ixfbucMesy5Gnr8tfYy6rW+&#13;
 qSQqd3ah4+PSzBNVwIB4ytpdrG3SlhCI2i2Th8ek8Sjsaquh9qPAerWNd2+84HWOOGj1Xe1qc6vg&#13;
-qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_d614ca38-e4e5-4af4-bfa3-a6ddc44c1f6d" Target="#_c19211bf-1f08-47ae-beea-d439b46ac037"><Timestamp>2024-06-29 22:25:17</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9edc8e15-a38e-4f0b-90e4-0a1388ef17d7" Target="#_95ca2271-8fb5-41e3-9d2e-9d7e87907dac"><Timestamp>2024-06-29 23:58:42</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
